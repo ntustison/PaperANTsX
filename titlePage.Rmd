@@ -1,0 +1,59 @@
+
+\pagenumbering{gobble}
+
+\begin{centering}
+
+$ $
+
+\vspace{5cm}
+
+\LARGE
+
+{\bf ANTsX:  A modern, dynamic ecosystem for quantitative biological and medical imaging}
+
+\vspace{1.0 cm}
+
+\normalsize
+
+Nicholas J. Tustison, DSc,
+Brian B. Avants, PhD,
+James R. Stone, MD, PhD
+
+Department of Radiology and Medical Imaging, University of Virginia, Charlottesville, VA
+
+\end{centering}
+
+\small
+
+\vspace{3.0 cm}
+
+
+Corresponding author: \
+Nicholas J. Tustison, DSc \
+Department of Radiology and Medical Imaging \
+University of Virginia \
+480 Ray C Hunt Drive \
+Box 801339 \
+Charlottesville, VA 22903 \
+ntustison@virginia.edu
+
+\noindent\rule{4cm}{0.4pt}
+
+\footnotesize
+
+<!--
+
+*Data used in preparation of this article were obtained from the Pediatric
+Imaging, Neurocognition and Genetics Study (PING) database
+(http://ping.chd.ucsd.edu). As such, the investigators within PING contributed
+to the design and implementation of PING and/or provided data but did not
+participate in analysis or writing of this report. A complete listing of PING
+investigators can be found at
+https://ping-dataportal.ucsd.edu/sharing/Authors10222012.pdf
+
+-->
+
+\normalsize
+
+\newpage
+

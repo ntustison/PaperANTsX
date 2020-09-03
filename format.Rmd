@@ -1,0 +1,26 @@
+---
+title:
+author:
+address:
+output:
+  pdf_document:
+    fig_caption: true
+    latex_engine: xelatex
+    keep_tex: yes
+    number_sections: true
+    toc: true
+  word_document:
+    fig_caption: true
+bibliography:
+  - library.bib
+csl: nature.csl
+longtable: true
+urlcolor: blue
+header-includes:
+  - \usepackage{longtable}
+  - \usepackage{graphicx}
+geometry: margin=1.0in
+fontsize: 12pt
+mainfont: Georgia
+---
+
