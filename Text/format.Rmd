@@ -21,6 +21,7 @@ header-includes:
   - \usepackage{graphicx}
 geometry: margin=1.0in
 fontsize: 12pt
+linestretch: 1.5
 mainfont: Georgia
 ---
 

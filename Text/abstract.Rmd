@@ -1,0 +1,24 @@
+
+# Abstract {-}
+
+The ANTs ecosystem consists of multiple software libraries spanning several
+programming languages which houses top-performing algorithms used worldwide by
+scientific and research communities in their investigations involving medical
+imaging data. The base software library, ANTs, is built upon the well-known
+NIH-funded Insight Toolkit (ITK) which has historically been a significant
+resource of open-source algorithmic and software innovation. Given its
+open-source developmental history, it has contributed to both academic and
+industrial partners in meeting modern quantitative imaging needs with particular
+focus on issues in biomedical imaging. Applications and published research
+literature sample the study of organisms from small animals to humans as well as
+target organ systems such as respiratory, cardiovascular, and nervous. Since the
+inception of the ANTs library in 2008, the image registration component alone
+has been cited close to 5000 times across journals spanning the gamut of
+biomedical and imaging research. Recent software engineering efforts have
+included the development of additional statistical, visualization, and deep
+learning capabilities through ANTs-based interfacing with other heavily utilized
+software packages. This includes ANTsR (the R statistical project), ANTsPy
+(Python), and ANTsPyNet/ANTsRNet---all of which are organized under the ANTsX
+software ecosystem and available on the GitHub software hosting system.
+
+\newpage
