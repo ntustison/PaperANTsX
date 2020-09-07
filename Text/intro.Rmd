@@ -1,2 +1,13 @@
 
-# Introduction {-}
+# Introduction
+
+
+\begin{figure}[htb]
+  \centering
+    \includegraphics[width=0.75\textwidth]{Figures/antsx.pdf}
+  \caption{ANTsX ecosystem showing internal and external dependencies.}
+  \label{fig:antsx}
+\end{figure}
+
+
+\include{codeComparison}

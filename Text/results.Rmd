@@ -1,0 +1,19 @@
+
+# Results
+
+## Cross-sectional cortical thickness
+
+\begin{figure}[htb]
+  \centering
+    \includegraphics[width=\textwidth]{Figures/rmseThicknessPerSite.pdf}
+  \caption{Distribution of mean RMSE values (500 permutations) for age
+          prediction across the different data sets between
+          the traditional ANTs and deep learning-based ANTsXNet pipelines. Total
+          mean values are as follows: Combined---9.3 years (ANTs) and 8.2 years
+          (ANTsXNet); IXI---7.9 years (ANTs) and 8.6 years (ANTsXNet);
+          MMRR---7.9 years (ANTs) and 7.6 years (ANTsXNet); NKI---8.7 years
+          (ANTs) and 7.9 years (ANTsXNet); OASIS---9.2 years (ANTs) and 8.0
+          years (ANTsXNet); and SRPB---9.2 years (ANTs) and 8.1 years
+          (ANTsXNet).}
+  \label{fig:agePrediction}
+\end{figure}

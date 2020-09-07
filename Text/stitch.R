@@ -6,7 +6,8 @@ stitchedFile <- "stitched.Rmd"
 rmdFiles <- c( "format.Rmd",
                "titlePage.Rmd",
                "abstract.Rmd",
-               "intro.Rmd"
+               "intro.Rmd",
+               "results.Rmd"
              )
 
 for( i in 1:length( rmdFiles ) )
