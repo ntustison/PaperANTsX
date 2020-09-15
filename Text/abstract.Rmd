@@ -1,24 +1,28 @@
 
 # Abstract {-}
 
-The ANTs ecosystem consists of multiple software libraries spanning several
-programming languages which houses top-performing algorithms used worldwide by
-scientific and research communities in their investigations involving medical
-imaging data. The base software library, ANTs, is built upon the well-known
-NIH-funded Insight Toolkit (ITK) which has historically been a significant
-resource of open-source algorithmic and software innovation. Given its
-open-source developmental history, it has contributed to both academic and
-industrial partners in meeting modern quantitative imaging needs with particular
-focus on issues in biomedical imaging. Applications and published research
-literature sample the study of organisms from small animals to humans as well as
-target organ systems such as respiratory, cardiovascular, and nervous. Since the
-inception of the ANTs library in 2008, the image registration component alone
-has been cited close to 5000 times across journals spanning the gamut of
-biomedical and imaging research. Recent software engineering efforts have
-included the development of additional statistical, visualization, and deep
-learning capabilities through ANTs-based interfacing with other heavily utilized
-software packages. This includes ANTsR (the R statistical project), ANTsPy
-(Python), and ANTsPyNet/ANTsRNet---all of which are organized under the ANTsX
-software ecosystem and available on the GitHub software hosting system.
+The Advanced Normalizations Tools (ANTs) ecosystem, known as ANTsX, consists of
+multiple open-source software libraries which house top-performing algorithms
+used worldwide by scientific and research communities for processing and
+analyzing biological and medical imaging data. The base software library, ANTs,
+is built upon, and contributes to, the NIH-sponsored Insight Toolkit
+(ITK)---historically a significant resource of algorithmic and software
+innovation.  Research applications and the published scientific literature
+sample the gamut of organisms from the cellular level to humans where study of
+the latter group has concerned such organ systems as respiratory,
+cardiovascular, and nervous.  Founded in 2008 with with the well-regarded
+Symmetric Normalization (SyN) image registration framework, the ANTs library has
+since grown to include additional state-of-the-art functionality including
+various preprocessing methods, segmentation approaches, and unbiased template
+construction.  More recent software engineering efforts have endeavored to
+expand the usability of the toolkit through the development of additional
+statistical, visualization, and deep learning capabilities through ANTs-based
+interfacing with other heavily utilized software packages. Most notably, this
+includes ANTsR (interface with the R statistical project), ANTsPy (interface
+with Python), and the corresponding deep learning extensions ANTsPyNet/ANTsRNet
+which are all organized under the ANTsX software ecosystem.  We detail core
+design aspects of the ecosystem and then showcase ANTsX utility through recent
+deep learning functionality which shows demonstrably improved performance over the
+already excellent performing existing ANTsX-based pipelines.
 
 \newpage

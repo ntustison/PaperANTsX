@@ -92,22 +92,22 @@ t1_file <- "IXI002-Guys-0828-T1.nii.gz"
 t1 <- antsImageRead( t1_file )
 
 # Atropos six-tissue segmentation
-atropos_file <- paste0( output_prefix, "BrainSegmentation.nii.gz" )
-atropos <- deepAtropos( t1, doPreprocessing = TRUE, verbose = TRUE )
+atropos_file <- paste0(output_prefix, "BrainSegmentation.nii.gz")
+atropos <- deepAtropos(t1, doPreprocessing=TRUE, verbose=TRUE)
 atropos_segmentation <- atropos$segmentationImage
-antsImageWrite( atropos_segmentation, atropos_file )
+antsImageWrite(atropos_segmentation, atropos_file)
 
 # Kelly Kapowski cortical thickness
-kk_file <- paste0( output_prefix, "CorticalThickness.nii.gz" )
-kk <- kellyKapowski( s = atropos$segmentationImage, g = atropos$probabilityImages[[3]],
-                     w = atropos$probabilityImages[[4]], its = 45, r = 0.025, m = 1.5,
-                     x = 0, verbose = 1 )
-antsImageWrite( kk, kk_file )
+kk_file <- paste0(output_prefix, "CorticalThickness.nii.gz")
+kk <- kellyKapowski(s = atropos$segmentationImage, g = atropos$probabilityImages[[3]],
+                    w = atropos$probabilityImages[[4]], its = 45, r = 0.025, m = 1.5,
+                    x = 0, verbose = 1)
+antsImageWrite(kk, kk_file)
 
 # Desikan-Killiany-Tourville labeling
-dkt_file <- paste0( output_prefix, "Dkt.nii.gz" )
-dkt <- desikanKillianyTourvilleLabeling( t1, doPreprocessing = TRUE, verbose = TRUE )
-antsImageWrite( dkt, dkt_file )
+dkt_file <- paste0(output_prefix, "Dkt.nii.gz")
+dkt <- desikanKillianyTourvilleLabeling(t1, doPreprocessing=TRUE, verbose=TRUE)
+antsImageWrite(dkt, dkt_file)
 \end{lstlisting}
 
 
