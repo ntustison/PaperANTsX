@@ -1,6 +1,35 @@
 
 # Introduction
 
+ANTs is a state-of-the-art, open-source software toolkit for image registration,
+segmentation, and other medical image analysis functionality. Historically, ANTs
+is rooted in advanced image registration techniques which have been at the
+forefront of the field characterized by seminal contributions that date back to
+the original elastic matching method of Bajcsy and co-investigators
+[@Bajcsy:1982aa;@Bajcsy:1989aa;@Gee:2003aa]. Our most recent work, embodied in
+the ANTs cross-platform toolkit for multiple modality image processing,
+continues to set the standard in the field for pulmonary [@Murphy:2011aa], brain
+[@Klein:2009aa], and cardiac imaging [@Tustison:2015ab]. The ANTs registration
+component not only encodes advanced developments in image registration research,
+notably the Symmetric Normalization (SyN) algorithm for deformable diffeomorphic
+mappings [@Avants:2008aa], but also packages these normalization tools within a
+full-featured platform that includes an extensive library of similarity
+measures, transformation types, and regularizers which are built upon the robust
+Insight Toolkit and vetted by users and developers from all over the world
+[@Avants:2014aa]. Since its inception, though, ANTs has expanded significantly
+beyond its image registration origins.  We have contributed to other core
+subfields with state-of-the-art algorithms and implementations, including
+template building [@Avants:2010aa], segmentation [@Avants:2011aa], image
+preprocessing (e.g., bias correction [@Tustison2009e] and denoising
+[@Manjon:2010aa]), joint label fusion [@Wang:2013aa;@Wang:2013ab], and brain
+cortical thickness estimation [@Das:2009aa;@Tustison:2014ab]. By providing
+essential medical image analysis functionality in an accessible and flexible
+software package, ANTs is able to meet the real-world needs of thousands of
+users in many areas of health-related research
+
+
+
+
 
 \begin{figure}[htb]
   \centering
