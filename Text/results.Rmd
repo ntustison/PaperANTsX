@@ -1,5 +1,5 @@
 
-# Results
+# Results {-}
 
 ## Cross-sectional cortical thickness
 

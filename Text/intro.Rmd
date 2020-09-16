@@ -1,5 +1,4 @@
 
-# Introduction
 
 ANTs is a state-of-the-art, open-source software toolkit for image registration,
 segmentation, and other medical image analysis functionality. Historically, ANTs
@@ -29,6 +28,29 @@ users in many areas of health-related research
 
 
 
+Recently, while working on our deep learning-based cortical thickness pipeline
+detailed in the Methods section, a conceptually similar framework was published
+by an external group [@Rebsamen:2020aa].  Fortunately, this overlapping
+contribution provides a context for comparison to simultaneously showcase the
+utility of the ANTsX ecosystem and to editorialize with respect to best practices
+in this field.
+
+To be further expanded in the Discussion:
+* Basic criticisms:
+    * Not publicly available (no weights)
+    * No discussion of network architecture
+    *
+* What were the preprocessing choices?
+* Why limit to gray matter and white matter?
+* The authors use correlation with FreeSurfer measurements.  Why is this a suboptimal
+evaluation criterion as compared with demographic (i.e., age) prediction?  Perhaps
+dumbing down in terms of tissue segmentation and network parameters produced a lower-
+complexity model that correlates well with FreeSurfer's suspected heavier use of priors.
+
+
+
+
+
 
 
 \begin{figure}[htb]
@@ -39,4 +61,3 @@ users in many areas of health-related research
 \end{figure}
 
 
-\include{codeComparison}
