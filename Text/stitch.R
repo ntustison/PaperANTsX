@@ -1,17 +1,17 @@
 library( rmarkdown )
 library( ggplot2 )
 
-stitchedFile <- "stitched.Rmd"
+stitchedFile <- "stitched.md"
 
-rmdFiles <- c( "format.Rmd",
-               "titlePage.Rmd",
-               "abstract.Rmd",
-              #  "notes.Rmd",
-               "intro.Rmd",
-               "results.Rmd",
-               "discussion.Rmd",
-               "methods.Rmd",
-               "references.Rmd"
+rmdFiles <- c( "format.md",
+               "titlePage.md",
+               "abstract.md",
+              #  "notes.md",
+               "intro.md",
+               "results.md",
+               "discussion.md",
+               "methods.md",
+               "references.md"
              )
 
 for( i in 1:length( rmdFiles ) )

@@ -15,10 +15,10 @@ the corresponding deep learning extensions ANTsRNet and ANTsPyNet (built
 on the popular TensorFlow/Keras libraries) contain several popular network
 architectures and trained models for specific applications.  One such comprehensive
 application is a deep learning analog for generating cortical thickness data
-from structural T1-weighted brain MRI.  We demonstrate that this pipeline
-not only significantly improves computational efficiency over the current
-ANTs approach but also provides comparable to superior performance on multiple
-publicly available data sets.
+from structural T1-weighted brain MRI.  Not only does this significantly improve
+computational efficiency and comparable-to-superior accuracy over the existing
+ANTs pipeline but it also illustrates the importance of the comprehensive ANTsX
+approach as a framework for medical image analysis.
 
 \newpage
 
