@@ -1,12 +1,30 @@
 %% This BibTeX bibliography file was created using BibDesk.
 %% https://bibdesk.sourceforge.io/
 
-%% Created for Nick Tustison at 2020-09-15 11:54:52 -0700 
+%% Created for Nick Tustison at 2020-09-23 21:13:56 -0700 
 
 
 %% Saved with string encoding Unicode (UTF-8) 
 
 
+
+@article{Henschel:2020aa,
+	Abstract = {Traditional neuroimage analysis pipelines involve computationally intensive, time-consuming optimization steps, and thus, do not scale well to large cohort studies with thousands or tens of thousands of individuals. In this work we propose a fast and accurate deep learning based neuroimaging pipeline for the automated processing of structural human brain MRI scans, replicating FreeSurfer's anatomical segmentation including surface reconstruction and cortical parcellation. To this end, we introduce an advanced deep learning architecture capable of whole-brain segmentation into 95 classes. The network architecture incorporates local and global competition via competitive dense blocks and competitive skip pathways, as well as multi-slice information aggregation that specifically tailor network performance towards accurate segmentation of both cortical and subcortical structures. Further, we perform fast cortical surface reconstruction and thickness analysis by introducing a spectral spherical embedding and by directly mapping the cortical labels from the image to the surface. This approach provides a full FreeSurfer alternative for volumetric analysis (in under 1 ​min) and surface-based thickness analysis (within only around 1 ​h runtime). For sustainability of this approach we perform extensive validation: we assert high segmentation accuracy on several unseen datasets, measure generalizability and demonstrate increased test-retest reliability, and high sensitivity to group differences in dementia.},
+	Author = {Henschel, Leonie and Conjeti, Sailesh and Estrada, Santiago and Diers, Kersten and Fischl, Bruce and Reuter, Martin},
+	Date-Added = {2020-09-23 21:13:41 -0700},
+	Date-Modified = {2020-09-23 21:13:41 -0700},
+	Doi = {10.1016/j.neuroimage.2020.117012},
+	Journal = {Neuroimage},
+	Journal-Full = {NeuroImage},
+	Keywords = {Artificial intelligence; Computational neuroimaging; Deep learning; Freesurfer; Structural MRI},
+	Month = {Oct},
+	Pages = {117012},
+	Pmid = {32526386},
+	Pst = {ppublish},
+	Title = {FastSurfer - A fast and accurate deep learning based neuroimaging pipeline},
+	Volume = {219},
+	Year = {2020},
+	Bdsk-Url-1 = {https://doi.org/10.1016/j.neuroimage.2020.117012}}
 
 @article{Rebsamen:2020aa,
 	Abstract = {Accurate and reliable measures of cortical thickness from magnetic resonance imaging are an important biomarker to study neurodegenerative and neurological disorders. Diffeomorphic registration-based cortical thickness (DiReCT) is a known technique to derive such measures from non-surface-based volumetric tissue maps. ANTs provides an open-source method for estimating cortical thickness, derived by applying DiReCT to an atlas-based segmentation. In this paper, we propose DL+DiReCT, a method using high-quality deep learning-based neuroanatomy segmentations followed by DiReCT, yielding accurate and reliable cortical thickness measures in a short time. We evaluate the methods on two independent datasets and compare the results against surface-based measures from FreeSurfer. Good correlation of DL+DiReCT with FreeSurfer was observed (r = .887) for global mean cortical thickness compared to ANTs versus FreeSurfer (r = .608). Experiments suggest that both DiReCT-based methods had higher sensitivity to changes in cortical thickness than Freesurfer. However, while ANTs showed low scan-rescan robustness, DL+DiReCT showed similar robustness to Freesurfer. Effect-sizes for group-wise differences of healthy controls compared to individuals with dementia were highest with the deep learning-based segmentation. DL+DiReCT is a promising combination of a deep learning-based method with a traditional registration technique to detect subtle changes in cortical thickness.},
