@@ -79,13 +79,13 @@ MICCAI 2017 white matter hyperintensity segmentation competition [@Li:2018aa];
 and NoBrainer, a T1-weighted brain extraction approach based on FreeSurfer. (see
 Figure \ref{fig:antsXnetTools}).
 
-Our most recent developmental work involves recreating our popular ANTs cortical
-thickness pipeline [@Tustison:2014ab;@Tustison:2019aa] within the ANTsXNet
-framework for, amongst other potential benefits, increased computational
-efficiency.  This structural processing functionality is currently available as
-open-source within the ANTsXNet libraries and underwent a thorough evaluation
-using both cross-sectional and longitudinal data and discussed within the
-context of our previous findings concerning the traditional pipelines
+The most recent ANTsX developmental work involves recreating our popular ANTs
+cortical thickness pipeline [@Tustison:2014ab;@Tustison:2019aa] within the
+ANTsXNet framework for, amongst other potential benefits, increased
+computational efficiency.  This structural processing functionality is currently
+available as open-source within the ANTsXNet libraries and underwent a thorough
+evaluation using both cross-sectional and longitudinal data and discussed within
+the context of our previous findings concerning the traditional pipelines
 [@Tustison:2014ab;@Tustison:2019aa].  Note that related work has been recently
 reported by external groups [@Rebsamen:2020aa;@Henschel:2020aa]. Fortunately,
 these overlapping contributions provide a context for comparison to
