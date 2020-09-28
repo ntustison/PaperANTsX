@@ -1,12 +1,75 @@
 %% This BibTeX bibliography file was created using BibDesk.
 %% https://bibdesk.sourceforge.io/
 
-%% Created for Nick Tustison at 2020-09-24 20:32:51 -0700 
+%% Created for Nick Tustison at 2020-09-28 16:31:26 -0700 
 
 
 %% Saved with string encoding Unicode (UTF-8) 
 
 
+
+@article{Landman:2011aa,
+	Abstract = {Modern MRI image processing methods have yielded quantitative, morphometric, functional, and structural assessments of the human brain. These analyses typically exploit carefully optimized protocols for specific imaging targets. Algorithm investigators have several excellent public data resources to use to test, develop, and optimize their methods. Recently, there has been an increasing focus on combining MRI protocols in multi-parametric studies. Notably, these have included innovative approaches for fusing connectivity inferences with functional and/or anatomical characterizations. Yet, validation of the reproducibility of these interesting and novel methods has been severely hampered by the limited availability of appropriate multi-parametric data. We present an imaging protocol optimized to include state-of-the-art assessment of brain function, structure, micro-architecture, and quantitative parameters within a clinically feasible 60-min protocol on a 3-T MRI scanner. We present scan-rescan reproducibility of these imaging contrasts based on 21 healthy volunteers (11 M/10 F, 22-61 years old). The cortical gray matter, cortical white matter, ventricular cerebrospinal fluid, thalamus, putamen, caudate, cerebellar gray matter, cerebellar white matter, and brainstem were identified with mean volume-wise reproducibility of 3.5%. We tabulate the mean intensity, variability, and reproducibility of each contrast in a region of interest approach, which is essential for prospective study planning and retrospective power analysis considerations. Anatomy was highly consistent on structural acquisition (~1-5% variability), while variation on diffusion and several other quantitative scans was higher (~<10%). Some sequences are particularly variable in specific structures (ASL exhibited variation of 28% in the cerebral white matter) or in thin structures (quantitative T2 varied by up to 73% in the caudate) due, in large part, to variability in automated ROI placement. The richness of the joint distribution of intensities across imaging methods can be best assessed within the context of a particular analysis approach as opposed to a summary table. As such, all imaging data and analysis routines have been made publicly and freely available. This effort provides the neuroimaging community with a resource for optimization of algorithms that exploit the diversity of modern MRI modalities. Additionally, it establishes a baseline for continuing development and optimization of multi-parametric imaging protocols.},
+	Author = {Landman, Bennett A and Huang, Alan J and Gifford, Aliya and Vikram, Deepti S and Lim, Issel Anne L and Farrell, Jonathan A D and Bogovic, John A and Hua, Jun and Chen, Min and Jarso, Samson and Smith, Seth A and Joel, Suresh and Mori, Susumu and Pekar, James J and Barker, Peter B and Prince, Jerry L and van Zijl, Peter C M},
+	Date-Added = {2020-09-28 16:25:58 -0700},
+	Date-Modified = {2020-09-28 16:25:58 -0700},
+	Doi = {10.1016/j.neuroimage.2010.11.047},
+	Journal = {Neuroimage},
+	Journal-Full = {NeuroImage},
+	Mesh = {Adult; Brain; Brain Mapping; Female; Humans; Image Interpretation, Computer-Assisted; Magnetic Resonance Imaging; Male; Middle Aged; Reproducibility of Results; Young Adult},
+	Month = {Feb},
+	Number = {4},
+	Pages = {2854-66},
+	Pmc = {PMC3020263},
+	Pmid = {21094686},
+	Pst = {ppublish},
+	Title = {Multi-parametric neuroimaging reproducibility: a 3-T resource study},
+	Volume = {54},
+	Year = {2011},
+	Bdsk-Url-1 = {https://doi.org/10.1016/j.neuroimage.2010.11.047}}
+
+@article{Tustison:2019ac,
+	Abstract = {RATIONALE AND OBJECTIVES: We propose an automated segmentation pipeline based on deep learning for proton lung MRI segmentation and ventilation-based quantification which improves on our previously reported methodologies in terms of computational efficiency while demonstrating accuracy and robustness. The large data requirement for the proposed framework is made possible by a novel template-based data augmentation strategy. Supporting this work is the open-source ANTsRNet-a growing repository of well-known deep learning architectures first introduced here.
+MATERIALS AND METHODS: Deep convolutional neural network (CNN) models were constructed and trained using a custom multilabel Dice metric loss function and a novel template-based data augmentation strategy. Training (including template generation and data augmentation) employed 205 proton MR images and 73 functional lung MRI. Evaluation was performed using data sets of size 63 and 40 images, respectively.
+RESULTS: Accuracy for CNN-based proton lung MRI segmentation (in terms of Dice overlap) was left lung: 0.93 $\pm$ 0.03, right lung: 0.94 $\pm$ 0.02, and whole lung: 0.94 $\pm$ 0.02. Although slightly less accurate than our previously reported joint label fusion approach (left lung: 0.95 $\pm$ 0.02, right lung: 0.96 $\pm$ 0.01, and whole lung: 0.96 $\pm$ 0.01), processing time is <1 second per subject for the proposed approach versus ∼30 minutes per subject using joint label fusion. Accuracy for quantifying ventilation defects was determined based on a consensus labeling where average accuracy (Dice multilabel overlap of ventilation defect regions plus normal region) was 0.94 for the CNN method; 0.92 for our previously reported method; and 0.90, 0.92, and 0.94 for expert readers.
+CONCLUSION: The proposed framework yields accurate automated quantification in near real time. CNNs drastically reduce processing time after offline model construction and demonstrate significant future potential for facilitating quantitative analysis of functional lung MRI.},
+	Author = {Tustison, Nicholas J and Avants, Brian B and Lin, Zixuan and Feng, Xue and Cullen, Nicholas and Mata, Jaime F and Flors, Lucia and Gee, James C and Altes, Talissa A and Mugler Iii, John P and Qing, Kun},
+	Date-Added = {2020-09-28 16:09:25 -0700},
+	Date-Modified = {2020-09-28 16:09:25 -0700},
+	Doi = {10.1016/j.acra.2018.08.003},
+	Journal = {Acad Radiol},
+	Journal-Full = {Academic radiology},
+	Keywords = {ANTsRNet; Advanced Normalization Tools; Hyperpolarized gas imaging; Neural networks; Proton lung MRI; U-net},
+	Mesh = {Computer Simulation; Datasets as Topic; Deep Learning; Humans; Lung; Magnetic Resonance Imaging; Protons; Pulmonary Ventilation},
+	Month = {03},
+	Number = {3},
+	Pages = {412-423},
+	Pmc = {PMC6397788},
+	Pmid = {30195415},
+	Pst = {ppublish},
+	Title = {Convolutional Neural Networks with Template-Based Data Augmentation for Functional Lung Image Quantification},
+	Volume = {26},
+	Year = {2019},
+	Bdsk-Url-1 = {https://doi.org/10.1016/j.acra.2018.08.003}}
+
+@article{Schlemper:2019aa,
+	Abstract = {We propose a novel attention gate (AG) model for medical image analysis that automatically learns to focus on target structures of varying shapes and sizes. Models trained with AGs implicitly learn to suppress irrelevant regions in an input image while highlighting salient features useful for a specific task. This enables us to eliminate the necessity of using explicit external tissue/organ localisation modules when using convolutional neural networks (CNNs). AGs can be easily integrated into standard CNN models such as VGG or U-Net architectures with minimal computational overhead while increasing the model sensitivity and prediction accuracy. The proposed AG models are evaluated on a variety of tasks, including medical image classification and segmentation. For classification, we demonstrate the use case of AGs in scan plane detection for fetal ultrasound screening. We show that the proposed attention mechanism can provide efficient object localisation while improving the overall prediction performance by reducing false positives. For segmentation, the proposed architecture is evaluated on two large 3D CT abdominal datasets with manual annotations for multiple organs. Experimental results show that AG models consistently improve the prediction performance of the base architectures across different datasets and training sizes while preserving computational efficiency. Moreover, AGs guide the model activations to be focused around salient regions, which provides better insights into how model predictions are made. The source code for the proposed AG models is publicly available.},
+	Author = {Schlemper, Jo and Oktay, Ozan and Schaap, Michiel and Heinrich, Mattias and Kainz, Bernhard and Glocker, Ben and Rueckert, Daniel},
+	Date-Added = {2020-09-28 16:03:07 -0700},
+	Date-Modified = {2020-09-28 16:03:07 -0700},
+	Doi = {10.1016/j.media.2019.01.012},
+	Journal = {Med Image Anal},
+	Journal-Full = {Medical image analysis},
+	Keywords = {Attention gates; Fully convolutional networks; Image classification; Localisation; Segmentation; Soft attention},
+	Mesh = {Algorithms; Datasets as Topic; Female; Humans; Image Interpretation, Computer-Assisted; Imaging, Three-Dimensional; Neural Networks, Computer; Pregnancy; Radiography, Abdominal; Tomography, X-Ray Computed; Ultrasonography, Prenatal},
+	Month = {04},
+	Pages = {197-207},
+	Pmid = {30802813},
+	Pst = {ppublish},
+	Title = {Attention gated networks: Learning to leverage salient regions in medical images},
+	Volume = {53},
+	Year = {2019},
+	Bdsk-Url-1 = {https://doi.org/10.1016/j.media.2019.01.012}}
 
 @article{Fonov:2009aa,
 	Author = {V. S. Fonov and A. C. Evans and R. C. McKinstry and C. Almli and D. L. Collins},
