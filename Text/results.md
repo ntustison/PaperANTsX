@@ -60,7 +60,7 @@ previous work [@Tustison:2014ab] where we used cross-validation to build and
 compare age prediction models from data derived from both the proposed pipeline
 and the classic pipeline.  Specifically, we use age as a well-known and
 widely-available demographic correlate of cortical thickness [@Lemaitre:2012aa]
-and build models of the form:
+and build random forest models of the form:
 \begin{equation}
 AGE \sim VOLUME + GENDER + \sum_{i=1}^{62} T(DKT_i)
 \end{equation}
