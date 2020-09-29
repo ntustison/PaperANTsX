@@ -7,13 +7,13 @@
 
 $ $
 
-\vspace{6cm}
+\vspace{4.5cm}
 
 \LARGE
 
 {\bf ANTsX:  A dynamic ecosystem for quantitative biological and medical imaging}
 
-\vspace{1.0 cm}
+\vspace{0.5 cm}
 
 \normalsize
 
@@ -29,6 +29,7 @@ Michael A. Yassa$^{7}$,
 James R. Stone$^{1}$,
 James C. Gee$^{2}$,
 Brian B. Avants$^{1}$
+for the Alzheimer’s Disease Neuroimaging Initiative$^{\dagger}$
 
 \small
 
@@ -55,6 +56,14 @@ University of Virginia \
 Box 801339 \
 Charlottesville, VA 22903 \
 ntustison@virginia.edu
+
+\tiny
+$^{\dagger}$Data used in preparation of this article were obtained from the Alzheimer’s
+Disease Neuroimaging Initiative (ADNI) database (http://adni.loni.usc.edu). As
+such, the investigators within the ADNI contributed to the design and
+implementation of ADNI and/or provided data but did not participate in analysis
+or writing of this report. A complete listing of ADNI investigators can be found
+at: http://adni.loni.usc.edu/wp-content/uploads/how to apply/AD NI Acknowledgement List.pdf
 
 \normalsize
 

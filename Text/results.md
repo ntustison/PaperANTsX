@@ -17,17 +17,19 @@ consists of the following steps:
 * cortical thickness estimation [@Das:2009aa].
 
 Although the resulting thickness maps are conducive to voxel-based
-[@Ashburner:2000aa] and related analyses[@Avants:2012aa], here we
-employ the well-known Desikan-Killiany-Tourville [@Klein:2012aa] labeling
-protocol (31 labels per hemisphere) to parcellate the cortex for averaging
-thickness values regionally. This allows us to 1) be consistent in our
-evaluation strategy for comparison with our previous work
+[@Ashburner:2000aa] and related analyses[@Avants:2012aa], here we employ the
+well-known Desikan-Killiany-Tourville [@Klein:2012aa] labeling protocol (31
+labels per hemisphere---cf Table \ref{table:dkt_labels}) to parcellate the
+cortex for averaging thickness values regionally. This allows us to 1) be
+consistent in our evaluation strategy for comparison with our previous work
 [@Tustison:2014ab;@Tustison:2019aa] and 2) leverage an additional deep
-learning-based substitution within the proposed pipeline. Our recent longitudinal
-variant incorporates an additional step involving the construction of a single
-subject template [@Avants:2010aa].  This is mimicked, in a sense, by training
-the brain segmentation and cortical parcellation models in the affinely aligned
-MNI template space [@Fonov:2009aa].
+learning-based substitution within the proposed pipeline. Our recent
+longitudinal variant incorporates an additional step involving the construction
+of a single subject template [@Avants:2010aa].  This is mimicked, in a sense, by
+training the brain segmentation and cortical parcellation models in the affinely
+aligned MNI template space [@Fonov:2009aa].
+
+\input{dktRegions.tex}
 
 Note that the entire analysis/evaluation framework, from preprocessing to
 statistical analysis, is made possible through the ANTsX ecosystem and simplified
@@ -39,7 +41,7 @@ built from ANTsR/ANTsPy functionality.
 
 The brain extraction, brain segmentation, and DKT parcellation steps were
 trained using data derived from our previous work [@Tustison:2014ab].
-Specifically, the IXI[^1] , MMRR [Landman:2011aa], NKI[^2], and OASIS[^3] data
+Specifically, the IXI[^1] , MMRR [@Landman:2011aa], NKI[^2], and OASIS[^3] data
 sets, and the corresponding derived data, comprising over 1200 subjects from age
 4 to 94 were used for training. Brain extraction employed a traditional 3-D
 U-net network [@Falk:2019aa] with whole brain, template-based data augmentation
@@ -95,8 +97,9 @@ comparison.
     \centering
     \includegraphics[width=0.8\linewidth]{Figures/rfImportance_SRPB1600_ANTsXNet0.8.pdf}
     \caption{ANTsXNet}
-  \end{subfigure}    
-\caption{Regional importance plots using "MeanDecreaseAccuracy" for the random forest regressors specified by Equation (1).}
+  \end{subfigure}
+\caption{Regional importance plots for the SRPB data set using ``MeanDecreaseAccuracy'' for the
+random forest regressors specified by Equation (1).}
 \label{fig:rfimportance}
 \end{figure}
 
@@ -105,13 +108,12 @@ processed the SRPB1600 data set[^4] comprising over 1600 participants from 12
 sites and performed the same comparative evaluation. Note that we recognize that
 we are processing data through the proposed deep learning-based pipeline that
 were used to train certain components of the pipeline.  Although this does not
-ensure generalizability (which is why we include SRPB1600), we believe that
+ensure generalizability (which is why we include SRPB), we believe that
 the reader would be interested to see the resulting comparative performance since
 training did not use age prediction as a criterion to be optimized
 (i.e., circular analysis [@Kriegeskorte:2009aa]).
 
 [^4]: https://bicr-resource.atr.jp/srpbs1600/
-
 
 The results are shown in Figure \ref{fig:agePrediction} where we used cross-validation
 with 500 permutations and an 80/20 training/testing split.   The ANTsXNet deep learning
@@ -121,7 +123,60 @@ all data sets were combined.  Importance plots ranking the cortical thickness re
 the other covariates of Equation (1) are shown in Figure \ref{fig:rfimportance}.
 
 
-
 ## Longitudinal cortical thickness {-}
+
+\begin{figure}[htb]
+  \centering
+  \begin{subfigure}{0.95\textwidth}
+    \centering
+    \includegraphics[width=1\linewidth]{Figures/allData_FINALX.png}
+    \caption{Variance ratio figure }
+  \end{subfigure}
+  \begin{subfigure}{0.95\textwidth}
+    \centering
+    \includegraphics[width=1.0\linewidth]{Figures/logPvalues.pdf}
+    \caption{ANTsXNet}
+  \end{subfigure}
+\caption{}
+\label{fig:rfimportance}
+\end{figure}
+
+Given the excellent performance and superior computational efficiency of the
+proposed ANTsXNet pipeline for cross-sectional data, we evaluated its
+performance on longitudinal data using the evaluation strategy for the
+longitudinal version of our cortical thickness pipeline [@Tustison:2019aa] even
+though the former is not tailored for longitudinal data. As described in
+[@Tustison:2019aa], the ADNI-1 data used for evaluation consisted of over 600
+subjects (197 cognitive normals, 324 LMCI subjects, and 142 AD subjects) with
+one or more follow-up image acquisition sessions every 6 months (up to 36
+months) for a total of 2516 images. In addition to the ANTsXNet pipeline for the
+current evaluation, our previous work included the FreeSurfer [@Fischl:2012aa]
+cross-sectional and longitudinal streams, the ANTs cross-sectional pipeline
+[@Tustison:2014ab] in addition to two longitudinal ANTs-based variants.
+Two evaluation measurements, one unsupervised and one supervised, were used to assess
+comparative performance.
+
+As we discuss in [@Tustison:2019aa], linear-mixed effects (LME) modeling can be
+used to quantify between-subject and residual variabilities, the ratio of which
+provides an estimate of the effectiveness of a given biomarker for
+distinguishing between subpopulations.  In order to assess this criteria while
+accounting for changes that may occur through the passage of time, we used a
+Bayesian LME model for parameter estimation of the form:
+
+\begin{gather}
+  Y^k_{ij} \sim N(\alpha^k_i + \beta^k_i t, \sigma_k^2) \\ \nonumber
+  \alpha^k_i \sim N(\alpha^k_0, \tau^2_k) \,\,\,\, \beta^k_i \sim N(\beta^k_0, \rho^2_k) \\ \nonumber
+  \alpha^k_0, \beta^k_0 \sim N(0,10) \,\,  \sigma_k, \tau_k, \rho_k \sim \mbox{Cauchy}^+ (0, 5)
+\end{gather}
+
+where $Y^k_{ij}$ denotes the $i^{th}$ individual's cortical thickness
+measurement corresponding to the $k^{th}$ region of interest at the time point
+indexed by $j$ and specification of variance priors to half-Cauchy distributions
+reflects commonly accepted best practice in the context of hierarchical models
+[@gelman2006prior].
+
+The second, supervised approach con
+
+
 
 

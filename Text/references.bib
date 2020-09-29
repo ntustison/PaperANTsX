@@ -1,12 +1,74 @@
 %% This BibTeX bibliography file was created using BibDesk.
 %% https://bibdesk.sourceforge.io/
 
-%% Created for Nick Tustison at 2020-09-28 18:40:01 -0700 
+%% Created for Nick Tustison at 2020-09-29 14:39:57 -0700 
 
 
 %% Saved with string encoding Unicode (UTF-8) 
 
 
+
+@article{gelman2006prior,
+	Abstract = {Various noninformative prior distributions have been suggested for
+scale parameters in hierarchical models. We construct a new folded-noncentral-t
+family of conditionally conjugate priors for hierarchical standard deviation parameters,
+and then consider noninformative and weakly informative priors in this
+family. We use an example to illustrate serious problems with the inverse-gamma
+family of ?noninformative? prior distributions. We suggest instead to use a uniform
+prior on the hierarchical standard deviation, using the half-t family when the
+number of groups is small and in other settings where a weakly informative prior
+is desired. We also illustrate the use of the half-t family for hierarchical modeling
+of multiple variance parameters such as arise in the analysis of variance.},
+	Author = {Gelman, Andrew and others},
+	Date-Added = {2020-09-29 14:39:56 -0700},
+	Date-Modified = {2020-09-29 14:39:56 -0700},
+	Journal = {Bayesian analysis},
+	Number = {3},
+	Pages = {515--534},
+	Publisher = {International Society for Bayesian Analysis},
+	Title = {Prior distributions for variance parameters in hierarchical models (comment on article by {B}rowne and {D}raper)},
+	Volume = {1},
+	Year = {2006}}
+
+@article{Reuter:2011aa,
+	Abstract = {Longitudinal image processing procedures frequently transfer or pool information across time within subject, with the dual goals of reducing the variability and increasing the accuracy of the derived measures. In this note, we discuss common difficulties in longitudinal image processing, focusing on the introduction of bias, and describe the approaches we have taken to avoid them in the FreeSurfer longitudinal processing stream.},
+	Author = {Reuter, Martin and Fischl, Bruce},
+	Date-Added = {2020-09-29 14:02:12 -0700},
+	Date-Modified = {2020-09-29 14:02:12 -0700},
+	Doi = {10.1016/j.neuroimage.2011.02.076},
+	Journal = {Neuroimage},
+	Journal-Full = {NeuroImage},
+	Mesh = {Bias; Humans; Image Interpretation, Computer-Assisted; Longitudinal Studies},
+	Month = {Jul},
+	Number = {1},
+	Pages = {19-21},
+	Pmc = {PMC3260043},
+	Pmid = {21376812},
+	Pst = {ppublish},
+	Title = {Avoiding asymmetry-induced bias in longitudinal image processing},
+	Volume = {57},
+	Year = {2011},
+	Bdsk-Url-1 = {https://doi.org/10.1016/j.neuroimage.2011.02.076}}
+
+@article{Reuter:2012aa,
+	Abstract = {Longitudinal image analysis has become increasingly important in clinical studies of normal aging and neurodegenerative disorders. Furthermore, there is a growing appreciation of the potential utility of longitudinally acquired structural images and reliable image processing to evaluate disease modifying therapies. Challenges have been related to the variability that is inherent in the available cross-sectional processing tools, to the introduction of bias in longitudinal processing and to potential over-regularization. In this paper we introduce a novel longitudinal image processing framework, based on unbiased, robust, within-subject template creation, for automatic surface reconstruction and segmentation of brain MRI of arbitrarily many time points. We demonstrate that it is essential to treat all input images exactly the same as removing only interpolation asymmetries is not sufficient to remove processing bias. We successfully reduce variability and avoid over-regularization by initializing the processing in each time point with common information from the subject template. The presented results show a significant increase in precision and discrimination power while preserving the ability to detect large anatomical deviations; as such they hold great potential in clinical applications, e.g. allowing for smaller sample sizes or shorter trials to establish disease specific biomarkers or to quantify drug effects.},
+	Author = {Reuter, Martin and Schmansky, Nicholas J and Rosas, H Diana and Fischl, Bruce},
+	Date-Added = {2020-09-29 14:01:24 -0700},
+	Date-Modified = {2020-09-29 14:01:24 -0700},
+	Doi = {10.1016/j.neuroimage.2012.02.084},
+	Journal = {Neuroimage},
+	Journal-Full = {NeuroImage},
+	Mesh = {Algorithms; Brain; Humans; Image Interpretation, Computer-Assisted; Magnetic Resonance Imaging},
+	Month = {Jul},
+	Number = {4},
+	Pages = {1402-18},
+	Pmc = {PMC3389460},
+	Pmid = {22430496},
+	Pst = {ppublish},
+	Title = {Within-subject template estimation for unbiased longitudinal image analysis},
+	Volume = {61},
+	Year = {2012},
+	Bdsk-Url-1 = {https://doi.org/10.1016/j.neuroimage.2012.02.084}}
 
 @article{Kriegeskorte:2009aa,
 	Abstract = {A neuroscientific experiment typically generates a large amount of data, of which only a small fraction is analyzed in detail and presented in a publication. However, selection among noisy measurements can render circular an otherwise appropriate analysis and invalidate results. Here we argue that systems neuroscience needs to adjust some widespread practices to avoid the circularity that can arise from selection. In particular, 'double dipping', the use of the same dataset for selection and selective analysis, will give distorted descriptive statistics and invalid statistical inference whenever the results statistics are not inherently independent of the selection criteria under the null hypothesis. To demonstrate the problem, we apply widely used analyses to noise data known to not contain the experimental effects in question. Spurious effects can appear in the context of both univariate activation analysis and multivariate pattern-information analysis. We suggest a policy for avoiding circularity.},

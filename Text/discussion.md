@@ -14,6 +14,8 @@ To be further expanded in the Discussion:
 
 * Why limit to gray matter and white matter?
 
+* correlation isn't an ideal measurement for determining accuracy---see ICC paper.
+
 * The authors use correlation with FreeSurfer measurements.  Why is this a suboptimal
 evaluation criterion as compared with demographic (i.e., age) prediction?  Perhaps
 dumbing down in terms of tissue segmentation and network parameters produced a lower-

@@ -83,13 +83,13 @@ ants.image_write(dkt, dkt_file)
 \begin{lstlisting}
 # ANTsR processing for subject IXI002-Guys-0828-T1
 
-library( ANTsR )
-library( ANTsRNet )
+library(ANTsR)
+library(ANTsRNet)
 
 output_prefix <- "antsr"
 
 t1_file <- "IXI002-Guys-0828-T1.nii.gz"
-t1 <- antsImageRead( t1_file )
+t1 <- antsImageRead(t1_file)
 
 # Atropos six-tissue segmentation
 atropos_file <- paste0(output_prefix, "BrainSegmentation.nii.gz")
