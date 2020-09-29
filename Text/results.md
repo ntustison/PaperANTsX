@@ -55,32 +55,6 @@ actual ANTsRNet and ANTsPyNet pipeline code are found in the Methods section.
 
 ## Cross-sectional cortical thickness {-}
 
-Due to the absence of ground-truth, we utilize the evaluation strategy from our
-previous work [@Tustison:2014ab] where we used cross-validation to build and
-compare age prediction models from data derived from both the proposed pipeline
-and the classic pipeline.  Specifically, we use age as a well-known and
-widely-available demographic correlate of cortical thickness [@Lemaitre:2012aa]
-and build random forest models of the form:
-\begin{equation}
-AGE \sim VOLUME + GENDER + \sum_{i=1}^{62} T(DKT_i)
-\end{equation}
-with covariates $GENDER$ and $VOLUME$ (i.e., total intracranial volume).
-$T(DKT_i)$ is the average thickness value in the $i^{th}$ DKT region.  Root mean
-square error between the actual and predicted ages are the quantity used for
-comparison.
-
-In addition to the data listed above, to ensure generalizability, we also
-processed the SRPB1600 data set[^4] comprising over 1600 participants from 12
-sites and performed the same comparative evaluation. Note that we recognize that
-we are processing data through the proposed deep learning-based pipeline that
-were used to train certain components of the pipeline.  Although this does not
-ensure generalizability (which is why we include SRPB1600), we believe that
-the reader would be interested to see the resulting comparative performance since
-training did not use age prediction as a criterion to be optimized
-(i.e., circular analysis [@Kriegeskorte:2009aa]).
-
-[^4]: https://bicr-resource.atr.jp/srpbs1600/
-
 \begin{figure}[htb]
   \centering
     \includegraphics[width=\textwidth]{Figures/rmseThicknessPerSite.pdf}
@@ -96,11 +70,57 @@ training did not use age prediction as a criterion to be optimized
   \label{fig:agePrediction}
 \end{figure}
 
+Due to the absence of ground-truth, we utilize the evaluation strategy from our
+previous work [@Tustison:2014ab] where we used cross-validation to build and
+compare age prediction models from data derived from both the proposed pipeline
+and the classic pipeline.  Specifically, we use age as a well-known and
+widely-available demographic correlate of cortical thickness [@Lemaitre:2012aa]
+and build random forest models of the form:
+\begin{equation}
+AGE \sim VOLUME + GENDER + \sum_{i=1}^{62} T(DKT_i)
+\end{equation}
+with covariates $GENDER$ and $VOLUME$ (i.e., total intracranial volume).
+$T(DKT_i)$ is the average thickness value in the $i^{th}$ DKT region.  Root mean
+square error between the actual and predicted ages are the quantity used for
+comparison.
+
+\begin{figure}[htb]
+  \centering
+  \begin{subfigure}{0.4\textwidth}
+    \centering
+    \includegraphics[width=0.8\linewidth]{Figures/rfImportance_SRPB1600_ANTs0.8.pdf}
+    \caption{ANTs}
+  \end{subfigure}%
+  \begin{subfigure}{0.4\textwidth}
+    \centering
+    \includegraphics[width=0.8\linewidth]{Figures/rfImportance_SRPB1600_ANTsXNet0.8.pdf}
+    \caption{ANTsXNet}
+  \end{subfigure}    
+\caption{Regional importance plots using "MeanDecreaseAccuracy" for the random forest regressors specified by Equation (1).}
+\label{fig:rfimportance}
+\end{figure}
+
+In addition to the data listed above, to ensure generalizability, we also
+processed the SRPB1600 data set[^4] comprising over 1600 participants from 12
+sites and performed the same comparative evaluation. Note that we recognize that
+we are processing data through the proposed deep learning-based pipeline that
+were used to train certain components of the pipeline.  Although this does not
+ensure generalizability (which is why we include SRPB1600), we believe that
+the reader would be interested to see the resulting comparative performance since
+training did not use age prediction as a criterion to be optimized
+(i.e., circular analysis [@Kriegeskorte:2009aa]).
+
+[^4]: https://bicr-resource.atr.jp/srpbs1600/
+
+
 The results are shown in Figure \ref{fig:agePrediction} where we used cross-validation
 with 500 permutations and an 80/20 training/testing split.   The ANTsXNet deep learning
 pipeline outperformed the classical pipeline[@Tustison:2014ab] in terms of age prediction
 in all data sets except for IXI.  This also includes the cross-validation iteration where
-all data sets were combined.
+all data sets were combined.  Importance plots ranking the cortical thickness regions and
+the other covariates of Equation (1) are shown in Figure \ref{fig:rfimportance}.
+
+
 
 ## Longitudinal cortical thickness {-}
 
