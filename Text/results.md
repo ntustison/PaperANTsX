@@ -86,7 +86,7 @@ $T(DKT_i)$ is the average thickness value in the $i^{th}$ DKT region.  Root mean
 square error between the actual and predicted ages are the quantity used for
 comparison.
 
-\begin{figure}[htb]
+<!-- \begin{figure}[htb]
   \centering
   \begin{subfigure}{0.4\textwidth}
     \centering
@@ -101,7 +101,7 @@ comparison.
 \caption{Regional importance plots for the SRPB data set using ``MeanDecreaseAccuracy'' for the
 random forest regressors specified by Equation (1).}
 \label{fig:rfimportance}
-\end{figure}
+\end{figure} -->
 
 In addition to the data listed above, to ensure generalizability, we also
 processed the SRPB1600 data set[^4] comprising over 1600 participants from 12
@@ -119,8 +119,9 @@ The results are shown in Figure \ref{fig:agePrediction} where we used cross-vali
 with 500 permutations and an 80/20 training/testing split.   The ANTsXNet deep learning
 pipeline outperformed the classical pipeline[@Tustison:2014ab] in terms of age prediction
 in all data sets except for IXI.  This also includes the cross-validation iteration where
-all data sets were combined.  Importance plots ranking the cortical thickness regions and
-the other covariates of Equation (1) are shown in Figure \ref{fig:rfimportance}.
+all data sets were combined.
+<!-- Importance plots ranking the cortical thickness regions and
+the other covariates of Equation (1) are shown in Figure \ref{fig:rfimportance}. -->
 
 
 ## Longitudinal cortical thickness {-}

@@ -21,13 +21,14 @@
         language=python,
         floatplacement=!h,
         caption={\small ANTsPy/ANTsPyNet command calls
-        for a single IXI subject in the evaluation study.
+        for a single IXI subject in the evaluation study.  An equivalent
+        ANTsR/ANTsRNet is also available in ANTsX.
         },
         captionpos=b,
         label=listing:antspyCorticalThickness
         }
 \begin{lstlisting}
-# ANTsPy processing for subject IXI002-Guys-0828-T1
+# ANTsPy/ANTsPyNet processing for subject IXI002-Guys-0828-T1
 
 import ants
 import antspynet
@@ -56,59 +57,60 @@ dkt = antspynet.desikan_killiany_tourville_labeling(t1, do_preprocessing=True, v
 ants.image_write(dkt, dkt_file)
 \end{lstlisting}
 
-\lstset{frame = htb,
-        framerule = 0.25pt,
-        float,
-        fontadjust,
-        backgroundcolor={\color{listlightgray}},
-        basicstyle = {\ttfamily\scriptsize},
-        keywordstyle = {\ttfamily\color{listkeyword}\textbf},
-        identifierstyle = {\ttfamily},
-        commentstyle = {\ttfamily\color{listcomment}\textit},
-        stringstyle = {\ttfamily},
-        showstringspaces = false,
-        showtabs = false,
-        numbers = none,
-        numbersep = 6pt,
-        numberstyle={\ttfamily\color{listnumbers}},
-        tabsize = 2,
-        language=r,
-        floatplacement=!h,
-        caption={\small ANTsR/ANTsRNet command calls
-        for a single IXI subject in the evaluation study.
-        },
-        captionpos=b,
-        label=listing:antsrCorticalThickness
-        }
-\begin{lstlisting}
-# ANTsR processing for subject IXI002-Guys-0828-T1
 
-library(ANTsR)
-library(ANTsRNet)
+% \lstset{frame = htb,
+%         framerule = 0.25pt,
+%         float,
+%         fontadjust,
+%         backgroundcolor={\color{listlightgray}},
+%         basicstyle = {\ttfamily\scriptsize},
+%         keywordstyle = {\ttfamily\color{listkeyword}\textbf},
+%         identifierstyle = {\ttfamily},
+%         commentstyle = {\ttfamily\color{listcomment}\textit},
+%         stringstyle = {\ttfamily},
+%         showstringspaces = false,
+%         showtabs = false,
+%         numbers = none,
+%         numbersep = 6pt,
+%         numberstyle={\ttfamily\color{listnumbers}},
+%         tabsize = 2,
+%         language=r,
+%         floatplacement=!h,
+%         caption={\small ANTsR/ANTsRNet command calls
+%         for a single IXI subject in the evaluation study.
+%         },
+%         captionpos=b,
+%         label=listing:antsrCorticalThickness
+%         }
+% \begin{lstlisting}
+% # ANTsR processing for subject IXI002-Guys-0828-T1
 
-output_prefix <- "antsr"
+% library(ANTsR)
+% library(ANTsRNet)
 
-t1_file <- "IXI002-Guys-0828-T1.nii.gz"
-t1 <- antsImageRead(t1_file)
+% output_prefix <- "antsr"
 
-# Atropos six-tissue segmentation
-atropos_file <- paste0(output_prefix, "BrainSegmentation.nii.gz")
-atropos <- deepAtropos(t1, doPreprocessing=TRUE, verbose=TRUE)
-atropos_segmentation <- atropos$segmentationImage
-antsImageWrite(atropos_segmentation, atropos_file)
+% t1_file <- "IXI002-Guys-0828-T1.nii.gz"
+% t1 <- antsImageRead(t1_file)
 
-# Kelly Kapowski cortical thickness
-kk_file <- paste0(output_prefix, "CorticalThickness.nii.gz")
-kk <- kellyKapowski(s = atropos$segmentationImage, g = atropos$probabilityImages[[3]],
-                    w = atropos$probabilityImages[[4]], its = 45, r = 0.025, m = 1.5,
-                    x = 0, verbose = 1)
-antsImageWrite(kk, kk_file)
+% # Atropos six-tissue segmentation
+% atropos_file <- paste0(output_prefix, "BrainSegmentation.nii.gz")
+% atropos <- deepAtropos(t1, doPreprocessing=TRUE, verbose=TRUE)
+% atropos_segmentation <- atropos$segmentationImage
+% antsImageWrite(atropos_segmentation, atropos_file)
 
-# Desikan-Killiany-Tourville labeling
-dkt_file <- paste0(output_prefix, "Dkt.nii.gz")
-dkt <- desikanKillianyTourvilleLabeling(t1, doPreprocessing=TRUE, verbose=TRUE)
-antsImageWrite(dkt, dkt_file)
-\end{lstlisting}
+% # Kelly Kapowski cortical thickness
+% kk_file <- paste0(output_prefix, "CorticalThickness.nii.gz")
+% kk <- kellyKapowski(s = atropos$segmentationImage, g = atropos$probabilityImages[[3]],
+%                     w = atropos$probabilityImages[[4]], its = 45, r = 0.025, m = 1.5,
+%                     x = 0, verbose = 1)
+% antsImageWrite(kk, kk_file)
+
+% # Desikan-Killiany-Tourville labeling
+% dkt_file <- paste0(output_prefix, "Dkt.nii.gz")
+% dkt <- desikanKillianyTourvilleLabeling(t1, doPreprocessing=TRUE, verbose=TRUE)
+% antsImageWrite(dkt, dkt_file)
+% \end{lstlisting}
 
 
 
