@@ -156,7 +156,7 @@ subjects (197 cognitive normals, 324 LMCI subjects, and 142 AD subjects) with
 one or more follow-up image acquisition sessions every 6 months (up to 36
 months) for a total of 2516 images. In addition to the ANTsXNet pipeline for the
 current evaluation, our previous work included the FreeSurfer [@Fischl:2012aa]
-cross-sectional (FSCross) and longitudinal (FSLong)streams, the ANTs
+cross-sectional (FSCross) and longitudinal (FSLong) streams, the ANTs
 cross-sectional pipeline (ANTsCross) in addition to two longitudinal ANTs-based
 variants (ANTsNative and ANTsSST). Two evaluation measurements, one unsupervised
 and one supervised, were used to assess comparative performance.
