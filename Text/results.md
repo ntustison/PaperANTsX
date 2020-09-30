@@ -90,12 +90,12 @@ comparison.
   \centering
   \begin{subfigure}{0.4\textwidth}
     \centering
-    \includegraphics[width=0.8\linewidth]{Figures/rfImportance_SRPB1600_ANTs0.8.pdf}
+    \includegraphics[width=0.7\linewidth]{Figures/rfImportance_SRPB1600_ANTs0.8.pdf}
     \caption{ANTs}
   \end{subfigure}%
   \begin{subfigure}{0.4\textwidth}
     \centering
-    \includegraphics[width=0.8\linewidth]{Figures/rfImportance_SRPB1600_ANTsXNet0.8.pdf}
+    \includegraphics[width=0.7\linewidth]{Figures/rfImportance_SRPB1600_ANTsXNet0.8.pdf}
     \caption{ANTsXNet}
   \end{subfigure}
 \caption{Regional importance plots for the SRPB data set using ``MeanDecreaseAccuracy'' for the
@@ -125,20 +125,24 @@ the other covariates of Equation (1) are shown in Figure \ref{fig:rfimportance}.
 
 ## Longitudinal cortical thickness {-}
 
-\begin{figure}[htb]
+\begin{figure}[!htb]
   \centering
   \begin{subfigure}{0.95\textwidth}
     \centering
     \includegraphics[width=1\linewidth]{Figures/allData_FINALX.png}
-    \caption{Variance ratio figure }
+    \caption{}
   \end{subfigure}
   \begin{subfigure}{0.95\textwidth}
     \centering
     \includegraphics[width=1.0\linewidth]{Figures/logPvalues.pdf}
-    \caption{ANTsXNet}
+    \caption{}
   \end{subfigure}
-\caption{}
-\label{fig:rfimportance}
+\caption{Measures for the both the unsupervised and supervised evaluation
+strategies.  (a) Residual variability, between subject, and variance ratio
+values per pipeline over all DKT regions. (b) Log p-values for diagnostic
+differentiation of LMCI-CN, AD-LMCI, and AD-CN subjects for all pipelines
+over all DKT regions.}
+\label{fig:longeval}
 \end{figure}
 
 Given the excellent performance and superior computational efficiency of the
@@ -151,32 +155,51 @@ subjects (197 cognitive normals, 324 LMCI subjects, and 142 AD subjects) with
 one or more follow-up image acquisition sessions every 6 months (up to 36
 months) for a total of 2516 images. In addition to the ANTsXNet pipeline for the
 current evaluation, our previous work included the FreeSurfer [@Fischl:2012aa]
-cross-sectional and longitudinal streams, the ANTs cross-sectional pipeline
-[@Tustison:2014ab] in addition to two longitudinal ANTs-based variants.
-Two evaluation measurements, one unsupervised and one supervised, were used to assess
-comparative performance.
+cross-sectional (FSCross) and longitudinal (FSLong)streams, the ANTs
+cross-sectional pipeline (ANTsCross) in addition to two longitudinal ANTs-based
+variants (ANTsNative and ANTsSST). Two evaluation measurements, one unsupervised
+and one supervised, were used to assess comparative performance.
 
-As we discuss in [@Tustison:2019aa], linear-mixed effects (LME) modeling can be
-used to quantify between-subject and residual variabilities, the ratio of which
-provides an estimate of the effectiveness of a given biomarker for
-distinguishing between subpopulations.  In order to assess this criteria while
-accounting for changes that may occur through the passage of time, we used a
-Bayesian LME model for parameter estimation of the form:
-
+As we discussed in our recent work [@Tustison:2019aa], linear-mixed effects
+(LME) modeling can be used to quantify between-subject and residual
+variabilities, the ratio of which provides an estimate of the effectiveness of a
+given biomarker for distinguishing between subpopulations.  In order to assess
+this criteria while accounting for changes that may occur through the passage of
+time, we used the following Bayesian LME model for parameter estimation:
 \begin{gather}
   Y^k_{ij} \sim N(\alpha^k_i + \beta^k_i t, \sigma_k^2) \\ \nonumber
   \alpha^k_i \sim N(\alpha^k_0, \tau^2_k) \,\,\,\, \beta^k_i \sim N(\beta^k_0, \rho^2_k) \\ \nonumber
-  \alpha^k_0, \beta^k_0 \sim N(0,10) \,\,  \sigma_k, \tau_k, \rho_k \sim \mbox{Cauchy}^+ (0, 5)
+  \alpha^k_0, \beta^k_0 \sim N(0,10) \,\,\,\,  \sigma_k, \tau_k, \rho_k \sim \mbox{Cauchy}^+ (0, 5)
 \end{gather}
-
 where $Y^k_{ij}$ denotes the $i^{th}$ individual's cortical thickness
 measurement corresponding to the $k^{th}$ region of interest at the time point
 indexed by $j$ and specification of variance priors to half-Cauchy distributions
 reflects commonly accepted best practice in the context of hierarchical models
-[@gelman2006prior].
+[@gelman2006prior].  The variable of interest is the ratio, $r^k$ per region
+of the residual variability, $\tau_k$, and between-subject variability, $\sigma_k$:
+\begin{align}
+  r^k = \frac{\tau_k}{\sigma_k}, k = 1,\ldots,62
+\end{align}
+where the posterior distribution of $r_k$ was summarized via the posterior
+median.
 
-The second, supervised approach con
+The second, supervised approach employed Tukey post-hoc analyses with false
+discovery rate (FDR) adjustment to test the significance of the
+LMCI-CN, AD-LMCI, and AD-CN diagnostic contrasts.  This is provided by the
+following LME model
+\begin{align}
+  \Delta Y \sim & Y_{bl} + AGE_{bl} + ICV_{bl} + APOE_{bl} + GENDER + DIAGNOSIS_{bl} \\ \nonumber
+                & + VISIT:DIAGNOSIS_{bl} + (1 | ID) + (1 | SITE)
+\end{align}
+Here, $\Delta Y$ is the change in thickness of the $k^{th}$ DKT region from
+baseline (bl) thickness $Y_{bl}$ with random intercepts for both the individual
+subject ($ID$) and the acquisition site. The subject-specific covariates $AGE$, $APOE$
+status, $GENDER$, $DIAGNOSIS$, and $VISIT$ were taken directly from the
+ADNIMERGE package.
 
-
-
+Results for both longitudinal evaluation scenarios are shown in Figure
+\ref{fig:longeval}. Log p-values are provided in (b) which demonstrate excellent
+LMCI-CN and AD-CN differentiation and comparable AD-LMCI diffierentiation relative
+to the other pipeline considerations. \textcolor{red}{Need input from Andrew here
+about (a).}
 
