@@ -1,8 +1,8 @@
 
 # Results {-}
 
-As described in [@Tustison:2014ab], the ANTs cortical thickness pipeline
-consists of the following steps:
+The original ANTs cortical thickness pipeline [@Tustison:2014ab] consists of the
+following steps:
 
 * preprocessing: denoising [@Manjon:2010aa];
 * preprocessing: bias correction [@Tustison:2010ac];
@@ -16,6 +16,10 @@ consists of the following steps:
     * brain stem; and
 * cortical thickness estimation [@Das:2009aa].
 
+Our recent longitudinal variant incorporates an additional step involving the
+construction of a single subject template [@Avants:2010aa] and subsequent
+processing.
+
 Although the resulting thickness maps are conducive to voxel-based
 [@Ashburner:2000aa] and related analyses[@Avants:2012aa], here we employ the
 well-known Desikan-Killiany-Tourville [@Klein:2012aa] labeling protocol (31
@@ -23,11 +27,7 @@ labels per hemisphere---cf Table \ref{table:dkt_labels}) to parcellate the
 cortex for averaging thickness values regionally. This allows us to 1) be
 consistent in our evaluation strategy for comparison with our previous work
 [@Tustison:2014ab;@Tustison:2019aa] and 2) leverage an additional deep
-learning-based substitution within the proposed pipeline. Our recent
-longitudinal variant incorporates an additional step involving the construction
-of a single subject template [@Avants:2010aa].  This is mimicked, in a sense, by
-training the brain segmentation and cortical parcellation models in the affinely
-aligned MNI template space [@Fonov:2009aa].
+learning-based substitution within the proposed pipeline.
 
 \input{dktRegions.tex}
 
@@ -37,19 +37,18 @@ through the open-source R and Python platforms.  Preprocessing, image registrati
 and cortical thickness estimation are all available through the ANTsPy and ANTsR
 libraries whereas the deep learning steps are made possible through networks
 constructed and trained via ANTsRNet/ANTsPyNet with data augmentation strategies
-built from ANTsR/ANTsPy functionality.
+and other utilities built from ANTsR/ANTsPy functionality.
 
 The brain extraction, brain segmentation, and DKT parcellation steps were
 trained using data derived from our previous work [@Tustison:2014ab].
 Specifically, the IXI[^1] , MMRR [@Landman:2011aa], NKI[^2], and OASIS[^3] data
 sets, and the corresponding derived data, comprising over 1200 subjects from age
-4 to 94 were used for training. Brain extraction employed a traditional 3-D
+4 to 94 were used for all network training. Brain extraction employs a traditional 3-D
 U-net network [@Falk:2019aa] with whole brain, template-based data augmentation
-[@Tustison:2019ac] whereas brain segmentation and DKT parcellation used 3-D
-U-net networks with attention gating [@Schlemper:2019aa] on image octant-based
+[@Tustison:2019ac] whereas brain segmentation and DKT parcellation are processed
+via 3-D U-net networks with attention gating [@Schlemper:2019aa] on image octant-based
 batches.  We emphasize that a single model was created for each of these steps
-and were used for all the experiments described below.  More details including
-actual ANTsRNet and ANTsPyNet pipeline code are found in the Methods section.
+and were used for all the experiments described below.
 
 [^1]: https://brain-development.org/ixi-dataset/
 [^2]: http://fcon_1000.projects.nitrc.org/indi/pro/nki.html
@@ -74,17 +73,58 @@ actual ANTsRNet and ANTsPyNet pipeline code are found in the Methods section.
 
 Due to the absence of ground-truth, we utilize the evaluation strategy from our
 previous work [@Tustison:2014ab] where we used cross-validation to build and
-compare age prediction models from data derived from both the proposed pipeline
-and the classic pipeline.  Specifically, we use age as a well-known and
+compare age prediction models from data derived from both the proposed ANTsXNet
+pipeline and the ANTs pipeline.  Specifically, we use "age" as a well-known and
 widely-available demographic correlate of cortical thickness [@Lemaitre:2012aa]
-and build random forest models of the form:
+and quantify the predictive capabilities of corresponding random forest models
+of the form:
 \begin{equation}
 AGE \sim VOLUME + GENDER + \sum_{i=1}^{62} T(DKT_i)
 \end{equation}
 with covariates $GENDER$ and $VOLUME$ (i.e., total intracranial volume).
 $T(DKT_i)$ is the average thickness value in the $i^{th}$ DKT region.  Root mean
-square error between the actual and predicted ages are the quantity used for
-comparison.
+square error (RMSE) between the actual and predicted ages are the quantity used
+for comparative evaluation.  As we have explained elsewhere, we find these
+evaluation measures to be much more useful than some other commonly applied
+quantities as they are closer to assessing the actual utility of these thickness
+measurements as actual biomarkers for disease or growth.  For example, in recent work
+[@Rebsamen:2020aa] the authors employ correlation with FreeSurfer thickness values
+as the primary evaluation for assessing relative performance with ANTs cortical
+thickness [@Tustison:2014ab].  Aside from the fact that this evaluation is a
+prime example of flawed circularity [^5] analysis [@Kriegeskorte:2009aa], such
+an evaluation does not indicate relative utility as a biomarker for research
+purposes.
+
+[^5]:  Here, data selection is driven by the same criteria used to evaluate
+performance.  Specifically, DeepSCAN network training utilizes FreeSurfer brain
+segmentation results.  Thickness is highly correlated with segmentation which
+varies characteristically between relevant software packages. Relative performance
+with ANTs thickness (which does not use FreeSurfer for training) is then
+assessed by determining correlations with FreeSurfer thickness values.
+
+In addition to the training data listed above, to ensure generalizability, we
+also compared performance using the SRPB data set[^4] comprising over 1600
+participants from 12 sites.  Note that we recognize that we are processing data
+through the proposed deep learning-based pipeline that were used to train
+certain components of this pipeline.  Although this does not provide evidence
+for generalizability (which is why we include the much larger SRPB data set), we
+believe that the reader would be interested to see the resulting comparative
+performance since training did not use age prediction (or any other evaluation
+or related measure) as a criterion to be optimized during network model training
+(i.e., circular analysis [@Kriegeskorte:2009aa]).
+
+[^4]: https://bicr-resource.atr.jp/srpbs1600/
+
+The results are shown in Figure \ref{fig:agePrediction} where we used
+cross-validation with 500 permutations per model per data set (including a
+"combined" set) and an 80/20 training/testing split. The ANTsXNet deep learning
+pipeline outperformed the classical pipeline [@Tustison:2014ab] in terms of age
+prediction in all data sets except for IXI.  This also includes the
+cross-validation iteration where all data sets were combined.
+
+
+<!-- Importance plots ranking the cortical thickness regions and
+the other covariates of Equation (1) are shown in Figure \ref{fig:rfimportance}. -->
 
 <!-- \begin{figure}[htb]
   \centering
@@ -102,26 +142,6 @@ comparison.
 random forest regressors specified by Equation (1).}
 \label{fig:rfimportance}
 \end{figure} -->
-
-In addition to the data listed above, to ensure generalizability, we also
-processed the SRPB1600 data set[^4] comprising over 1600 participants from 12
-sites and performed the same comparative evaluation. Note that we recognize that
-we are processing data through the proposed deep learning-based pipeline that
-were used to train certain components of the pipeline.  Although this does not
-ensure generalizability (which is why we include SRPB), we believe that
-the reader would be interested to see the resulting comparative performance since
-training did not use age prediction as a criterion to be optimized
-(i.e., circular analysis [@Kriegeskorte:2009aa]).
-
-[^4]: https://bicr-resource.atr.jp/srpbs1600/
-
-The results are shown in Figure \ref{fig:agePrediction} where we used cross-validation
-with 500 permutations and an 80/20 training/testing split.   The ANTsXNet deep learning
-pipeline outperformed the classical pipeline[@Tustison:2014ab] in terms of age prediction
-in all data sets except for IXI.  This also includes the cross-validation iteration where
-all data sets were combined.
-<!-- Importance plots ranking the cortical thickness regions and
-the other covariates of Equation (1) are shown in Figure \ref{fig:rfimportance}. -->
 
 
 ## Longitudinal cortical thickness {-}
@@ -148,25 +168,27 @@ over all DKT regions.}
 
 Given the excellent performance and superior computational efficiency of the
 proposed ANTsXNet pipeline for cross-sectional data, we evaluated its
-performance on longitudinal data using the evaluation strategy for the
-longitudinal version of our cortical thickness pipeline [@Tustison:2019aa] even
-though the former is not tailored for longitudinal data. As described in
-[@Tustison:2019aa], the ADNI-1 data used for evaluation consisted of over 600
-subjects (197 cognitive normals, 324 LMCI subjects, and 142 AD subjects) with
-one or more follow-up image acquisition sessions every 6 months (up to 36
-months) for a total of 2516 images. In addition to the ANTsXNet pipeline for the
-current evaluation, our previous work included the FreeSurfer [@Fischl:2012aa]
-cross-sectional (FSCross) and longitudinal (FSLong) streams, the ANTs
-cross-sectional pipeline (ANTsCross) in addition to two longitudinal ANTs-based
-variants (ANTsNative and ANTsSST). Two evaluation measurements, one unsupervised
-and one supervised, were used to assess comparative performance.
+performance on longitudinal data using the longitudinally-specific evaluation
+strategy and data we employed with the introduction of the longitudinal version
+of the ANTs cortical thickness pipeline [@Tustison:2019aa] even though the
+former is not specifically tailored for longitudinal data.  The ADNI-1 data used
+for evaluation [@Tustison:2019aa] consisted of over 600 subjects (197 cognitive
+normals, 324 LMCI subjects, and 142 AD subjects) with one or more follow-up
+image acquisition sessions every 6 months (up to 36 months) for a total of over
+2500 images. In addition to the ANTsXNet pipeline for the current evaluation, our
+previous work included the FreeSurfer [@Fischl:2012aa] cross-sectional (FSCross)
+and longitudinal (FSLong) streams, the ANTs cross-sectional pipeline (ANTsCross)
+in addition to two longitudinal ANTs-based variants (ANTsNative and ANTsSST).
+Two evaluation measurements, one unsupervised and one supervised, were used to
+assess comparative performance between all five pipelines.  We add the results
+of the ANTsXNet pipeline evaluation in relation to these other pipelines to
+provide a comprehensive overview of relative performance.
 
-As we discussed in our recent work [@Tustison:2019aa], linear-mixed effects
-(LME) modeling can be used to quantify between-subject and residual
+Linear-mixed effects (LME) modeling can be used to quantify between-subject and residual
 variabilities, the ratio of which provides an estimate of the effectiveness of a
 given biomarker for distinguishing between subpopulations.  In order to assess
 this criteria while accounting for changes that may occur through the passage of
-time, we used the following Bayesian LME model for parameter estimation:
+time, we used the following Bayesian LME model:
 \begin{gather}
   Y^k_{ij} \sim N(\alpha^k_i + \beta^k_i t, \sigma_k^2) \\ \nonumber
   \alpha^k_i \sim N(\alpha^k_0, \tau^2_k) \,\,\,\, \beta^k_i \sim N(\beta^k_0, \rho^2_k) \\ \nonumber
@@ -176,8 +198,9 @@ where $Y^k_{ij}$ denotes the $i^{th}$ individual's cortical thickness
 measurement corresponding to the $k^{th}$ region of interest at the time point
 indexed by $j$ and specification of variance priors to half-Cauchy distributions
 reflects commonly accepted best practice in the context of hierarchical models
-[@gelman2006prior].  The variable of interest is the ratio, $r^k$ per region
-of the residual variability, $\tau_k$, and between-subject variability, $\sigma_k$:
+[@gelman2006prior].  The ratio of interest, $r^k$, per region
+of the residual variability, $\tau_k$, and between-subject variability, $\sigma_k$
+is
 \begin{align}
   r^k = \frac{\tau_k}{\sigma_k}, k = 1,\ldots,62
 \end{align}
@@ -199,8 +222,11 @@ status, $GENDER$, $DIAGNOSIS$, and $VISIT$ were taken directly from the
 ADNIMERGE package.
 
 Results for both longitudinal evaluation scenarios are shown in Figure
-\ref{fig:longeval}. Log p-values are provided in (b) which demonstrate excellent
-LMCI-CN and AD-CN differentiation and comparable AD-LMCI diffierentiation relative
-to the other pipeline considerations. \textcolor{red}{Need input from Andrew here
-about (a).}
+\ref{fig:longeval}. Log p-values are provided in Figure \ref{fig:longeval}(b)
+which demonstrate excellent LMCI-CN and AD-CN differentiation and comparable
+AD-LMCI diffierentiation relative to the other pipeline considerations.
+\textcolor{red}{Need input from Andrew here about (a).}
 
+\textcolor{red}{An additional possibility would be to reach out to the Upenn people
+that used our longitudinal data to evaluate longitudinal COMBAT and see if they had
+a ready-made evaluation solution. https://pubmed.ncbi.nlm.nih.gov/32640273/}

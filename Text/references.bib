@@ -1,12 +1,84 @@
 %% This BibTeX bibliography file was created using BibDesk.
 %% https://bibdesk.sourceforge.io/
 
-%% Created for Nick Tustison at 2020-09-29 14:39:57 -0700 
+%% Created for Nick Tustison at 2020-10-01 10:24:13 -0700 
 
 
 %% Saved with string encoding Unicode (UTF-8) 
 
 
+
+@article{Clarkson:2011aa,
+	Abstract = {Cortical thickness estimation performed in-vivo via magnetic resonance imaging is an important technique for the diagnosis and understanding of the progression of neurodegenerative diseases. Currently, two different computational paradigms exist, with methods generally classified as either surface or voxel-based. This paper provides a much needed comparison of the surface-based method FreeSurfer and two voxel-based methods using clinical data. We test the effects of computing regional statistics using two different atlases and demonstrate that this makes a significant difference to the cortical thickness results. We assess reproducibility, and show that FreeSurfer has a regional standard deviation of thickness difference on same day scans that is significantly lower than either a Laplacian or Registration based method and discuss the trade off between reproducibility and segmentation accuracy caused by bending energy constraints. We demonstrate that voxel-based methods can detect similar patterns of group-wise differences as well as FreeSurfer in typical applications such as producing group-wise maps of statistically significant thickness change, but that regional statistics can vary between methods. We use a Support Vector Machine to classify patients against controls and did not find statistically significantly different results with voxel based methods compared to FreeSurfer. Finally we assessed longitudinal performance and concluded that currently FreeSurfer provides the most plausible measure of change over time, with further work required for voxel based methods.},
+	Author = {Clarkson, Matthew J and Cardoso, M Jorge and Ridgway, Gerard R and Modat, Marc and Leung, Kelvin K and Rohrer, Jonathan D and Fox, Nick C and Ourselin, S{\'e}bastien},
+	Date-Added = {2020-10-01 10:24:00 -0700},
+	Date-Modified = {2020-10-01 10:24:00 -0700},
+	Doi = {10.1016/j.neuroimage.2011.05.053},
+	Journal = {Neuroimage},
+	Journal-Full = {NeuroImage},
+	Mesh = {Aged; Alzheimer Disease; Brain; Brain Mapping; Female; Frontotemporal Dementia; Humans; Image Interpretation, Computer-Assisted; Magnetic Resonance Imaging; Male; Reproducibility of Results},
+	Month = {Aug},
+	Number = {3},
+	Pages = {856-65},
+	Pmid = {21640841},
+	Pst = {ppublish},
+	Title = {A comparison of voxel and surface based cortical thickness estimation methods},
+	Volume = {57},
+	Year = {2011},
+	Bdsk-Url-1 = {https://doi.org/10.1016/j.neuroimage.2011.05.053}}
+
+@article{Schwarz:2016aa,
+	Abstract = {Alzheimer's disease (AD) researchers commonly use MRI as a quantitative measure of disease severity. Historically, hippocampal volume has been favored. Recently, "AD signature" measurements of gray matter (GM) volumes or cortical thicknesses have gained attention. Here, we systematically evaluate multiple thickness- and volume-based candidate-methods side-by-side, built using the popular FreeSurfer, SPM, and ANTs packages, according to the following criteria: (a) ability to separate clinically normal individuals from those with AD; (b) (extent of) correlation with head size, a nuisance covariatel (c) reliability on repeated scans; and (d) correlation with Braak neurofibrillary tangle stage in a group with autopsy. We show that volume- and thickness-based measures generally perform similarly for separating clinically normal from AD populations, and in correlation with Braak neurofibrillary tangle stage at autopsy. Volume-based measures are generally more reliable than thickness measures. As expected, volume measures are highly correlated with head size, while thickness measures are generally not. Because approaches to statistically correcting volumes for head size vary and may be inadequate to deal with this underlying confound, and because our goal is to determine a measure which can be used to examine age and sex effects in a cohort across a large age range, we thus recommend thickness-based measures. Ultimately, based on these criteria and additional practical considerations of run-time and failure rates, we recommend an AD signature measure formed from a composite of thickness measurements in the entorhinal, fusiform, parahippocampal, mid-temporal, inferior-temporal, and angular gyrus ROIs using ANTs with input segmentations from SPM12.},
+	Author = {Schwarz, Christopher G and Gunter, Jeffrey L and Wiste, Heather J and Przybelski, Scott A and Weigand, Stephen D and Ward, Chadwick P and Senjem, Matthew L and Vemuri, Prashanthi and Murray, Melissa E and Dickson, Dennis W and Parisi, Joseph E and Kantarci, Kejal and Weiner, Michael W and Petersen, Ronald C and Jack, Jr, Clifford R and {Alzheimer's Disease Neuroimaging Initiative}},
+	Date-Added = {2020-10-01 10:21:34 -0700},
+	Date-Modified = {2020-10-01 10:21:34 -0700},
+	Doi = {10.1016/j.nicl.2016.05.017},
+	Journal = {Neuroimage Clin},
+	Journal-Full = {NeuroImage. Clinical},
+	Mesh = {Adult; Aged; Aged, 80 and over; Alzheimer Disease; Brain Mapping; Cerebral Cortex; Cognitive Dysfunction; Cohort Studies; Datasets as Topic; Female; Humans; Image Processing, Computer-Assisted; Magnetic Resonance Imaging; Male; Middle Aged; Psychiatric Status Rating Scales},
+	Pages = {802-812},
+	Pmc = {PMC5187496},
+	Pmid = {28050342},
+	Pst = {epublish},
+	Title = {A large-scale comparison of cortical thickness and volume methods for measuring Alzheimer's disease severity},
+	Volume = {11},
+	Year = {2016},
+	Bdsk-Url-1 = {https://doi.org/10.1016/j.nicl.2016.05.017}}
+
+@article{Nyul:1999aa,
+	Abstract = {The lack of a standard image intensity scale in MRI causes many difficulties in image display and analysis. A two-step postprocessing method is proposed for standardizing the intensity scale in such a way that for the same MR protocol and body region, similar intensities will have similar tissue meaning. In the first step, the parameters of the standardizing transformation are "learned" from a set of images. In the second step, for each MR study these parameters are used to map their histogram into the standardized histogram. The method was tested quantitatively on 90 whole-brain studies of multiple sclerosis patients for several protocols and qualitatively for several other protocols and body regions. Measurements using mean squared difference showed that the standardized image intensities have statistically significantly (P < 0.01) more consistent range and meaning than the originals. Fixed gray level windows can be established for the standardized images and used for display without the need of per case adjustment. Preliminary results also indicate that the method facilitates improving the degree of automation of image segmentation. Magn Reson Med 42:1072-1081, 1999.},
+	Author = {Ny{\'u}l, L G and Udupa, J K},
+	Date-Added = {2020-10-01 08:52:44 -0700},
+	Date-Modified = {2020-10-01 08:52:44 -0700},
+	Doi = {10.1002/(sici)1522-2594(199912)42:6<1072::aid-mrm11>3.0.co;2-m},
+	Journal = {Magn Reson Med},
+	Journal-Full = {Magnetic resonance in medicine},
+	Mesh = {Algorithms; Brain; Data Display; Foot; Humans; Image Enhancement; Image Processing, Computer-Assisted; Magnetic Resonance Imaging; Multiple Sclerosis},
+	Month = {Dec},
+	Number = {6},
+	Pages = {1072-81},
+	Pmid = {10571928},
+	Pst = {ppublish},
+	Title = {On standardizing the MR image intensity scale},
+	Volume = {42},
+	Year = {1999},
+	Bdsk-Url-1 = {https://doi.org/10.1002/(sici)1522-2594(199912)42:6%3C1072::aid-mrm11%3E3.0.co;2-m}}
+
+@article{deepscan,
+	Archiveprefix = {arXiv},
+	Author = {Richard McKinley and Michael Rebsamen and Raphael Meier and Mauricio Reyes and Christian Rummel and Roland Wiest},
+	Bibsource = {dblp computer science bibliography, https://dblp.org},
+	Biburl = {https://dblp.org/rec/journals/corr/abs-1904-02436.bib},
+	Date-Added = {2020-09-30 15:57:38 -0700},
+	Date-Modified = {2020-09-30 15:57:38 -0700},
+	Eprint = {1904.02436},
+	Journal = {CoRR},
+	Timestamp = {Wed, 24 Apr 2019 12:21:25 +0200},
+	Title = {Few-shot brain segmentation from weakly labeled data with deep heteroscedastic multi-task networks},
+	Url = {http://arxiv.org/abs/1904.02436},
+	Volume = {abs/1904.02436},
+	Year = {2019},
+	Bdsk-Url-1 = {http://arxiv.org/abs/1904.02436}}
 
 @article{gelman2006prior,
 	Abstract = {Various noninformative prior distributions have been suggested for
@@ -693,10 +765,6 @@ RESULTS AND CONCLUSION: The method has been validated quantitatively using data 
 	Primaryclass = {cs.CV},
 	Title = {A Comparative Analysis of Registration Tools: Traditional vs Deep Learning Approach on High Resolution Tissue Cleared Data},
 	Year = {2018}}
-
-@url{cite-key,
-	Date-Added = {2020-06-18 13:37:43 -0700},
-	Date-Modified = {2020-06-18 13:37:51 -0700}}
 
 @article{Tustison:2019ab,
 	Abstract = {Recent methodological innovations in deep learning and associated advancements in computational hardware have significantly impacted the various core subfields of quantitative medical image analysis. The generalizability, computational efficiency and open-source availability of deep learning algorithms and related software, particularly those utilizing convolutional neural networks, have produced paradigm shifts within the field. This impact is evident from topical prevalence in the literature, conference and workshop themes and winning methodologies in relevant competitions. In this work, we review the various state-of-the-art approaches to learning and prediction and/or optimizing image transformations using convolutional neural networks. Although of primary importance within the quantitative imaging domain, image registration algorithmic development, in the context of these deep learning strategies, has received comparatively less attention than its counterparts (e.g., image segmentation). Nevertheless, significant progress has been made in this particular subfield which has been presented in various research venues. We contextualize these contributions within the broader scope of deep learning advancements and, in so doing, attempt to facilitate the leveraging and further development of such techniques within the medical imaging research community.},
@@ -1806,7 +1874,8 @@ CONCLUSION: (3)He MR imaging VDP ventilation defect percentage represents a mixe
 	Title = {Multispectral analysis of MR images of the breast},
 	Volume = {163},
 	Year = {1987},
-	Bdsk-Url-1 = {http://dx.doi.org/10.1148/radiology.163.3.3575718}}
+	Bdsk-Url-1 = {http://dx.doi.org/10.1148/radiology.163.3.3575718},
+	Bdsk-File-1 = {YnBsaXN0MDDSAQIDBFxyZWxhdGl2ZVBhdGhZYWxpYXNEYXRhXxArLi4vLi4vLi4vLi4vLi4vRG93bmxvYWRzL2Ficy0xOTA0LTAyNDM2LmJpYk8RAV4AAAAAAV4AAgAADE1hY2ludG9zaCBIRAAAAAAAAAAAAAAAAAAAAAAAAABCRAAB/////xJhYnMtMTkwNC0wMjQzNi5iaWIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/////AAAAAAAAAAAAAAAAAAUAAgAACiBjdQAAAAAAAAAAAAAAAAAJRG93bmxvYWRzAAACAC4vOlVzZXJzOm50dXN0aXNvbjpEb3dubG9hZHM6YWJzLTE5MDQtMDI0MzYuYmliAA4AJgASAGEAYgBzAC0AMQA5ADAANAAtADAAMgA0ADMANgAuAGIAaQBiAA8AGgAMAE0AYQBjAGkAbgB0AG8AcwBoACAASABEABIALFVzZXJzL250dXN0aXNvbi9Eb3dubG9hZHMvYWJzLTE5MDQtMDI0MzYuYmliABMAAS8AABUAAgAQ//8AAAAIAA0AGgAkAFIAAAAAAAACAQAAAAAAAAAFAAAAAAAAAAAAAAAAAAABtA==}}
 
 @article{Gubern-Merida:2015aa,
 	Abstract = {Breast density measurement is an important aspect in breast cancer diagnosis as dense tissue has been related to the risk of breast cancer development. The purpose of this study is to develop a method to automatically compute breast density in breast MRI. The framework is a combination of image processing techniques to segment breast and fibroglandular tissue. Intra- and interpatient signal intensity variability is initially corrected. The breast is segmented by automatically detecting body-breast and air-breast surfaces. Subsequently, fibroglandular tissue is segmented in the breast area using expectation-maximization. A dataset of 50 cases with manual segmentations was used for evaluation. Dice similarity coefficient (DSC), total overlap, false negative fraction (FNF), and false positive fraction (FPF) are used to report similarity between automatic and manual segmentations. For breast segmentation, the proposed approach obtained DSC, total overlap, FNF, and FPF values of 0.94, 0.96, 0.04, and 0.07, respectively. For fibroglandular tissue segmentation, we obtained DSC, total overlap, FNF, and FPF values of 0.80, 0.85, 0.15, and 0.22, respectively. The method is relevant for researchers investigating breast density as a risk factor for breast cancer and all the described steps can be also applied in computer aided diagnosis systems.},

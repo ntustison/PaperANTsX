@@ -17,45 +17,55 @@ $ $
 
 \normalsize
 
-Nicholas J. Tustison$^{1,7}$,
+Nicholas J. Tustison$^{1,8}$,
 Philip A. Cook$^{2}$,
 Andrew J. Holbrook$^{3}$,
 Hans J. Johnson$^{4}$,
-Gabriel A. Devanyi$^{5}$,
-John Muschelli$^{6}$,
+John Muschelli$^{5}$,
+Gabriel A. Devanyi$^{6}$,
 Jeffrey T. Duda$^{2}$,
+Sandhitsu R. Das$^{2}$,
 Nicholas C. Cullen$^{2}$,
-Michael A. Yassa$^{7}$,
+Daniel L. Gillen$^{7}$,
+Michael A. Yassa$^{8}$,
 James R. Stone$^{1}$,
 James C. Gee$^{2}$,
 Brian B. Avants$^{1}$
 for the Alzheimer’s Disease Neuroimaging Initiative$^{\dagger}$
 
-\small
+\footnotesize
 
 $^{1}$Department of Radiology and Medical Imaging, University of Virginia, Charlottesville, VA \\
 $^{2}$Department of Radiology, University of Pennsylvania, Philadelphia, PA \\
 $^{3}$Department of Biostatistics, University of California, Los Angeles, CA \\
 $^{4}$Department of Electrical and Computer Engineering, University of Iowa, Philadelphia, PA \\
-$^{5}$Douglas Mental Health University Institute, McGill University, Montreal, QC \\
-$^{6}$School of Public Health, Johns Hopkins University, Baltimore, MD \\
-$^{7}$Department of Neurobiology and Behavior, University of California, Irvine, CA \\
+$^{5}$School of Public Health, Johns Hopkins University, Baltimore, MD \\
+$^{6}$Douglas Mental Health University Institute, McGill University, Montreal, QC \\
+$^{7}$Department of Statistics, University of California, Irvine, CA \\
+$^{8}$Department of Neurobiology and Behavior, University of California, Irvine, CA \\
 
 \end{centering}
 
-\vspace{3.0 cm}
+\vspace{1. cm}
 
 \noindent\rule{4cm}{0.4pt}
 
-\footnotesize
-Corresponding author: \
+\scriptsize
+Corresponding authors: \
 Nicholas J. Tustison, DSc \
 Department of Radiology and Medical Imaging \
 University of Virginia \
-480 Ray C Hunt Drive \
-Box 801339 \
-Charlottesville, VA 22903 \
 ntustison@virginia.edu
+
+James C. Gee, PhD \
+Department of Radiology \
+University of Pennsylvania \
+gee@upenn.edu
+
+Brian. B. Avants, PhD \
+Department of Radiology and Medical Imaging \
+University of Virginia \
+stnava@gmail.com
 
 \tiny
 $^{\dagger}$Data used in preparation of this article were obtained from the Alzheimer’s

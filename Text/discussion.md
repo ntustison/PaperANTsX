@@ -1,44 +1,49 @@
 
+
+
 # Discussion {-}
 
+The ANTsX software ecosystem provides a comprehensive framework for quantitative
+biological and medical imaging.  Although ANTs, the original core of ANTsX, is
+still at the forefront of image registration technology, it has moved
+signicantly beyond its image registration origins.  This expansion is not
+confined to technical contributions (of which there are many) but also consists
+of facilitating access to a wide range of users who can use ANTsX tools (whether
+through bash scripting, Python scripting or R scripting) to construct tailored
+pipelines for their own studies or to take advantage of our pre-fabricated
+pipelines.  And given the open-source nature of the ANTsX software, usage is not
+limited, for example, to academic institutions---a common constraint
+characteristic of other packages.
 
-To be further expanded in the Discussion:
+One of our most widely used pipelines is the estimation of cortical thickness
+from neuroimaging. This is understandable given the widespread usage of regional
+cortical thickness as a biomarker for developmental or pathological trajectories
+of the brain.  In this work, we used this well-vetted ANTs tool to provide training data
+for producing an alternative version which leverages deep learning for improved
+computational efficiency and also provides superior performance with respect to
+previously proposed evaluation measures for both cross-sectional [@Tustison:2014ab]
+and longitudinal scenarios [@Tustison:2019aa].  In addition to providing the tools
+which generated the original training data for the proposed ANTsXNet pipeline, the
+ANTsX ecosystem provides a full-featured platform for the additional steps such as
+preprocessing (ANTsR/ANTsPy); data augmentation (ANTsR/ANTsPy); network construction
+and training (ANTsRNet/ANTsPyNet); and visualization and statistical
+analysis of the results (ANTsR/ANTsPy).
 
-* Basic criticisms:
+It is the comprehensiveness of ANTsX that provides significant advantages over
+much of the deep learning work that is currently taking place in medical imaging
+and related fields.  For example, related work [@Rebsamen:2020aa] also built a
+similar pipeline and assessed performance.  However, due to the lack of a
+complete processing and analysis framework, training data was generated using
+the FreeSurfer stream, deep learning-based brain segmentation employed DeepSCAN
+[@deepscan] (in-house software), and cortical thickness estimation [@Das:2009aa]
+used the ANTs toolkit.  For the reader interested in reproducing the authors'
+results, they are primarily prevented from doing so due, as far as we can tell,
+to the lack of the public availability of the only software they actually
+produced themselves, i.e., DeepSCAN.  However, even further inhibiting usage is
+the fact that the external utilities derive from different sources and so issues
+such as interoperability are relevant.
 
-    * Not publicly available (no weights)
-
-    * No discussion of network architecture
-
-* What were the preprocessing choices?
-
-* Why limit to gray matter and white matter?
-
-* correlation isn't an ideal measurement for determining accuracy---see ICC paper.
-
-* The authors use correlation with FreeSurfer measurements.  Why is this a suboptimal
-evaluation criterion as compared with demographic (i.e., age) prediction?  Perhaps
-dumbing down in terms of tissue segmentation and network parameters produced a lower-
-complexity model that correlates well with FreeSurfer's suspected heavier use of priors.
-
-
-<!-- One of the significant advantages of interfacing a deep learning library to ANTs
-is the accessibility of certain tools used in deep learning design.  For
-example, in [@Tustison:2019aa], we proposed employing ANTs template building
-for biologically-constrained data augmentation.  Many deformable approaches to
-image-based data augmentation use randomly generated displacement fields
-whereas, with ANTs-based deep learning, we can constrain simulated data to
-reside within the space of plausible shapes pertaining to a specific domain.  It
-should be noted that all of these software libraries are organized under the
-ANTsX ecosystem on GitHub which allows the developers to monitor current
-software status and interact with the larger ANTs community. -->
-
-<!--
-\begin{figure}[htb]
-  \centering
-    \includegraphics[width=0.75\textwidth]{Figures/antsx.pdf}
-  \caption{ANTsX ecosystem showing internal and external dependencies.}
-  \label{fig:antsx}
-\end{figure}
- -->
+<!-- This is mimicked, in a sense, by training the brain segmentation
+and cortical parcellation models in the affinely aligned MNI template space
+[@Fonov:2009aa] (further discussion in the Methods section). -->
 
