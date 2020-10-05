@@ -170,8 +170,7 @@ Given the excellent performance and superior computational efficiency of the
 proposed ANTsXNet pipeline for cross-sectional data, we evaluated its
 performance on longitudinal data using the longitudinally-specific evaluation
 strategy and data we employed with the introduction of the longitudinal version
-of the ANTs cortical thickness pipeline [@Tustison:2019aa] even though the
-former is not specifically tailored for longitudinal data.  The ADNI-1 data used
+of the ANTs cortical thickness pipeline [@Tustison:2019aa].  The ANTsXNet pipeline is not specifically tailored for longitudinal data, so we regard any positive performance in this domain as a plus that motivates the development of longitudinal extensions.  The ADNI-1 data used
 for evaluation [@Tustison:2019aa] consisted of over 600 subjects (197 cognitive
 normals, 324 LMCI subjects, and 142 AD subjects) with one or more follow-up
 image acquisition sessions every 6 months (up to 36 months) for a total of over
@@ -221,11 +220,12 @@ subject ($ID$) and the acquisition site. The subject-specific covariates $AGE$, 
 status, $GENDER$, $DIAGNOSIS$, and $VISIT$ were taken directly from the
 ADNIMERGE package.
 
+\textcolor{red}{Consider reordering figures to b-a.}
 Results for both longitudinal evaluation scenarios are shown in Figure
 \ref{fig:longeval}. Log p-values are provided in Figure \ref{fig:longeval}(b)
 which demonstrate excellent LMCI-CN and AD-CN differentiation and comparable
 AD-LMCI diffierentiation relative to the other pipeline considerations.
-\textcolor{red}{Need input from Andrew here about (a).}
+Despite these strong results, Figure \ref{fig:longeval}(a) shows that even better performance may be possible for a longitudinal extension to ANTsXNet. In a longitudinal setting, we prefer to see lower values for residual variability and higher values for within-subject variability, leading to a larger variance ratio.  ANTsXNet performs remarkably poorly for these measures, suggesting that even better classification performance---e.g., superior differentiation between LMCI and AD cohorts---is completely possible for an ANTsXNet extension that leverages the longitudinal information we have left on the table. That said, the high residual variability tells its own story. Neural networks achieve their power by increasing the effective degrees of freedom way beyond those of traditional linear models. In terms of the bias-variance tradeoff, such an increase in model complexity translates to significantly less predictive bias but also leads to greater predictive variance.  This fact explains how ANTsXNet can perform so well while retaining such a large residual variability.  An interesting question is whether longitudinal extensions to ANTsXNet will perform with respect to this measure.
 
 \textcolor{red}{An additional possibility would be to reach out to the Upenn people
 that used our longitudinal data to evaluate longitudinal COMBAT and see if they had
