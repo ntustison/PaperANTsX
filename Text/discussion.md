@@ -43,6 +43,8 @@ produced themselves, i.e., DeepSCAN.  However, even further inhibiting usage is
 the fact that the external utilities derive from different sources and so issues
 such as interoperability are relevant.
 
+\textcolor{red}{longitudinal extension possible in 3 ways: 1) just sst; 2) incorporate subject id and months as data; 3) both 1) and 2)}
+
 <!-- This is mimicked, in a sense, by training the brain segmentation
 and cortical parcellation models in the affinely aligned MNI template space
 [@Fonov:2009aa] (further discussion in the Methods section). -->
