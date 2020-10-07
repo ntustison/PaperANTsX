@@ -23,13 +23,11 @@ processing.
 Although the resulting thickness maps are conducive to voxel-based
 [@Ashburner:2000aa] and related analyses[@Avants:2012aa], here we employ the
 well-known Desikan-Killiany-Tourville [@Klein:2012aa] labeling protocol (31
-labels per hemisphere---cf Table \ref{table:dkt_labels}) to parcellate the
-cortex for averaging thickness values regionally. This allows us to 1) be
-consistent in our evaluation strategy for comparison with our previous work
-[@Tustison:2014ab;@Tustison:2019aa] and 2) leverage an additional deep
-learning-based substitution within the proposed pipeline.
-
-\input{dktRegions.tex}
+labels per hemisphere) to parcellate the cortex for averaging thickness values
+regionally. This allows us to 1) be consistent in our evaluation strategy for
+comparison with our previous work [@Tustison:2014ab;@Tustison:2019aa] and 2)
+leverage an additional deep learning-based substitution within the proposed
+pipeline.
 
 Note that the entire analysis/evaluation framework, from preprocessing to
 statistical analysis, is made possible through the ANTsX ecosystem and simplified
@@ -121,12 +119,10 @@ cross-validation with 500 permutations per model per data set (including a
 pipeline outperformed the classical pipeline [@Tustison:2014ab] in terms of age
 prediction in all data sets except for IXI.  This also includes the
 cross-validation iteration where all data sets were combined.
+Importance plots ranking the cortical thickness regions and
+the other covariates of Equation (1) are shown in Figure \ref{fig:rfimportance}.
 
-
-<!-- Importance plots ranking the cortical thickness regions and
-the other covariates of Equation (1) are shown in Figure \ref{fig:rfimportance}. -->
-
-<!-- \begin{figure}[htb]
+\begin{figure}[htb]
   \centering
   \begin{subfigure}{0.4\textwidth}
     \centering
@@ -141,7 +137,7 @@ the other covariates of Equation (1) are shown in Figure \ref{fig:rfimportance}.
 \caption{Regional importance plots for the SRPB data set using ``MeanDecreaseAccuracy'' for the
 random forest regressors specified by Equation (1).}
 \label{fig:rfimportance}
-\end{figure} -->
+\end{figure}
 
 
 ## Longitudinal cortical thickness {-}
@@ -150,19 +146,19 @@ random forest regressors specified by Equation (1).}
   \centering
   \begin{subfigure}{0.95\textwidth}
     \centering
-    \includegraphics[width=1\linewidth]{Figures/allData_FINALX.png}
+    \includegraphics[width=1.0\linewidth]{Figures/logPvalues.pdf}
     \caption{}
   \end{subfigure}
   \begin{subfigure}{0.95\textwidth}
     \centering
-    \includegraphics[width=1.0\linewidth]{Figures/logPvalues.pdf}
+    \includegraphics[width=1\linewidth]{Figures/allData_FINALX.png}
     \caption{}
   \end{subfigure}
 \caption{Measures for the both the unsupervised and supervised evaluation
-strategies.  (a) Residual variability, between subject, and variance ratio
-values per pipeline over all DKT regions. (b) Log p-values for diagnostic
+strategies.  (a) Log p-values for diagnostic
 differentiation of LMCI-CN, AD-LMCI, and AD-CN subjects for all pipelines
-over all DKT regions.}
+over all DKT regions.  (b) Residual variability, between subject, and variance ratio
+values per pipeline over all DKT regions. }
 \label{fig:longeval}
 \end{figure}
 
@@ -170,24 +166,28 @@ Given the excellent performance and superior computational efficiency of the
 proposed ANTsXNet pipeline for cross-sectional data, we evaluated its
 performance on longitudinal data using the longitudinally-specific evaluation
 strategy and data we employed with the introduction of the longitudinal version
-of the ANTs cortical thickness pipeline [@Tustison:2019aa].  The ANTsXNet pipeline is not specifically tailored for longitudinal data, so we regard any positive performance in this domain as a plus that motivates the development of longitudinal extensions.  The ADNI-1 data used
-for evaluation [@Tustison:2019aa] consisted of over 600 subjects (197 cognitive
-normals, 324 LMCI subjects, and 142 AD subjects) with one or more follow-up
-image acquisition sessions every 6 months (up to 36 months) for a total of over
-2500 images. In addition to the ANTsXNet pipeline for the current evaluation, our
-previous work included the FreeSurfer [@Fischl:2012aa] cross-sectional (FSCross)
-and longitudinal (FSLong) streams, the ANTs cross-sectional pipeline (ANTsCross)
-in addition to two longitudinal ANTs-based variants (ANTsNative and ANTsSST).
-Two evaluation measurements, one unsupervised and one supervised, were used to
-assess comparative performance between all five pipelines.  We add the results
-of the ANTsXNet pipeline evaluation in relation to these other pipelines to
-provide a comprehensive overview of relative performance.
+of the ANTs cortical thickness pipeline [@Tustison:2019aa].  It should be
+emphasized that, in contrast, the ANTsXNet pipeline is not specifically tailored
+for longitudinal data, so we regard any positive performance in this domain as a
+plus that motivates the development of future longitudinal extensions.  The
+ADNI-1 data used for evaluation [@Tustison:2019aa] consisted of over 600
+subjects (197 cognitive normals, 324 LMCI subjects, and 142 AD subjects) with
+one or more follow-up image acquisition sessions every 6 months (up to 36
+months) for a total of over 2500 images. In addition to the ANTsXNet pipeline
+for the current evaluation, our previous work included the FreeSurfer
+[@Fischl:2012aa] cross-sectional (FSCross) and longitudinal (FSLong) streams,
+the ANTs cross-sectional pipeline (ANTsCross) in addition to two longitudinal
+ANTs-based variants (ANTsNative and ANTsSST). Two evaluation measurements, one
+unsupervised and one supervised, were used to assess comparative performance
+between all five pipelines.  We add the results of the ANTsXNet pipeline
+evaluation in relation to these other pipelines to provide a comprehensive
+overview of relative performance.
 
-Linear-mixed effects (LME) modeling can be used to quantify between-subject and residual
-variabilities, the ratio of which provides an estimate of the effectiveness of a
-given biomarker for distinguishing between subpopulations.  In order to assess
-this criteria while accounting for changes that may occur through the passage of
-time, we used the following Bayesian LME model:
+Linear-mixed effects (LME) modeling can be used to quantify between-subject and
+residual variabilities, the ratio of which provides an estimate of the
+effectiveness of a given biomarker for distinguishing between subpopulations.
+In order to assess this criteria while accounting for changes that may occur
+through the passage of time, we used the following Bayesian LME model:
 \begin{gather}
   Y^k_{ij} \sim N(\alpha^k_i + \beta^k_i t, \sigma_k^2) \\ \nonumber
   \alpha^k_i \sim N(\alpha^k_0, \tau^2_k) \,\,\,\, \beta^k_i \sim N(\beta^k_0, \rho^2_k) \\ \nonumber
@@ -220,13 +220,27 @@ subject ($ID$) and the acquisition site. The subject-specific covariates $AGE$, 
 status, $GENDER$, $DIAGNOSIS$, and $VISIT$ were taken directly from the
 ADNIMERGE package.
 
-\textcolor{red}{Consider reordering figures to b-a.}
 Results for both longitudinal evaluation scenarios are shown in Figure
-\ref{fig:longeval}. Log p-values are provided in Figure \ref{fig:longeval}(b)
+\ref{fig:longeval}. Log p-values are provided in Figure \ref{fig:longeval}(a)
 which demonstrate excellent LMCI-CN and AD-CN differentiation and comparable
 AD-LMCI diffierentiation relative to the other pipeline considerations.
-Despite these strong results, Figure \ref{fig:longeval}(a) shows that even better performance may be possible for a longitudinal extension to ANTsXNet. In a longitudinal setting, we prefer to see lower values for residual variability and higher values for within-subject variability, leading to a larger variance ratio.  ANTsXNet performs remarkably poorly for these measures, suggesting that even better classification performance---e.g., superior differentiation between LMCI and AD cohorts---is completely possible for an ANTsXNet extension that leverages the longitudinal information the current implementation does not. One such piece of information is repeated measures, i.e., the fact that we observe some subjects multiple times. Failure to account for this information explains lower between-subject variabilities for ANTsXNet. In turn, all variability expresses itself through higher within-subject residuals. But there is an additional reason for ANTsXNet exhibiting higher residual variability. Neural networks achieve their power by increasing their effective degrees of freedom way beyond those of traditional linear models. In terms of the bias-variance tradeoff, such an increase in model complexity translates to significantly less predictive bias while simultaneously leading to greater predictive variance.  This fact explains how ANTsXNet can perform so well while retaining such a large residual variability.  An interesting question is how longitudinal extensions to ANTsXNet will perform with respect to the same measure.
-
-\textcolor{red}{An additional possibility would be to reach out to the Upenn people
-that used our longitudinal data to evaluate longitudinal COMBAT and see if they had
-a ready-made evaluation solution. https://pubmed.ncbi.nlm.nih.gov/32640273/}
+Despite these strong results, Figure \ref{fig:longeval}(b) shows that even
+better performance may be possible for a longitudinal extension to ANTsXNet. In
+a longitudinal setting, we prefer to see lower values for residual variability
+and higher values for within-subject variability, leading to a larger variance
+ratio.  ANTsXNet performs remarkably poorly for these measures, suggesting that
+even better classification performance---e.g., superior differentiation between
+LMCI and AD cohorts---is completely possible for an ANTsXNet extension that
+leverages the longitudinal information the current implementation does not. One
+such piece of information is repeated measures, i.e., the fact that we observe
+some subjects multiple times. Failure to account for this information explains
+lower between-subject variabilities for ANTsXNet. In turn, all variability
+expresses itself through higher within-subject residuals. But there is an
+additional reason for ANTsXNet exhibiting higher residual variability. Neural
+networks achieve their power by increasing their effective degrees of freedom
+way beyond those of traditional linear models. In terms of the bias-variance
+tradeoff, such an increase in model complexity translates to significantly less
+predictive bias while simultaneously leading to greater predictive variance.
+This fact explains how ANTsXNet can perform so well while retaining such a large
+residual variability.  An interesting question is how longitudinal extensions to
+ANTsXNet will perform with respect to the same measure.

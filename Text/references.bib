@@ -1,12 +1,47 @@
 %% This BibTeX bibliography file was created using BibDesk.
 %% https://bibdesk.sourceforge.io/
 
-%% Created for Nick Tustison at 2020-10-01 10:24:13 -0700 
+%% Created for Nick Tustison at 2020-10-07 12:52:06 -0700 
 
 
 %% Saved with string encoding Unicode (UTF-8) 
 
 
+
+@inproceedings{Haris:2018aa,
+	Abstract = {The feed-forward architectures of recently proposed deep super-resolution networks learn representations of low-resolution inputs, and the non-linear mapping from those to high-resolution output. However, this approach does not fully address the mutual dependencies of low- and high-resolution images. We propose Deep Back-Projection Networks (DBPN), that exploit iterative up- and downsampling layers, providing an error feedback mechanism for projection errors at each stage. We construct mutually-connected up- and down-sampling stages each of which represents different types of image degradation and high-resolution components. We show that extending this idea to allow concatenation of features across up- and downsampling stages (Dense DBPN) allows us to reconstruct further improve super-resolution, yielding superior results and in particular establishing new state of the art results for large scaling factors such as 8× across multiple data sets.},
+	Author = {M. {Haris} and G. {Shakhnarovich} and N. {Ukita}},
+	Booktitle = {2018 {IEEE/CVF} {C}onference on {C}omputer {V}ision and {P}attern {R}ecognition},
+	Date-Added = {2020-10-07 12:20:55 -0700},
+	Date-Modified = {2020-10-07 12:38:47 -0700},
+	Doi = {10.1109/CVPR.2018.00179},
+	Issn = {2575-7075},
+	Keywords = {convolutional neural nets;image reconstruction;image resolution;iterative methods;learning (artificial intelligence);high-resolution images;nonlinear mapping;super-resolution networks;feed-forward architectures;back-projection networks;downsampling stages;high-resolution components;image degradation;down-sampling stages;projection errors;error feedback mechanism;Image reconstruction;Feature extraction;Task analysis;Training;Computer architecture;Spatial resolution},
+	Month = {June},
+	Pages = {1664-1673},
+	Title = {Deep Back-Projection Networks for Super-Resolution},
+	Year = {2018},
+	Bdsk-Url-1 = {https://doi.org/10.1109/CVPR.2018.00179}}
+
+@article{Bashyam:2020aa,
+	Abstract = {Deep learning has emerged as a powerful approach to constructing imaging signatures of normal brain ageing as well as of various neuropathological processes associated with brain diseases. In particular, MRI-derived brain age has been used as a comprehensive biomarker of brain health that can identify both advanced and resilient ageing individuals via deviations from typical brain ageing. Imaging signatures of various brain diseases, including schizophrenia and Alzheimer's disease, have also been identified using machine learning. Prior efforts to derive these indices have been hampered by the need for sophisticated and not easily reproducible processing steps, by insufficiently powered or diversified samples from which typical brain ageing trajectories were derived, and by limited reproducibility across populations and MRI scanners. Herein, we develop and test a sophisticated deep brain network (DeepBrainNet) using a large (n = 11 729) set of MRI scans from a highly diversified cohort spanning different studies, scanners, ages and geographic locations around the world. Tests using both cross-validation and a separate replication cohort of 2739 individuals indicate that DeepBrainNet obtains robust brain-age estimates from these diverse datasets without the need for specialized image data preparation and processing. Furthermore, we show evidence that moderately fit brain ageing models may provide brain age estimates that are most discriminant of individuals with pathologies. This is not unexpected as tightly-fitting brain age models naturally produce brain-age estimates that offer little information beyond age, and loosely fitting models may contain a lot of noise. Our results offer some experimental evidence against commonly pursued tightly-fitting models. We show that the moderately fitting brain age models obtain significantly higher differentiation compared to tightly-fitting models in two of the four disease groups tested. Critically, we demonstrate that leveraging DeepBrainNet, along with transfer learning, allows us to construct more accurate classifiers of several brain diseases, compared to directly training classifiers on patient versus healthy control datasets or using common imaging databases such as ImageNet. We, therefore, derive a domain-specific deep network likely to reduce the need for application-specific adaptation and tuning of generic deep learning networks. We made the DeepBrainNet model freely available to the community for MRI-based evaluation of brain health in the general population and over the lifespan.},
+	Author = {Bashyam, Vishnu M and Erus, Guray and Doshi, Jimit and Habes, Mohamad and Nasralah, Ilya and Truelove-Hill, Monica and Srinivasan, Dhivya and Mamourian, Liz and Pomponio, Raymond and Fan, Yong and Launer, Lenore J and Masters, Colin L and Maruff, Paul and Zhuo, Chuanjun and V{\"o}lzke, Henry and Johnson, Sterling C and Fripp, Jurgen and Koutsouleris, Nikolaos and Satterthwaite, Theodore D and Wolf, Daniel and Gur, Raquel E and Gur, Ruben C and Morris, John and Albert, Marilyn S and Grabe, Hans J and Resnick, Susan and Bryan, R Nick and Wolk, David A and Shou, Haochang and Davatzikos, Christos},
+	Date-Added = {2020-10-07 09:36:21 -0700},
+	Date-Modified = {2020-10-07 09:39:51 -0700},
+	Doi = {10.1093/brain/awaa160},
+	Journal = {Brain},
+	Journal-Full = {Brain : a journal of neurology},
+	Keywords = {brain age; deep learning; transfer learning},
+	Month = {Jul},
+	Number = {7},
+	Pages = {2312-2324},
+	Pmc = {PMC7364766},
+	Pmid = {32591831},
+	Pst = {ppublish},
+	Title = {MRI signatures of brain age and disease over the lifespan based on a deep brain network and 14,468 individuals worldwide},
+	Volume = {143},
+	Year = {2020},
+	Bdsk-Url-1 = {https://doi.org/10.1093/brain/awaa160}}
 
 @article{Clarkson:2011aa,
 	Abstract = {Cortical thickness estimation performed in-vivo via magnetic resonance imaging is an important technique for the diagnosis and understanding of the progression of neurodegenerative diseases. Currently, two different computational paradigms exist, with methods generally classified as either surface or voxel-based. This paper provides a much needed comparison of the surface-based method FreeSurfer and two voxel-based methods using clinical data. We test the effects of computing regional statistics using two different atlases and demonstrate that this makes a significant difference to the cortical thickness results. We assess reproducibility, and show that FreeSurfer has a regional standard deviation of thickness difference on same day scans that is significantly lower than either a Laplacian or Registration based method and discuss the trade off between reproducibility and segmentation accuracy caused by bending energy constraints. We demonstrate that voxel-based methods can detect similar patterns of group-wise differences as well as FreeSurfer in typical applications such as producing group-wise maps of statistically significant thickness change, but that regional statistics can vary between methods. We use a Support Vector Machine to classify patients against controls and did not find statistically significantly different results with voxel based methods compared to FreeSurfer. Finally we assessed longitudinal performance and concluded that currently FreeSurfer provides the most plausible measure of change over time, with further work required for voxel based methods.},
@@ -49,7 +84,7 @@
 	Abstract = {The lack of a standard image intensity scale in MRI causes many difficulties in image display and analysis. A two-step postprocessing method is proposed for standardizing the intensity scale in such a way that for the same MR protocol and body region, similar intensities will have similar tissue meaning. In the first step, the parameters of the standardizing transformation are "learned" from a set of images. In the second step, for each MR study these parameters are used to map their histogram into the standardized histogram. The method was tested quantitatively on 90 whole-brain studies of multiple sclerosis patients for several protocols and qualitatively for several other protocols and body regions. Measurements using mean squared difference showed that the standardized image intensities have statistically significantly (P < 0.01) more consistent range and meaning than the originals. Fixed gray level windows can be established for the standardized images and used for display without the need of per case adjustment. Preliminary results also indicate that the method facilitates improving the degree of automation of image segmentation. Magn Reson Med 42:1072-1081, 1999.},
 	Author = {Ny{\'u}l, L G and Udupa, J K},
 	Date-Added = {2020-10-01 08:52:44 -0700},
-	Date-Modified = {2020-10-01 08:52:44 -0700},
+	Date-Modified = {2020-10-07 09:53:00 -0700},
 	Doi = {10.1002/(sici)1522-2594(199912)42:6<1072::aid-mrm11>3.0.co;2-m},
 	Journal = {Magn Reson Med},
 	Journal-Full = {Magnetic resonance in medicine},
@@ -59,7 +94,7 @@
 	Pages = {1072-81},
 	Pmid = {10571928},
 	Pst = {ppublish},
-	Title = {On standardizing the MR image intensity scale},
+	Title = {On standardizing the {MR} image intensity scale},
 	Volume = {42},
 	Year = {1999},
 	Bdsk-Url-1 = {https://doi.org/10.1002/(sici)1522-2594(199912)42:6%3C1072::aid-mrm11%3E3.0.co;2-m}}
@@ -186,7 +221,7 @@ of multiple variance parameters such as arise in the analysis of variance.},
 	Abstract = {Modern MRI image processing methods have yielded quantitative, morphometric, functional, and structural assessments of the human brain. These analyses typically exploit carefully optimized protocols for specific imaging targets. Algorithm investigators have several excellent public data resources to use to test, develop, and optimize their methods. Recently, there has been an increasing focus on combining MRI protocols in multi-parametric studies. Notably, these have included innovative approaches for fusing connectivity inferences with functional and/or anatomical characterizations. Yet, validation of the reproducibility of these interesting and novel methods has been severely hampered by the limited availability of appropriate multi-parametric data. We present an imaging protocol optimized to include state-of-the-art assessment of brain function, structure, micro-architecture, and quantitative parameters within a clinically feasible 60-min protocol on a 3-T MRI scanner. We present scan-rescan reproducibility of these imaging contrasts based on 21 healthy volunteers (11 M/10 F, 22-61 years old). The cortical gray matter, cortical white matter, ventricular cerebrospinal fluid, thalamus, putamen, caudate, cerebellar gray matter, cerebellar white matter, and brainstem were identified with mean volume-wise reproducibility of 3.5%. We tabulate the mean intensity, variability, and reproducibility of each contrast in a region of interest approach, which is essential for prospective study planning and retrospective power analysis considerations. Anatomy was highly consistent on structural acquisition (~1-5% variability), while variation on diffusion and several other quantitative scans was higher (~<10%). Some sequences are particularly variable in specific structures (ASL exhibited variation of 28% in the cerebral white matter) or in thin structures (quantitative T2 varied by up to 73% in the caudate) due, in large part, to variability in automated ROI placement. The richness of the joint distribution of intensities across imaging methods can be best assessed within the context of a particular analysis approach as opposed to a summary table. As such, all imaging data and analysis routines have been made publicly and freely available. This effort provides the neuroimaging community with a resource for optimization of algorithms that exploit the diversity of modern MRI modalities. Additionally, it establishes a baseline for continuing development and optimization of multi-parametric imaging protocols.},
 	Author = {Landman, Bennett A and Huang, Alan J and Gifford, Aliya and Vikram, Deepti S and Lim, Issel Anne L and Farrell, Jonathan A D and Bogovic, John A and Hua, Jun and Chen, Min and Jarso, Samson and Smith, Seth A and Joel, Suresh and Mori, Susumu and Pekar, James J and Barker, Peter B and Prince, Jerry L and van Zijl, Peter C M},
 	Date-Added = {2020-09-28 16:25:58 -0700},
-	Date-Modified = {2020-09-28 16:25:58 -0700},
+	Date-Modified = {2020-10-07 12:36:11 -0700},
 	Doi = {10.1016/j.neuroimage.2010.11.047},
 	Journal = {Neuroimage},
 	Journal-Full = {NeuroImage},
@@ -197,7 +232,7 @@ of multiple variance parameters such as arise in the analysis of variance.},
 	Pmc = {PMC3020263},
 	Pmid = {21094686},
 	Pst = {ppublish},
-	Title = {Multi-parametric neuroimaging reproducibility: a 3-T resource study},
+	Title = {Multi-parametric neuroimaging reproducibility: a {3-T} resource study},
 	Volume = {54},
 	Year = {2011},
 	Bdsk-Url-1 = {https://doi.org/10.1016/j.neuroimage.2010.11.047}}
@@ -984,7 +1019,7 @@ RESULTS AND CONCLUSION: The method has been validated quantitatively using data 
 	Abstract = {Neuroconductor (https://neuroconductor.org) is an open-source platform for rapid testing and dissemination of reproducible computational imaging software. The goals of the project are to: (i) provide a centralized repository of R software dedicated to image analysis, (ii) disseminate software updates quickly, (iii) train a large, diverse community of scientists using detailed tutorials and short courses, (iv) increase software quality via automatic and manual quality controls, and (v) promote reproducibility of image data analysis. Based on the programming language R (https://www.r-project.org/), Neuroconductor starts with 51 inter-operable packages that cover multiple areas of imaging including visualization, data processing and storage, and statistical inference. Neuroconductor accepts new R package submissions, which are subject to a formal review and continuous automated testing. We provide a description of the purpose of Neuroconductor and the user and developer experience.},
 	Author = {Muschelli, John and Gherman, Adrian and Fortin, Jean-Philippe and Avants, Brian and Whitcher, Brandon and Clayden, Jonathan D and Caffo, Brian S and Crainiceanu, Ciprian M},
 	Date-Added = {2020-06-02 18:12:56 -0700},
-	Date-Modified = {2020-06-02 18:12:56 -0700},
+	Date-Modified = {2020-10-07 12:40:05 -0700},
 	Doi = {10.1093/biostatistics/kxx068},
 	Journal = {Biostatistics},
 	Journal-Full = {Biostatistics (Oxford, England)},
@@ -996,7 +1031,7 @@ RESULTS AND CONCLUSION: The method has been validated quantitatively using data 
 	Pmc = {PMC6409417},
 	Pmid = {29325029},
 	Pst = {ppublish},
-	Title = {Neuroconductor: an R platform for medical imaging analysis},
+	Title = {Neuroconductor: an {R} platform for medical imaging analysis},
 	Volume = {20},
 	Year = {2019},
 	Bdsk-Url-1 = {https://doi.org/10.1093/biostatistics/kxx068}}
@@ -1040,7 +1075,7 @@ RESULTS AND CONCLUSION: The method has been validated quantitatively using data 
 	Abstract = {For the past 25 years, the field of neuroimaging has witnessed the development of several software packages for processing multi-parametric magnetic resonance imaging (mpMRI) to study the brain. These software packages are now routinely used by researchers and clinicians, and have contributed to important breakthroughs for the understanding of brain anatomy and function. However, no software package exists to process mpMRI data of the spinal cord. Despite the numerous clinical needs for such advanced mpMRI protocols (multiple sclerosis, spinal cord injury, cervical spondylotic myelopathy, etc.), researchers have been developing specific tools that, while necessary, do not provide an integrative framework that is compatible with most usages and that is capable of reaching the community at large. This hinders cross-validation and the possibility to perform multi-center studies. In this study we introduce the Spinal Cord Toolbox (SCT), a comprehensive software dedicated to the processing of spinal cord MRI data. SCT builds on previously-validated methods and includes state-of-the-art MRI templates and atlases of the spinal cord, algorithms to segment and register new data to the templates, and motion correction methods for diffusion and functional time series. SCT is tailored towards standardization and automation of the processing pipeline, versatility, modularity, and it follows guidelines of software development and distribution. Preliminary applications of SCT cover a variety of studies, from cross-sectional area measures in large databases of patients, to the precise quantification of mpMRI metrics in specific spinal pathways. We anticipate that SCT will bring together the spinal cord neuroimaging community by establishing standard templates and analysis procedures.},
 	Author = {De Leener, Benjamin and L{\'e}vy, Simon and Dupont, Sara M and Fonov, Vladimir S and Stikov, Nikola and Louis Collins, D and Callot, Virginie and Cohen-Adad, Julien},
 	Date-Added = {2020-06-02 17:57:01 -0700},
-	Date-Modified = {2020-06-02 17:57:01 -0700},
+	Date-Modified = {2020-10-07 12:40:25 -0700},
 	Doi = {10.1016/j.neuroimage.2016.10.009},
 	Journal = {Neuroimage},
 	Journal-Full = {NeuroImage},
@@ -1051,7 +1086,7 @@ RESULTS AND CONCLUSION: The method has been validated quantitatively using data 
 	Pages = {24-43},
 	Pmid = {27720818},
 	Pst = {ppublish},
-	Title = {SCT: Spinal Cord Toolbox, an open-source software for processing spinal cord MRI data},
+	Title = {SCT: Spinal Cord Toolbox, an open-source software for processing spinal cord {MRI} data},
 	Volume = {145},
 	Year = {2017},
 	Bdsk-Url-1 = {https://doi.org/10.1016/j.neuroimage.2016.10.009}}
@@ -1283,7 +1318,7 @@ RESULTS AND CONCLUSION: The method has been validated quantitatively using data 
 	Abstract = { Longitudinal studies of development and disease in the human brain have motivated the acquisition of large neuroimaging data sets and the concomitant development of robust methodological and statistical tools for quantifying neurostructural changes. Longitudinal-specific strategies for acquisition and processing have potentially significant benefits including more consistent estimates of intra-subject measurements while retaining predictive power. Using the first phase of the Alzheimer's Disease Neuroimaging Initiative (ADNI-1) data, comprising over 600 subjects with multiple time points from baseline to 36 months, we evaluate the utility of longitudinal FreeSurfer and Advanced Normalization Tools (ANTs) surrogate thickness values in the context of a linear mixed-effects (LME) modeling strategy. Specifically, we estimate the residual variability and between-subject variability associated with each processing stream as it is known from the statistical literature that minimizing the former while simultaneously maximizing the latter leads to greater scientific interpretability in terms of tighter confidence intervals in calculated mean trends, smaller prediction intervals, and narrower confidence intervals for determining cross-sectional effects. This strategy is evaluated over the entire cortex, as defined by the Desikan-Killiany-Tourville labeling protocol, where comparisons are made with the cross-sectional and longitudinal FreeSurfer processing streams. Subsequent linear mixed effects modeling for identifying diagnostic groupings within the ADNI cohort is provided as supporting evidence for the utility of the proposed ANTs longitudinal framework which provides unbiased structural neuroimage processing and competitive to superior power for longitudinal structural change detection.},
 	Author = {Tustison, Nicholas J and Holbrook, Andrew J and Avants, Brian B and Roberts, Jared M and Cook, Philip A and Reagh, Zachariah M and Duda, Jeffrey T and Stone, James R and Gillen, Daniel L and Yassa, Michael A and {Alzheimer's Disease Neuroimaging Initiative}},
 	Date-Added = {2019-08-23 13:40:15 -0700},
-	Date-Modified = {2019-08-23 13:40:15 -0700},
+	Date-Modified = {2020-10-07 12:37:25 -0700},
 	Doi = {10.3233/JAD-190283},
 	Journal = {J Alzheimers Dis},
 	Journal-Full = {Journal of Alzheimer's disease : JAD},
@@ -1291,7 +1326,7 @@ RESULTS AND CONCLUSION: The method has been validated quantitatively using data 
 	Month = {Jul},
 	Pmid = {31356207},
 	Pst = {aheadofprint},
-	Title = {Longitudinal Mapping of Cortical Thickness Measurements: An Alzheimer's Disease Neuroimaging Initiative-Based Evaluation Study},
+	Title = {Longitudinal Mapping of Cortical Thickness Measurements: An {A}lzheimer's {D}isease {N}euroimaging {I}nitiative-Based Evaluation Study},
 	Year = {2019},
 	Bdsk-Url-1 = {https://doi.org/10.3233/JAD-190283}}
 
@@ -1874,8 +1909,8 @@ CONCLUSION: (3)He MR imaging VDP ventilation defect percentage represents a mixe
 	Title = {Multispectral analysis of MR images of the breast},
 	Volume = {163},
 	Year = {1987},
-	Bdsk-Url-1 = {http://dx.doi.org/10.1148/radiology.163.3.3575718},
-	Bdsk-File-1 = {YnBsaXN0MDDSAQIDBFxyZWxhdGl2ZVBhdGhZYWxpYXNEYXRhXxArLi4vLi4vLi4vLi4vLi4vRG93bmxvYWRzL2Ficy0xOTA0LTAyNDM2LmJpYk8RAV4AAAAAAV4AAgAADE1hY2ludG9zaCBIRAAAAAAAAAAAAAAAAAAAAAAAAABCRAAB/////xJhYnMtMTkwNC0wMjQzNi5iaWIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/////AAAAAAAAAAAAAAAAAAUAAgAACiBjdQAAAAAAAAAAAAAAAAAJRG93bmxvYWRzAAACAC4vOlVzZXJzOm50dXN0aXNvbjpEb3dubG9hZHM6YWJzLTE5MDQtMDI0MzYuYmliAA4AJgASAGEAYgBzAC0AMQA5ADAANAAtADAAMgA0ADMANgAuAGIAaQBiAA8AGgAMAE0AYQBjAGkAbgB0AG8AcwBoACAASABEABIALFVzZXJzL250dXN0aXNvbi9Eb3dubG9hZHMvYWJzLTE5MDQtMDI0MzYuYmliABMAAS8AABUAAgAQ//8AAAAIAA0AGgAkAFIAAAAAAAACAQAAAAAAAAAFAAAAAAAAAAAAAAAAAAABtA==}}
+	Bdsk-File-1 = {YnBsaXN0MDDSAQIDBFxyZWxhdGl2ZVBhdGhZYWxpYXNEYXRhXxArLi4vLi4vLi4vLi4vLi4vRG93bmxvYWRzL2Ficy0xOTA0LTAyNDM2LmJpYk8RAV4AAAAAAV4AAgAADE1hY2ludG9zaCBIRAAAAAAAAAAAAAAAAAAAAAAAAABCRAAB/////xJhYnMtMTkwNC0wMjQzNi5iaWIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/////AAAAAAAAAAAAAAAAAAUAAgAACiBjdQAAAAAAAAAAAAAAAAAJRG93bmxvYWRzAAACAC4vOlVzZXJzOm50dXN0aXNvbjpEb3dubG9hZHM6YWJzLTE5MDQtMDI0MzYuYmliAA4AJgASAGEAYgBzAC0AMQA5ADAANAAtADAAMgA0ADMANgAuAGIAaQBiAA8AGgAMAE0AYQBjAGkAbgB0AG8AcwBoACAASABEABIALFVzZXJzL250dXN0aXNvbi9Eb3dubG9hZHMvYWJzLTE5MDQtMDI0MzYuYmliABMAAS8AABUAAgAQ//8AAAAIAA0AGgAkAFIAAAAAAAACAQAAAAAAAAAFAAAAAAAAAAAAAAAAAAABtA==},
+	Bdsk-Url-1 = {http://dx.doi.org/10.1148/radiology.163.3.3575718}}
 
 @article{Gubern-Merida:2015aa,
 	Abstract = {Breast density measurement is an important aspect in breast cancer diagnosis as dense tissue has been related to the risk of breast cancer development. The purpose of this study is to develop a method to automatically compute breast density in breast MRI. The framework is a combination of image processing techniques to segment breast and fibroglandular tissue. Intra- and interpatient signal intensity variability is initially corrected. The breast is segmented by automatically detecting body-breast and air-breast surfaces. Subsequently, fibroglandular tissue is segmented in the breast area using expectation-maximization. A dataset of 50 cases with manual segmentations was used for evaluation. Dice similarity coefficient (DSC), total overlap, false negative fraction (FNF), and false positive fraction (FPF) are used to report similarity between automatic and manual segmentations. For breast segmentation, the proposed approach obtained DSC, total overlap, FNF, and FPF values of 0.94, 0.96, 0.04, and 0.07, respectively. For fibroglandular tissue segmentation, we obtained DSC, total overlap, FNF, and FPF values of 0.80, 0.85, 0.15, and 0.22, respectively. The method is relevant for researchers investigating breast density as a risk factor for breast cancer and all the described steps can be also applied in computer aided diagnosis systems.},
@@ -2854,9 +2889,9 @@ CONCLUSION: Expiratory quantitative CT is not as accurate as inspiratory CT for 
 MATERIALS AND METHODS: Most filtering techniques assume an equal noise distribution across the image. When this assumption is not met, the resulting filtering becomes suboptimal. This is the case of MR images with spatially varying noise levels, such as those obtained by parallel imaging (sensitivity-encoded), intensity inhomogeneity-corrected images, or surface coil-based acquisitions. We propose a new method where information regarding the local image noise level is used to adjust the amount of denoising strength of the filter. Such information is automatically obtained from the images using a new local noise estimation method.
 RESULTS: The proposed method was validated and compared with the standard nonlocal means filter on simulated and real MRI data showing an improved performance in all cases.
 CONCLUSION: The new noise-adaptive method was demonstrated to outperform the standard filter when spatially varying noise is present in the images.},
-	Author = {Manj{\'o}n, Jos{\'e} V and Coup{\'e}, Pierrick and Mart{\'\i}-Bonmat{\'\i}, Luis and Collins, D Louis and Robles, Montserrat},
+	Author = {Manj{\'o}n, Jose V and Coupe, Pierrick and Mart{\'\i}-Bonmat{\'\i}, Luis and Collins, D Louis and Robles, Montserrat},
 	Date-Added = {2015-08-14 03:25:52 +0000},
-	Date-Modified = {2015-08-14 03:25:52 +0000},
+	Date-Modified = {2020-10-07 12:52:06 -0700},
 	Doi = {10.1002/jmri.22003},
 	Journal = {J Magn Reson Imaging},
 	Journal-Full = {Journal of magnetic resonance imaging : JMRI},

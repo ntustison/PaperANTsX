@@ -12,9 +12,7 @@ output:
   word_document:
     fig_caption: true
 bibliography:
-  - library.bib
   - references.bib
-  - icdm.bib
 csl: nature.csl
 longtable: true
 urlcolor: blue

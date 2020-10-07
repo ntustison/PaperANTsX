@@ -1,15 +1,15 @@
 
 # Methods {-}
 
-Software, average DKT regional thickness values for all data sets, and
-the scripts to perform both the analysis and obtain thickness values
-for a single subject are provided as open-source.  Specifically, all the
-ANTsX libraries are hosted on GitHub (https://github.com/ANTsX).  The
-cross-sectional data and analysis code are available as .csv files
-and R scripts at the GitHub repository dedicated to this paper
-(https://github.com/ntustison/PaperANTsX) whereas the longitudinal data and
-evaluation scripts are organized with the repository associated with our previous
-work [@Tustison:2019aa] (https://github.com/ntustison/CrossLong). Below, we
+Software, average DKT regional thickness values for all data sets, and the
+scripts to perform both the analysis and obtain thickness values for a single
+subject are provided as open-source.  Specifically, all the ANTsX libraries are
+hosted on GitHub (https://github.com/ANTsX).  The cross-sectional data and
+analysis code are available as .csv files and R scripts at the GitHub repository
+dedicated to this paper (https://github.com/ntustison/PaperANTsX) whereas the
+longitudinal data and evaluation scripts are organized with the repository
+associated with our previous work [@Tustison:2019aa]
+(https://github.com/ntustison/CrossLong).
 
 ## ANTsXNet cortical thickness {-}
 
@@ -125,8 +125,8 @@ these components below.  For all training, we used ANTsRNet scripts and custom
 batch generators.  Although the network construction and other functionality is
 available in both ANTsPyNet and ANTsRNet (as is model weights compatibility), we
 have not written such custom batch generators for the former (although this is
-on our to-do list).  In terms of hardware, all training was done on a DGX,
-\textcolor{red}{blah-blah-blah.  Do some exploration or get from Brian.}
+on our to-do list).  In terms of hardware, all training was done on a DGX (GPUs:
+4X Tesla V100, system memory: 256 GB LRDIMM DDR4).
 
 __T1-weighted brain extraction.__  A whole-image 3-D U-net model [@Falk:2019aa]
 was used in conjunction with multiple training sessions employing a Dice loss

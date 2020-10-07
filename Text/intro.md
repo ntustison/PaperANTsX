@@ -25,7 +25,7 @@ performance superiority of ANTs registration. In the MICCAI 2012 multi-atlas
 label fusion segmentation challenge for brain data, the joint label fusion
 algorithm [@Wang:2013ab] (coupled with SyN) was the top performer. In fact, 6 of
 the top 10 performing entries in that competition used ANTs for performing the
-spatial normalization. A separate competition [@@Menze:2014aa] for segmentation
+spatial normalization. A separate competition [@Menze:2014aa] for segmentation
 of brain tumors from multi-modal MRI held under the auspices of MICCAI 2013 was
 won by ANTs developers where the registration capabilities were crucial for
 performance [@Tustison:2014aa]. The following year an ANTs-based entry for the
@@ -107,9 +107,11 @@ architecture for segmenting the brain in multiple modalities.  These modalities
 include conventional T1-weighted structural MRI as well as T2-weighted MRI,
 FLAIR, fractional anisotropy and BOLD.  Demographic specialization also includes
 infant T1-weighted and/or T2-weighted MRI.  Additionally, we have included other
-models and weights into our libraries such as HippMapp3r [@Goubran:2020aa], a
-hippocampal segmentation tool; the winning entry of the MICCAI 2017 white matter
-hyperintensity segmentation competition [@Li:2018aa]; and NoBrainer, a
+models and weights into our libraries such as a recent BrainAGE estimation model
+[@Bashyam:2020aa], based on $>14,000$ individuals; HippMapp3r [@Goubran:2020aa],
+a hippocampal segmentation tool; the winning entry of the MICCAI 2017 white
+matter hyperintensity segmentation competition [@Li:2018aa]; MRI super
+resolution using deep-projection networks [@Haris:2018aa]; and NoBrainer, a
 T1-weighted brain extraction approach based on FreeSurfer. (see Figure
 \ref{fig:antsXnetTools}).
 

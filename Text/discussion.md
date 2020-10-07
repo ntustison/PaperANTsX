@@ -43,7 +43,19 @@ produced themselves, i.e., DeepSCAN.  However, even further inhibiting usage is
 the fact that the external utilities derive from different sources and so issues
 such as interoperability are relevant.
 
-\textcolor{red}{longitudinal extension possible in 3 ways: 1) just sst; 2) incorporate subject id and months as data; 3) both 1) and 2)}
+In terms of future work, the recent surge and utility of deep learning in
+medical image analysis has significantly guided the areas of active ANTsX
+development.  As demonstrated in this work with our widely used cortical
+thickness pipeline, there are many potential benefits of deep learning analogs
+to existing ANTs tools as well as the development of new ones.  As mentioned,
+the proposed cortical thickness pipeline is not specifically tailored for
+longitudinal data.  Nevertheless, performance is comparable-to-superior relative
+to existing pipelines depending on the evaluation metric.  We see possible
+longitudinal extensions incorporating aspects of the single-subject template
+construction, as described in [@Tustison:2019aa], in addition to the possibility
+of incorporating subject ID and months as additional network inputs.
+
+
 
 <!-- This is mimicked, in a sense, by training the brain segmentation
 and cortical parcellation models in the affinely aligned MNI template space
