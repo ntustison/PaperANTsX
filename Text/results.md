@@ -89,16 +89,22 @@ measurements as actual biomarkers for disease or growth.  For example, in recent
 [@Rebsamen:2020aa] the authors employ correlation with FreeSurfer thickness values
 as the primary evaluation for assessing relative performance with ANTs cortical
 thickness [@Tustison:2014ab].  Aside from the fact that this evaluation is a
-prime example of flawed circularity [^5] analysis [@Kriegeskorte:2009aa], such
+prime example of flawed circularity analysis [@Kriegeskorte:2009aa] [^5], such
 an evaluation does not indicate relative utility as a biomarker for research
 purposes.
 
 [^5]:  Here, data selection is driven by the same criteria used to evaluate
 performance.  Specifically, DeepSCAN network training utilizes FreeSurfer brain
 segmentation results.  Thickness is highly correlated with segmentation which
-varies characteristically between relevant software packages. Relative performance
-with ANTs thickness (which does not use FreeSurfer for training) is then
-assessed by determining correlations with FreeSurfer thickness values.
+varies characteristically between relevant software packages. Relative
+performance with ANTs thickness (which does not use FreeSurfer for training) is
+then assessed by determining correlations with FreeSurfer thickness values.
+Almost as problematic is their use of repeatability (which they confusingly
+label as "robustness") as an additional ranking criterion.  Repeatability
+evaluations should be contextualized within considerations such as the
+bias-variance tradeoff and using relevant metrics, such as the intra-class
+correlation coefficient which takes into account both inter- and intra-observer
+variability.
 
 In addition to the training data listed above, to ensure generalizability, we
 also compared performance using the SRPB data set[^4] comprising over 1600
