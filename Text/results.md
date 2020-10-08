@@ -90,8 +90,7 @@ measurements as actual biomarkers for disease or growth.  For example, in recent
 as the primary evaluation for assessing relative performance with ANTs cortical
 thickness [@Tustison:2014ab].  Aside from the fact that this evaluation is a
 prime example of flawed circularity analysis [@Kriegeskorte:2009aa] [^5], such
-an evaluation does not indicate relative utility as a biomarker for research
-purposes.
+an evaluation does not indicate relative utility as a biomarker.
 
 [^5]:  Here, data selection is driven by the same criteria used to evaluate
 performance.  Specifically, DeepSCAN network training utilizes FreeSurfer brain
@@ -115,7 +114,9 @@ for generalizability (which is why we include the much larger SRPB data set), we
 believe that the reader would be interested to see the resulting comparative
 performance since training did not use age prediction (or any other evaluation
 or related measure) as a criterion to be optimized during network model training
-(i.e., circular analysis [@Kriegeskorte:2009aa]).
+(i.e., circular analysis [@Kriegeskorte:2009aa]).  Additionally, repeatability
+assessment on the MMRR data set yielded  using ICC values ("average random rater")
+of 0.99 for both pipelines.
 
 [^4]: https://bicr-resource.atr.jp/srpbs1600/
 
