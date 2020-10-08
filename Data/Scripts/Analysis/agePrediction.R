@@ -6,24 +6,23 @@ library( ggplot2 )
 nPermutations <- 500
 trainingPortions <- c( 0.8 )
 
-doCombined <- FALSE
+doCombined <- TRUE 
 source( "./geom_split_violin.R" )
 
 resultsData <- data.frame( DataSet = character( 0 ), Pipeline = character( 0 ), RMSE = numeric( 0 ) )
 count <- 1
 
-#################
-#
-# Per site
-#
-
-
 dataSets <- c( "SRPB1600", "IXI", "Kirby", "NKI", "Oasis" )
 demoFiles <- c( "srpb1600.csv", "ixi.csv", "kirby.csv", "nki.csv", "oasis.csv" )
 
+#################
+#
+# Per site
+# 
+
 for( d in seq.int( from = 1, to = length( dataSets ) ) )
   {
-  cat( "Data set = ", dataSets[d], "\n" )
+  cat( "Data set = ", dataSets[d], "\n" )  
   baseDirectory <- paste0( "../../", dataSets[d], "/" )
 
   ants <- read.csv( paste0( baseDirectory, "antsThickness.csv" ) )
@@ -40,13 +39,13 @@ for( d in seq.int( from = 1, to = length( dataSets ) ) )
     antsxnetBrainVolumes$Subject <- as.factor( as.numeric( substr( antsxnetBrainVolumes$Subject, 4, 6 ) ) )
     }
 
-  if( dataSets[d] == "NKI" )
+  if( dataSets[d] == "NKI" )  
     {
     ants$Subject <- gsub( "_defaced_MPRAGE.nii.gz", "", ants$Subject )
     antsxnet$Subject <- gsub( "_defaced_MPRAGE.nii.gz", "", antsxnet$Subject )
     }
 
-  if( dataSets[d] == "Oasis" )
+  if( dataSets[d] == "Oasis" )  
     {
     ants$Subject <- as.factor( substr( ants$Subject, 1, 13 ) )
     antsBrainVolumes$Subject <- as.factor( substr( antsBrainVolumes$Subject, 1, 13 ) )
@@ -126,15 +125,8 @@ for( d in seq.int( from = 1, to = length( dataSets ) ) )
         predictedAge <- predict( brainAgeRF, testingData )
 
         rmse <- sqrt( mean( ( ( testingData$Age - predictedAge )^2 ), na.rm = TRUE ) )
-
-        if( dataSets[d] == "Kirby" )
-          {
-          oneData <- data.frame( DataSet = "MMRR", Pipeline = thicknessTypes[[i]], RMSE = rmse )
-          }
-        else
-          {
-          oneData <- data.frame( DataSet = dataSets[d], Pipeline = thicknessTypes[[i]], RMSE = rmse )
-          }
+        
+        oneData <- data.frame( DataSet = dataSets[d], Pipeline = thicknessTypes[[i]], RMSE = rmse )
         resultsData <- rbind( resultsData, oneData )
         }
       }
@@ -152,26 +144,29 @@ for( d in seq.int( from = 1, to = length( dataSets ) ) )
     forestImp.df$Statistic <- factor( x = forestImp.df$Statistic, levels = forestImp.df$Statistic )
 
     vPlot <- ggplot( data = forestImp.df, aes( x = Importance, y = Statistic ) ) +
-             geom_point( aes( color = Importance ) ) +
-             ylab( "" ) +
-             scale_x_continuous( "MeanDecreaseAccuracy" ) +
-             scale_color_continuous( low = "#232D4B", high = "#E57200" ) +
-             theme( axis.text.y = element_text( size = 8 ) ) +
-             theme( plot.margin = unit( c( 0.1, 0.1, 0.1, -0.5 ), "cm" ) ) +
-             theme( axis.title = element_text( size = 9 ) ) +
-             theme( legend.position = "none" )
+            geom_point( aes( color = Importance ) ) +
+            ylab( "" ) +
+            scale_x_continuous( "MeanDecreaseAccuracy" ) +
+            scale_color_continuous( low = "#232D4B", high = "#E57200" ) +
+            theme( axis.text.y = element_text( size = 8 ) ) +
+            theme( plot.margin = unit( c( 0.1, 0.1, 0.1, -0.5 ), "cm" ) ) +
+            theme( axis.title = element_text( size = 9 ) ) +
+            theme( legend.position = "none" )
 
     ggsave( file = paste( "../../../Text/Figures/rfImportance_", dataSets[d], "_", thicknessTypes[n], p, ".pdf", sep = "" ), plot = vPlot, width = 3, height = 8 )
     }
-  }
+  }  
+
 
 #################
 #
 # Combined
-#
+# 
 
 if( doCombined == TRUE )
   {
+  cat( "Data set = Combined\n" )  
+  
   for( d in seq.int( from = 1, to = length( dataSets ) ) )
     {
     baseDirectory <- paste0( "../../", dataSets[d], "/" )
@@ -190,13 +185,13 @@ if( doCombined == TRUE )
       antsxnetLocalBrainVolumes$Subject <- as.factor( as.numeric( substr( antsxnetLocalBrainVolumes$Subject, 4, 6 ) ) )
       }
 
-    if( dataSets[d] == "NKI" )
+    if( dataSets[d] == "NKI" )  
       {
       antsLocal$Subject <- gsub( "_defaced_MPRAGE.nii.gz", "", antsLocal$Subject )
       antsxnetLocal$Subject <- gsub( "_defaced_MPRAGE.nii.gz", "", antsxnetLocal$Subject )
       }
 
-    if( dataSets[d] == "Oasis" )
+    if( dataSets[d] == "Oasis" )  
       {
       antsLocal$Subject <- as.factor( substr( antsLocal$Subject, 1, 13 ) )
       antsLocalBrainVolumes$Subject <- as.factor( substr( antsLocalBrainVolumes$Subject, 1, 13 ) )
@@ -273,7 +268,7 @@ if( doCombined == TRUE )
         predictedAge <- predict( brainAgeRF, testingData )
 
         rmse <- sqrt( mean( ( ( testingData$Age - predictedAge )^2 ), na.rm = TRUE ) )
-
+        
         oneData <- data.frame( DataSet = "Combined", Pipeline = thicknessTypes[[i]], RMSE = rmse )
         resultsData <- rbind( resultsData, oneData )
         }
@@ -283,12 +278,13 @@ if( doCombined == TRUE )
     }
 
   resultsData$DataSet[resultsData$DataSet == "SRPB1600"] <- "SRPB"
+  resultsData$DataSet[resultsData$DataSet == "Kirby"] <- "MMRR"
 
   rmsePlot <- ggplot( resultsData, aes( x = DataSet, y = RMSE, fill = Pipeline ) ) +
                     #  geom_split_violin() +
                       geom_boxplot() +
                       scale_y_continuous( "Mean RMSE" ) +
-                      scale_x_discrete( "Data set" ) +
+                      scale_x_discrete( "Data set" ) + 
                       scale_fill_manual( values = c( "#E57200", "#232D4B" ) )
-  ggsave( filename = paste( "~/Desktop/rmseThicknessPerSite.pdf", sep = "" ), plot = rmsePlot, width = 7, height = 3, units = 'in' )
+  ggsave( filename = paste( "../../../Text/Figures/rmseThicknessPerSite.pdf", sep = "" ), plot = rmsePlot, width = 7, height = 3, units = 'in' )
   }
