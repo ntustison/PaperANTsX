@@ -133,12 +133,12 @@ the other covariates of Equation (1) are shown in Figure \ref{fig:rfimportance}.
   \centering
   \begin{subfigure}{0.4\textwidth}
     \centering
-    \includegraphics[width=0.7\linewidth]{Figures/rfImportance_SRPB1600_ANTs0.8.pdf}
+    \includegraphics[width=0.7\linewidth]{Figures/rfImportance_SRPB1600_ANTs.pdf}
     \caption{ANTs}
   \end{subfigure}%
   \begin{subfigure}{0.4\textwidth}
     \centering
-    \includegraphics[width=0.7\linewidth]{Figures/rfImportance_SRPB1600_ANTsXNet0.8.pdf}
+    \includegraphics[width=0.7\linewidth]{Figures/rfImportance_SRPB1600_ANTsXNet.pdf}
     \caption{ANTsXNet}
   \end{subfigure}
 \caption{Regional importance plots for the SRPB data set using ``MeanDecreaseAccuracy'' for the

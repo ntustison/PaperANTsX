@@ -153,7 +153,7 @@ for( d in seq.int( from = 1, to = length( dataSets ) ) )
             theme( axis.title = element_text( size = 9 ) ) +
             theme( legend.position = "none" )
 
-    ggsave( file = paste( "../../../Text/Figures/rfImportance_", dataSets[d], "_", thicknessTypes[n], p, ".pdf", sep = "" ), plot = vPlot, width = 3, height = 8 )
+    ggsave( file = paste( "../../../Text/Figures/rfImportance_", dataSets[d], "_", thicknessTypes[n], ".pdf", sep = "" ), plot = vPlot, width = 3, height = 8 )
     }
   }  
 
@@ -166,7 +166,7 @@ for( d in seq.int( from = 1, to = length( dataSets ) ) )
 if( doCombined == TRUE )
   {
   cat( "Data set = Combined\n" )  
-  
+
   for( d in seq.int( from = 1, to = length( dataSets ) ) )
     {
     baseDirectory <- paste0( "../../", dataSets[d], "/" )
