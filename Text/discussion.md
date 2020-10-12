@@ -52,8 +52,9 @@ the proposed cortical thickness pipeline is not specifically tailored for
 longitudinal data.  Nevertheless, performance is comparable-to-superior relative
 to existing pipelines depending on the evaluation metric.  We see possible
 longitudinal extensions incorporating aspects of the single-subject template
-construction, as described in [@Tustison:2019aa], in addition to the possibility
-of incorporating subject ID and months as additional network inputs.
+construction, as described in our previous work [@Tustison:2019aa], in addition
+to the possibility of incorporating subject ID and months as additional network
+inputs.
 
 
 

@@ -13,12 +13,6 @@ associated with our previous work [@Tustison:2019aa]
 
 ## ANTsXNet cortical thickness {-}
 
-In Listing 1, we show the ANTsPyNet Python code snippet to process a single
-subject which takes the user from the raw T1-weighted MRI input file, through
-the generation of the Atropos-style six-tissue segmentation and probability
-images, application of the original ANTs ``KellyKapowski`` (i.e., DiReCT)
-program.
-
 \vspace{10mm}
 
 \setstretch{1.0}
@@ -79,7 +73,7 @@ kk_regional_stats = ants.label_stats(kk, dkt_propagated)
 
 \setstretch{1.5}
 
-In Listing 1, we show the ANTsPyNet Python code snippet for processing a single
+In Listing 1, we show the ANTsPy/ANTsPyNet code snippet for processing a single
 subject which starts with reading the T1-weighted MRI input image, through the
 generation of the Atropos-style six-tissue segmentation and probability images,
 application of ``ants.kelly_kapowski`` (i.e., DiReCT), DKT cortical parcellation,
@@ -95,28 +89,27 @@ extraction using the ``antspynet.brain_extraction`` function.  Internally,
 and assign the appropriate hyperparameters.  The model weights are automatically
 downloaded from the online hosting site https://figshare.com and loaded to the
 constructed network.  ``antspynet.brain_extraction`` performs a quick
-translation transformation to a specific template (also downloaded automatically
-from https://figshare.com) using the centers of mass. This is to ensure proper
-gross orientation.  Following brain extraction, preprocessing for both deep
-learning components includes ``ants.denoise_image`` [@Manjon:2010aa] and
-``ants.n4_bias_correction`` [@Tustison:2010ac] and an affine-based reorientation
-to a version of the MNI template [@Fonov:2009aa] (also downloaded automatically
-from https://figshare.com).  We recognize the presence of some redundancy due to
-the repeated application of certain preprocessing steps.  Thus, each function
-has a ``do_preprocessing`` option to eliminate this redundancy for knowledgeable
-users but, for simplicity in presentation purposes, we do not provide this
-modified pipeline here although it should be noted that the time difference is
-minimal considering the longer time required by ``ants.kelly_kapowski``.
-``ants.deep_atropos`` returns the segmentation image as well as the posterior
-probability maps for each tissue type listed previously.
-``antspynet.desikan_killiany_tourville_labeling`` returns only the segmentation
-label image which includes not only the 62 cortical labels but the remaining
-labels as well.  The label numbers and corresponding structure names are given
-in the program help.  Because the DKT parcellation will, in general, not exactly
-coincide with the non-zero voxels of the resulting cortical thickness maps, we
-perform a label propagation step to ensure the entire cortex, and only the
-non-zero thickness values in the cortex, are included in the tabulated regional
-values.
+translation transformation to a specific template (also downloaded
+automatically) using the centers of intensity mass, a common alignment
+initialization strategy. This is to ensure proper gross orientation.  Following
+brain extraction, preprocessing for the other two deep learning components
+includes ``ants.denoise_image`` and ``ants.n4_bias_correction`` and an
+affine-based reorientation to a version of the MNI template [@Fonov:2009aa].  We
+recognize the presence of some redundancy due to the repeated application of
+certain preprocessing steps.  Thus, each function has a ``do_preprocessing``
+option to eliminate this redundancy for knowledgeable users but, for simplicity
+in presentation purposes, we do not provide this modified pipeline here.
+Although it should be noted that the time difference is minimal considering the
+longer time required by ``ants.kelly_kapowski``. ``ants.deep_atropos`` returns
+the segmentation image as well as the posterior probability maps for each tissue
+type listed previously. ``antspynet.desikan_killiany_tourville_labeling``
+returns only the segmentation label image which includes not only the 62
+cortical labels but the remaining labels as well.  The label numbers and
+corresponding structure names are given in the program help.  Because the DKT
+parcellation will, in general, not exactly coincide with the non-zero voxels of
+the resulting cortical thickness maps, we perform a label propagation step to
+ensure the entire cortex, and only the non-zero thickness values in the cortex,
+are included in the tabulated regional values.
 
 ## Training {-}
 
@@ -157,22 +150,25 @@ cropped to a size of [160, 190, 160].  Overlapping octant patches of size [112,
 112, 112] were extracted from each image and trained using a batch size of 12
 such octant patches with weighted categorical cross entropy as the loss
 function.  As we point out in our earlier work [@Tustison:2014ab], obtaining
-proper brain segmentation is perhaps the most critical step to getting thickness
-values that have the greatest utility as a potential biomarker.  In fact, the
-first and last authors (NT and BA, respectively) spent much time during the
-original ANTs pipeline development [@Tustison:2014ab] trying to get the
-segmentation correct which required manually looking at many images and manually
-adjusting where necessary.  This fine-tuning is often omitted or not considered
-when other groups [@Clarkson:2011aa;@Schwarz:2016aa;@Rebsamen:2020aa] use components
-of our cortical thickness pipeline which can be potentially problematic[@Tustison:2013aa].
-Fine-tuning for this particular workflow was also performed between the first and
-last authors using manual variation of the weights in the weighted categorical cross
-entropy.  Ultimately, we settled on a weight vector of $(0.05, 1.5, 1, 3, 4, 3, 3)$
-for the CSF, GM, WM, Deep GM, brain stem, and cerebellum, respectively.  Other
-hyperparameters can be directly inferred from explicit specification in the actual
-code.  As mentioned previously, training data was derived from application of the
-ANTs Atropos segmentation [@Avants:2011aa] during the course of our previous
-work [@Tustison:2014ab].
+proper brain segmentation is perhaps the most critical step to estimating
+thickness values that have the greatest utility as a potential biomarker.  In
+fact, the first and last authors (NT and BA, respectively) spent much time
+during the original ANTs pipeline development [@Tustison:2014ab] trying to get
+the segmentation correct which required manually looking at many images and
+manually adjusting where necessary.  This fine-tuning is often omitted or not
+considered when other groups [@Clarkson:2011aa;@Schwarz:2016aa;@Rebsamen:2020aa]
+use components of our cortical thickness pipeline which can be potentially
+problematic[@Tustison:2013aa]. Fine-tuning for this particular workflow was also
+performed between the first and last authors using manual variation of the
+weights in the weighted categorical cross entropy.  Ultimately, we settled on a
+weight vector of $(0.05, 1.5, 1, 3, 4, 3, 3)$ for the CSF, GM, WM, Deep GM,
+brain stem, and cerebellum, respectively.  Other hyperparameters can be directly
+inferred from explicit specification in the actual code.  As mentioned
+previously, training data was derived from application of the ANTs Atropos
+segmentation [@Avants:2011aa] during the course of our previous work
+[@Tustison:2014ab].  Data augmentation included small affine and deformable
+perturbations using ``antspynet.randomly_transform_image_data`` and random
+contralateral flips.
 
 __Desikan-Killiany-Tourville parcellation.__  Preprocessing for the DKT
 parcellation training was similar to the Deep Atropos training.  However, the
@@ -184,9 +180,7 @@ constructed from the training data (and are also available and automatically
 downloaded, when needed, from https://figshare.com). Training occurred over
 multiple sessions where, initially, categorical cross entropy was used and then
 subsquently refined using a Dice loss function.  Whole-brain training was
-performed on a brain-cropped template size of [96, 112, 96].  Data augmentation
-included small affine and deformable perturbations using
-``antspynet.randomly_transform_image_data`` and random contralateral flips.
+performed on a brain-cropped template size of [96, 112, 96].
 Inner label training was performed in a similar to our brain extraction training
 where the number of layers at the base layer was reduced to eight. Training also
 occurred over multiple sessions where, initially, categorical cross entropy was
