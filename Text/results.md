@@ -4,13 +4,12 @@
 The original ANTs cortical thickness pipeline [@Tustison:2014ab] consists of the
 following steps:
 
-* preprocessing: denoising [@Manjon:2010aa];
-* preprocessing: bias correction [@Tustison:2010ac];
+* preprocessing: denoising [@Manjon:2010aa] and bias correction [@Tustison:2010ac];
 * brain extraction [@Avants:2010ab];
 * brain segmentation [@Avants:2011aa] comprising the
-    * cerebrospinal fluid,
-    * gray matter,
-    * white matter,
+    * cerebrospinal fluid (CSF),
+    * gray matter (GM),
+    * white matter (WM),
     * deep gray matter,
     * cerebellum, and
     * brain stem; and
@@ -22,7 +21,7 @@ processing.
 
 Although the resulting thickness maps are conducive to voxel-based
 [@Ashburner:2000aa] and related analyses[@Avants:2012aa], here we employ the
-well-known Desikan-Killiany-Tourville [@Klein:2012aa] labeling protocol (31
+well-known Desikan-Killiany-Tourville (DKT) [@Klein:2012aa] labeling protocol (31
 labels per hemisphere) to parcellate the cortex for averaging thickness values
 regionally. This allows us to 1) be consistent in our evaluation strategy for
 comparison with our previous work [@Tustison:2014ab;@Tustison:2019aa] and 2)
@@ -74,12 +73,12 @@ previous work [@Tustison:2014ab] where we used cross-validation to build and
 compare age prediction models from data derived from both the proposed ANTsXNet
 pipeline and the established ANTs pipeline.  Specifically, we use "age" as a well-known and
 widely-available demographic correlate of cortical thickness [@Lemaitre:2012aa]
-and quantify the predictive capabilities of corresponding random forest models
-of the form:
+and quantify the predictive capabilities of corresponding random forest classifier
+[@Breiman:2001aa] of the form:
 \begin{equation}
 AGE \sim VOLUME + GENDER + \sum_{i=1}^{62} T(DKT_i)
 \end{equation}
-with covariates $GENDER$ and $VOLUME$ (i.e., total intracranial volume).
+with covariates $GENDER$ and $VOLUME$ (i.e., total intracranial volume). [^5]
 $T(DKT_i)$ is the average thickness value in the $i^{th}$ DKT region.  Root mean
 square error (RMSE) between the actual and predicted ages are the quantity used
 for comparative evaluation.  As we have explained previously [@Tustison:2014ab], we find these
@@ -89,10 +88,12 @@ measurements as actual biomarkers for disease[@holbrook2020anterolateral] or gro
 [@Rebsamen:2020aa] the authors employ correlation with FreeSurfer thickness values
 as the primary evaluation for assessing relative performance with ANTs cortical
 thickness [@Tustison:2014ab].  Aside from the fact that this is a
-prime example of flawed [^5] circularity analysis [@Kriegeskorte:2009aa], such
+prime example of flawed [^6] circularity analysis [@Kriegeskorte:2009aa], such
 an evaluation does not indicate relative utility as a biomarker.
 
-[^5]:  Here, data selection is driven by the same criteria used to evaluate
+[^5]:  We used the randomForest package in R with the default hyperparameter values.
+
+[^6]:  Here, data selection is driven by the same criteria used to evaluate
 performance.  Specifically, DeepSCAN network training utilizes FreeSurfer brain
 segmentation results.  Thickness is highly correlated with segmentation which
 varies characteristically between relevant software packages. Relative
@@ -126,9 +127,11 @@ pipeline outperformed the classical pipeline [@Tustison:2014ab] in terms of age
 prediction in all data sets except for IXI.  This also includes the
 cross-validation iteration where all data sets were combined. Importance plots
 ranking the cortical thickness regions and the other covariates of Equation (1)
-are shown in Figure \ref{fig:rfimportance}. Additionally, repeatability
-assessment on the MMRR data set yielded  using ICC values ("average random
-rater") of 0.99 for both pipelines.
+are shown in Figure \ref{fig:rfimportance}. Rankings employ
+"MeanDecreaseAccuracy" which quantifies the decrease in model accuracy based on
+the exclusion of that variable. Additionally, repeatability assessment on the
+MMRR data set yielded  using ICC valuence s ("average random rater") of 0.99 for
+both pipelines.
 
 \begin{figure}[htb]
   \centering
@@ -163,8 +166,8 @@ specified by Equation (1).}
     \includegraphics[width=1\linewidth]{Figures/allData_FINALX.png}
     \caption{}
   \end{subfigure}
-\caption{Measures for the both the unsupervised and supervised evaluation
-strategies.  (a) Log p-values for diagnostic
+\caption{Measures for the both the supervised and unsupervised evaluation
+strategies, respectively given in (a) and (b).  (a) Log p-values for diagnostic
 differentiation of LMCI-CN, AD-LMCI, and AD-CN subjects for all pipelines
 over all DKT regions.  (b) Residual variability, between subject, and variance ratio
 values per pipeline over all DKT regions. }

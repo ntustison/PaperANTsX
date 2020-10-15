@@ -87,29 +87,31 @@ Both the ``ants.deep_atropos`` and
 extraction using the ``antspynet.brain_extraction`` function.  Internally,
 ``antspynet.brain_extraction`` contains the requisite code to build the network
 and assign the appropriate hyperparameters.  The model weights are automatically
-downloaded from the online hosting site https://figshare.com and loaded to the
-constructed network.  ``antspynet.brain_extraction`` performs a quick
-translation transformation to a specific template (also downloaded
-automatically) using the centers of intensity mass, a common alignment
-initialization strategy. This is to ensure proper gross orientation.  Following
-brain extraction, preprocessing for the other two deep learning components
-includes ``ants.denoise_image`` and ``ants.n4_bias_correction`` and an
-affine-based reorientation to a version of the MNI template [@Fonov:2009aa].  We
-recognize the presence of some redundancy due to the repeated application of
-certain preprocessing steps.  Thus, each function has a ``do_preprocessing``
-option to eliminate this redundancy for knowledgeable users but, for simplicity
-in presentation purposes, we do not provide this modified pipeline here.
-Although it should be noted that the time difference is minimal considering the
-longer time required by ``ants.kelly_kapowski``. ``ants.deep_atropos`` returns
-the segmentation image as well as the posterior probability maps for each tissue
-type listed previously. ``antspynet.desikan_killiany_tourville_labeling``
-returns only the segmentation label image which includes not only the 62
-cortical labels but the remaining labels as well.  The label numbers and
-corresponding structure names are given in the program help.  Because the DKT
-parcellation will, in general, not exactly coincide with the non-zero voxels of
-the resulting cortical thickness maps, we perform a label propagation step to
-ensure the entire cortex, and only the non-zero thickness values in the cortex,
-are included in the tabulated regional values.
+downloaded from the online hosting site https://figshare.com (see the function
+``get_pretrained_network`` in ANTsPyNet or ``getPretrainedNetwork`` in ANTsRNet
+for links to all models and weights) and loaded to the constructed network.
+``antspynet.brain_extraction`` performs a quick translation transformation to a
+specific template (also downloaded automatically) using the centers of intensity
+mass, a common alignment initialization strategy. This is to ensure proper gross
+orientation.  Following brain extraction, preprocessing for the other two deep
+learning components includes ``ants.denoise_image`` and
+``ants.n4_bias_correction`` and an affine-based reorientation to a version of
+the MNI template [@Fonov:2009aa].  We recognize the presence of some redundancy
+due to the repeated application of certain preprocessing steps.  Thus, each
+function has a ``do_preprocessing`` option to eliminate this redundancy for
+knowledgeable users but, for simplicity in presentation purposes, we do not
+provide this modified pipeline here. Although it should be noted that the time
+difference is minimal considering the longer time required by
+``ants.kelly_kapowski``. ``ants.deep_atropos`` returns the segmentation image as
+well as the posterior probability maps for each tissue type listed previously.
+``antspynet.desikan_killiany_tourville_labeling`` returns only the segmentation
+label image which includes not only the 62 cortical labels but the remaining
+labels as well.  The label numbers and corresponding structure names are given
+in the program help.  Because the DKT parcellation will, in general, not exactly
+coincide with the non-zero voxels of the resulting cortical thickness maps, we
+perform a label propagation step to ensure the entire cortex, and only the
+non-zero thickness values in the cortex, are included in the tabulated regional
+values.
 
 ## Training {-}
 
