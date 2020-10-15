@@ -85,7 +85,7 @@ square error (RMSE) between the actual and predicted ages are the quantity used
 for comparative evaluation.  As we have explained previously [@Tustison:2014ab], we find these
 evaluation measures to be much more useful than some other commonly applied
 criteria as they are closer to assessing the actual utility of these thickness
-measurements as actual biomarkers for disease or growth.  For example, in recent work
+measurements as actual biomarkers for disease[@holbrook2020anterolateral] or growth.  For example, in recent work
 [@Rebsamen:2020aa] the authors employ correlation with FreeSurfer thickness values
 as the primary evaluation for assessing relative performance with ANTs cortical
 thickness [@Tustison:2014ab].  Aside from the fact that this is a
