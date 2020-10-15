@@ -241,7 +241,7 @@ AD-LMCI diffierentiation relative to the other pipelines.
 Despite these strong results, Figure \ref{fig:longeval}(b) shows that even
 better performance may be possible for a longitudinal extension to ANTsXNet. In
 a longitudinal setting, we prefer to see lower values for residual variability
-and higher values for within-subject variability, leading to a larger variance
+and higher values for between-subject variability, leading to a larger variance
 ratio.  ANTsXNet performs remarkably poorly for these measures, suggesting that
 even better classification performance---e.g., superior differentiation between
 LMCI and AD cohorts---is completely possible for an ANTsXNet extension that
