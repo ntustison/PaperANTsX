@@ -46,7 +46,7 @@ U-net network [@Falk:2019aa] with whole brain, template-based data augmentation
 [@Tustison:2019ac] whereas brain segmentation and DKT parcellation are processed
 via 3-D U-net networks with attention gating [@Schlemper:2019aa] on image octant-based
 batches.  We emphasize that a single model was created for each of these steps
-and were used for all the experiments described below.
+and was used for all the experiments described below.
 
 [^1]: https://brain-development.org/ixi-dataset/
 [^2]: http://fcon_1000.projects.nitrc.org/indi/pro/nki.html
@@ -82,9 +82,9 @@ AGE \sim VOLUME + GENDER + \sum_{i=1}^{62} T(DKT_i)
 with covariates $GENDER$ and $VOLUME$ (i.e., total intracranial volume).
 $T(DKT_i)$ is the average thickness value in the $i^{th}$ DKT region.  Root mean
 square error (RMSE) between the actual and predicted ages are the quantity used
-for comparative evaluation.  As we have explained previously [@Tustison:2014ab], we find that these
+for comparative evaluation.  As we have explained previously [@Tustison:2014ab], we find these
 evaluation measures to be much more useful than some other commonly applied
-quantities as they are closer to assessing the actual utility of these thickness
+criteria as they are closer to assessing the actual utility of these thickness
 measurements as actual biomarkers for disease or growth.  For example, in recent work
 [@Rebsamen:2020aa] the authors employ correlation with FreeSurfer thickness values
 as the primary evaluation for assessing relative performance with ANTs cortical
@@ -205,7 +205,7 @@ subject ($ID$) and the acquisition site. The subject-specific covariates $AGE$, 
 status, $GENDER$, $DIAGNOSIS$, and $VISIT$ were taken directly from the
 ADNIMERGE package.
 
-Second, linear-mixed effects (LME) modeling were used to quantify
+Second, linear mixed-effects (LME) [@verbeke1997linear] modeling was used to quantify
 between-subject and residual variabilities, the ratio of which provides an
 estimate of the effectiveness of a given biomarker for distinguishing between
 subpopulations. In order to assess this criteria while accounting for changes

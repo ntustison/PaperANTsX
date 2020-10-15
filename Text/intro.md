@@ -11,7 +11,7 @@ to evaluate ANTs tools since their early development. In a landmark paper
 [@Klein:2009aa], the authors reported an extensive evaluation using multiple
 neuroimaging datasets analyzed by fourteen different registration tools,
 including the Symmetric Normalization (SyN) algorithm [@Avants:2008aa] found in
-ANTs  and found that "ART, SyN, IRTK, and SPM’s DARTEL Toolbox gave the best
+ANTs, and found that "ART, SyN, IRTK, and SPM’s DARTEL Toolbox gave the best
 results according to overlap and distance measures, with ART and SyN delivering
 the most consistently high accuracy across subjects and label sets." This
 superior performance was reinforced in a completely different pulmonary imaging
@@ -38,7 +38,7 @@ deformable diffeomorphic mappings [@Avants:2008aa], but also packages these
 normalization tools as a full-featured platform that includes an extensive
 library of similarity measures, transformation types, and regularizers which are
 built upon the robust Insight Toolkit and vetted by users and developers from
-all over the world .  In fact, based on performance and innovations within the
+all over the world.  In fact, based on performance and innovations within the
 ANTs toolkit and our track record of contributions to the ITK registration
 development efforts, our group was selected for the most recent major
 refactoring of the ITK image registration component [@Avants:2014aa]. Not only
