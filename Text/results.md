@@ -110,11 +110,12 @@ also compared performance using the SRPB data set[^4] comprising over 1600
 participants from 12 sites.  Note that we recognize that we are processing data
 through the proposed deep learning-based pipeline that were used to train
 certain components of this pipeline.  Although this does not provide evidence
-for generalizability (which is why we include the much larger SRPB data set), we
-believe that the reader would be interested to see the resulting comparative
-performance since training did not use age prediction (or any other evaluation
-or related measure) as a criterion to be optimized during network model training
-(i.e., circular analysis [@Kriegeskorte:2009aa]).
+for generalizability (which is why we include the much larger SRPB data set),
+it is still interesting to examine the results since, in this case, the deep
+learning training can be considered a type of noise reduction on the final
+model.  It should be noted that training did not use age prediction (or any other
+evaluation or related measure) as a criterion to be optimized during network model
+training (i.e., circular analysis [@Kriegeskorte:2009aa]).
 
 [^4]: https://bicr-resource.atr.jp/srpbs1600/
 

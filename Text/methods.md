@@ -181,13 +181,12 @@ downloaded, when needed, from https://figshare.com). Training occurred over
 multiple sessions where, initially, categorical cross entropy was used and then
 subsquently refined using a Dice loss function.  Whole-brain training was
 performed on a brain-cropped template size of [96, 112, 96].
-Inner label training was performed in a similar to our brain extraction training
+Inner label training was performed similarly to our brain extraction training
 where the number of layers at the base layer was reduced to eight. Training also
 occurred over multiple sessions where, initially, categorical cross entropy was
 used and then subsquently refined using a Dice loss function.  Other
 hyperparameters can be directly inferred from explicit specification in the
 actual code. Training data was derived from application of joint label fusion
 [@Wang:2013aa] during the course of our previous work [@Tustison:2014ab].  When
-calling ``antspynet.desikan_killiany_tourville_labeling``, the inner labels are
-estimated initially followed by the cortical labels, the latter labels being
-prioritized in the final labeling.
+calling ``antspynet.desikan_killiany_tourville_labeling``, inner labels are
+estimated first followed by the outer, cortical labels.
