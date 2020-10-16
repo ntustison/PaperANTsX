@@ -39,7 +39,7 @@ atropos = antspynet.deep_atropos(t1, do_preprocessing=True, verbose=True)
 
 # Kelly Kapowski cortical thickness
 gray_matter_probability = atropos['probability_images'][2]
-white_matter_probability = atropos['probability_images'][3]
+white_matter_probability = atropos['probability_images'][3] + atropos['probability_images'][4]
 kk = ants.kelly_kapowski(s=atropos['segmentation_image'], g=gray_matter_probability,
                          w=white_matter_probability, its=45, r=0.025, m=1.5, x=0, verbose=1)
 
@@ -101,8 +101,8 @@ kk_regional_stats = ants.label_stats(kk, dkt_propagated)
 % # Kelly Kapowski cortical thickness
 % kk_file <- paste0(output_prefix, "CorticalThickness.nii.gz")
 % kk <- kellyKapowski(s = atropos$segmentationImage, g = atropos$probabilityImages[[3]],
-%                     w = atropos$probabilityImages[[4]], its = 45, r = 0.025, m = 1.5,
-%                     x = 0, verbose = 1)
+%                     w = atropos$probabilityImages[[4]] + atropos$probabilityImages[[5]], 
+%                     its = 45, r = 0.025, m = 1.5, x = 0, verbose = 1)
 % antsImageWrite(kk, kk_file)
 
 % # Desikan-Killiany-Tourville labeling

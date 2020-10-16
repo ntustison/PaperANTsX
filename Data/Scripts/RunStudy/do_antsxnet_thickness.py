@@ -39,8 +39,8 @@ kk = None
 if not path.exists(kk_file):
     print("    Calculating\n")
     kk = ants.kelly_kapowski(s=atropos['segmentation_image'], g=atropos['probability_images'][2], 
-                             w=atropos['probability_images'][3], its=45, r=0.025, m=1.5,
-                             x=0, verbose=1)
+                             w=atropos['probability_images'][3] + atropos['probability_images'][4], 
+                             its=45, r=0.025, m=1.5, x=0, verbose=1)
     ants.image_write(kk, kk_file)
 else:
     print("    Reading\n")
