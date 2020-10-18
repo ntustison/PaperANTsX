@@ -130,8 +130,8 @@ ranking the cortical thickness regions and the other covariates of Equation (1)
 are shown in Figure \ref{fig:rfimportance}. Rankings employ
 "MeanDecreaseAccuracy" which quantifies the decrease in model accuracy based on
 the exclusion of that variable. Additionally, repeatability assessment on the
-MMRR data set yielded  using ICC valuence s ("average random rater") of 0.99 for
-both pipelines.
+MMRR data set yielded ICC values ("average random rater") of 0.99 for both
+pipelines.
 
 \begin{figure}[htb]
   \centering
