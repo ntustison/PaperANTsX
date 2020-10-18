@@ -28,8 +28,13 @@ for( d in seq.int( from = 1, to = length( dataSets ) ) )
   ants <- read.csv( paste0( baseDirectory, "antsThickness.csv" ) )
   antsBrainVolumes <- read.csv( paste0( baseDirectory, "antsBrainVolumes.csv" ) )
 
-  antsxnet <- read.csv( paste0( baseDirectory, "antsxnetThickness.csv" ) )
   antsxnetBrainVolumes <- read.csv( paste0( baseDirectory, "antsxnetBrainVolumes.csv" ) )
+  if( dataSets[d] == "SRPB1600" )
+    {
+    antsxnet <- read.csv( paste0( baseDirectory, "antsxnetThickness2.csv" ) )
+    } else {
+    antsxnet <- read.csv( paste0( baseDirectory, "antsxnetThickness.csv" ) )
+    }
 
   if( dataSets[d] == "IXI" )
     {
