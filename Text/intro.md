@@ -11,27 +11,27 @@ the field.   Various independent platforms have been used to evaluate ANTs tools
 since their early development. In a landmark paper [@Klein:2009aa], the authors
 reported an extensive evaluation using multiple neuroimaging datasets analyzed
 by fourteen different registration tools, including the Symmetric Normalization
-(SyN) algorithm [@Avants:2008aa] found in ANTs, and found that "ART, SyN, IRTK,
-and SPM’s DARTEL Toolbox gave the best results according to overlap and distance
-measures, with ART and SyN delivering the most consistently high accuracy across
-subjects and label sets." This superior performance was reinforced in a
-completely different pulmonary imaging evaluation, the Evaluation of Methods for
-Pulmonary Image REgistration 2010 (EMPIRE10) [@Murphy:2011aa], where
-ANTs was the top performer for the benchmarks used to assess lung registration
-accuracy and biological plausibility of the inferred transform (i.e., boundary
-alignment, fissure alignment, landmark correspondence, and displacement field
-topology). The competition has continued to the present where SyN has remained
-the top-ranked algorithm. Even indirect assessments have demonstrated the
-performance superiority of ANTs registration. In the MICCAI 2012 multi-atlas
-label fusion segmentation challenge for brain data, the joint label fusion
-algorithm [@Wang:2013ab] (coupled with SyN) was the top performer. In fact, 6 of
-the top 10 performing entries in that competition used ANTs for performing the
-spatial normalization. A separate competition [@Menze:2014aa] for segmentation
-of brain tumors from multi-modal MRI held under the auspices of MICCAI 2013 was
-won by ANTs developers where the registration capabilities were crucial for
-performance [@Tustison:2014aa]. The following year an ANTs-based entry for the
-STACOM workshop concerning cardiac motion estimation won the best paper award
-[@Tustison:2015ab].
+(SyN) algorithm [@Avants:2008aa] found in ANTs [@Avants:2011ab], and found that
+"ART, SyN, IRTK, and SPM’s DARTEL Toolbox gave the best results according to
+overlap and distance measures, with ART and SyN delivering the most consistently
+high accuracy across subjects and label sets." This superior performance was
+reinforced in a completely different pulmonary imaging evaluation, the
+Evaluation of Methods for Pulmonary Image REgistration 2010 (EMPIRE10)
+[@Murphy:2011aa], where ANTs was the top performer for the benchmarks used to
+assess lung registration accuracy and biological plausibility of the inferred
+transform (i.e., boundary alignment, fissure alignment, landmark correspondence,
+and displacement field topology). The competition has continued to the present
+where SyN has remained the top-ranked algorithm. Even indirect assessments have
+demonstrated the performance superiority of ANTs registration. In the MICCAI
+2012 multi-atlas label fusion segmentation challenge for brain data, the joint
+label fusion algorithm [@Wang:2013ab] (coupled with SyN) was the top performer.
+In fact, 6 of the top 10 performing entries in that competition used ANTs for
+performing the spatial normalization. A separate competition [@Menze:2014aa] for
+segmentation of brain tumors from multi-modal MRI held under the auspices of
+MICCAI 2013 was won by ANTs developers where the registration capabilities were
+crucial for performance [@Tustison:2014aa]. The following year an ANTs-based
+entry for the STACOM workshop concerning cardiac motion estimation won the best
+paper award [@Tustison:2015ab].
 
 The ANTs registration component not only encodes advanced developments in image
 registration research but also packages these normalization tools as a
