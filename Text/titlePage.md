@@ -7,7 +7,7 @@
 
 $ $
 
-\vspace{4.5cm}
+\vspace{4.cm}
 
 \LARGE
 
@@ -25,9 +25,9 @@ John Muschelli$^{5}$,
 Gabriel A. Devanyi$^{6}$,
 Jeffrey T. Duda$^{2}$,
 Sandhitsu R. Das$^{2}$,
-Nicholas C. Cullen$^{2}$,
-Daniel L. Gillen$^{7}$,
-Michael A. Yassa$^{8}$,
+Nicholas C. Cullen$^{7}$,
+Daniel L. Gillen$^{8}$,
+Michael A. Yassa$^{9}$,
 James R. Stone$^{1}$,
 James C. Gee$^{2}$,
 Brian B. Avants$^{1}$
@@ -41,12 +41,13 @@ $^{3}$Department of Biostatistics, University of California, Los Angeles, CA \\
 $^{4}$Department of Electrical and Computer Engineering, University of Iowa, Philadelphia, PA \\
 $^{5}$School of Public Health, Johns Hopkins University, Baltimore, MD \\
 $^{6}$Douglas Mental Health University Institute, McGill University, Montreal, QC \\
-$^{7}$Department of Statistics, University of California, Irvine, CA \\
-$^{8}$Department of Neurobiology and Behavior, University of California, Irvine, CA \\
+$^{7}$Lund University, Scania, SE \\
+$^{8}$Department of Statistics, University of California, Irvine, CA \\
+$^{9}$Department of Neurobiology and Behavior, University of California, Irvine, CA \\
 
 \end{centering}
 
-\vspace{1. cm}
+\vspace{1.0 cm}
 
 \noindent\rule{4cm}{0.4pt}
 
