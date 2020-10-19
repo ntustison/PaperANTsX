@@ -73,7 +73,7 @@ previous work [@Tustison:2014ab] where we used cross-validation to build and
 compare age prediction models from data derived from both the proposed ANTsXNet
 pipeline and the established ANTs pipeline.  Specifically, we use "age" as a well-known and
 widely-available demographic correlate of cortical thickness [@Lemaitre:2012aa]
-and quantify the predictive capabilities of corresponding random forest classifier
+and quantify the predictive capabilities of corresponding random forest classifiers
 [@Breiman:2001aa] of the form:
 \begin{equation}
 AGE \sim VOLUME + GENDER + \sum_{i=1}^{62} T(DKT_i)
