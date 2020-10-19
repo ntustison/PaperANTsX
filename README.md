@@ -1,4 +1,5 @@
-# PaperANTsX
+# ANTsXNet cortical thickness
+
 But if you wait around awhile, I promise you
 
 ------------
