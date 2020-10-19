@@ -19,28 +19,22 @@ tf.compat.v1.keras.backend.set_session(session)
 
 t1 = ants.image_read(t1_file)
 
-print("Atropos\n")
-
-atropos_file = output_prefix + "BrainSegmentation.nii.gz"
-atropos_segmentation = None
-if not path.exists(atropos_file):
-    print("    Calculating\n")
-    atropos = antspynet.deep_atropos(t1, do_preprocessing=True, verbose=True)
-    atropos_segmentation = atropos['segmentation_image']
-    ants.image_write(atropos_segmentation, atropos_file)
-else:
-    print("    Reading\n")
-    atropos_segmentation = ants.image_read(atropos_file)
-
-print("KellyKapowski")
+print("Atropos and KellyKapowski")
 
 kk_file = output_prefix + "CorticalThickness.nii.gz"
 kk = None
 if not path.exists(kk_file):
-    print("    Calculating\n")
-    kk = ants.kelly_kapowski(s=atropos['segmentation_image'], g=atropos['probability_images'][2], 
-                             w=atropos['probability_images'][3] + atropos['probability_images'][4], 
-                             its=45, r=0.025, m=1.5, x=0, verbose=1)
+    print("    Atropos:  calculating\n")
+    atropos = antspynet.deep_atropos(t1, do_preprocessing=True, verbose=True)
+    atropos_segmentation = atropos['segmentation_image']
+
+    # Combine white matter and deep gray matter
+    kk_segmentation = atropos_segmentation
+    kk_segmentation[kk_segmentation == 4] = 3
+    kk_white_matter = atropos['probability_images'][3] + atropos['probability_images'][4]
+    print("    KellyKapowski:  calculating\n")
+    kk = ants.kelly_kapowski(s=kk_segmentation, g=atropos['probability_images'][2],
+                             w=kk_white_matter, its=45, r=0.025, m=1.5, x=0, verbose=1)
     ants.image_write(kk, kk_file)
 else:
     print("    Reading\n")
