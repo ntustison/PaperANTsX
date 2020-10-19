@@ -40,21 +40,6 @@ else:
     print("    Reading\n")
     kk = ants.image_read(kk_file)
 
-# We're adding deep flash to this analysis
-
-print("DeepFlash\n")
-
-flash_file = output_prefix + "DeepFlash.nii.gz"
-flash_segmentation = None
-if not path.exists(flash_file):
-    print("    Calculating\n")
-    flash = antspynet.deep_flash(t1, do_preprocessing=True, verbose=True)
-    flash_segmentation = flash['segmentation_image']
-    ants.image_write(flash_segmentation, flash_file)
-else:
-    print("    Reading\n")
-    flash_segmentation = ants.image_read(flash_file)
-
 # If one wants cortical labels one can run the following lines
 
 print("DKT\n")
