@@ -17,12 +17,12 @@ $ $
 
 \normalsize
 
-Nicholas J. Tustison$^{1,8}$,
+Nicholas J. Tustison$^{1,9}$,
 Philip A. Cook$^{2}$,
 Andrew J. Holbrook$^{3}$,
 Hans J. Johnson$^{4}$,
 John Muschelli$^{5}$,
-Gabriel A. Devanyi$^{6}$,
+Gabriel A. Devenyi$^{6}$,
 Jeffrey T. Duda$^{2}$,
 Sandhitsu R. Das$^{2}$,
 Nicholas C. Cullen$^{7}$,
@@ -40,7 +40,7 @@ $^{2}$Department of Radiology, University of Pennsylvania, Philadelphia, PA \\
 $^{3}$Department of Biostatistics, University of California, Los Angeles, CA \\
 $^{4}$Department of Electrical and Computer Engineering, University of Iowa, Philadelphia, PA \\
 $^{5}$School of Public Health, Johns Hopkins University, Baltimore, MD \\
-$^{6}$Douglas Mental Health University Institute, McGill University, Montreal, QC \\
+$^{6}$Douglas Mental Health University Institute, Department of Psychiatry, McGill University, Montreal, QC \\
 $^{7}$Lund University, Scania, SE \\
 $^{8}$Department of Statistics, University of California, Irvine, CA \\
 $^{9}$Department of Neurobiology and Behavior, University of California, Irvine, CA \\

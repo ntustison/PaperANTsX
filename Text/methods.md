@@ -52,12 +52,13 @@ t1 = ants.image_read(t1_file)
 # Atropos six-tissue segmentation
 atropos = antspynet.deep_atropos(t1, do_preprocessing=True, verbose=True)
 
-# Kelly Kapowski cortical thickness
-gray_matter_probability = atropos['probability_images'][2]
-white_matter_probability = \
-  (atropos['probability_images'][3] + atropos['probability_images'][4])
-kk = ants.kelly_kapowski(s=atropos['segmentation_image'], g=gray_matter_probability,
-                         w=white_matter_probability, its=45, r=0.025, m=1.5, x=0, verbose=1)
+# Kelly Kapowski cortical thickness (combine Atropos WM and deep GM)
+kk_segmentation = atropos['segmentation_image']
+kk_segmentation[kk_segmentation == 4] = 3
+kk_gray_matter = atropos['probability_images'][2]
+kk_white_matter = atropos['probability_images'][3] + atropos['probability_images'][4]
+kk = ants.kelly_kapowski(s=kk_segmentation, g=kk_gray_matter, w=kk_white_matter,
+                         its=45, r=0.025, m=1.5, x=0, verbose=1)
 
 # Desikan-Killiany-Tourville labeling
 dkt = antspynet.desikan_killiany_tourville_labeling(t1, do_preprocessing=True, verbose=True)
