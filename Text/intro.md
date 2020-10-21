@@ -81,7 +81,7 @@ components[@Tustison2009e;@Manjon:2010aa] into their own libraries.
  \label{fig:antsXnetTools} \end{figure}
 
 Over the course of its development, ANTs has been extended to complementary
-frameworks resulting in the the Python- and R-based ANTsPy and ANTsR toolkits,
+frameworks resulting in the Python- and R-based ANTsPy and ANTsR toolkits,
 respectively. These ANTs-based interfaces with extremely popular, high-level,
 open-source programming platforms have significantly increased the user base of
 ANTs and facilitated research workflows which were not previously possible. The
