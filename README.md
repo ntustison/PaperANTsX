@@ -1,5 +1,7 @@
 # ANTsXNet cortical thickness
 
+[medrxiv](https://www.medrxiv.org/content/10.1101/2020.10.19.20215392v1)
+
 But if you wait around awhile, I promise you
 
 ------------
