@@ -78,33 +78,30 @@ and quantify the predictive capabilities of corresponding random forest classifi
 \begin{equation}
 AGE \sim VOLUME + GENDER + \sum_{i=1}^{62} T(DKT_i)
 \end{equation}
-with covariates $GENDER$ and $VOLUME$ (i.e., total intracranial volume). [^5]
+with covariates $GENDER$ and $VOLUME$ (i.e., total intracranial volume).
 $T(DKT_i)$ is the average thickness value in the $i^{th}$ DKT region.  Root mean
 square error (RMSE) between the actual and predicted ages are the quantity used
-for comparative evaluation.  As we have explained previously [@Tustison:2014ab], we find these
-evaluation measures to be much more useful than some other commonly applied
-criteria as they are closer to assessing the actual utility of these thickness
-measurements as actual biomarkers for disease[@holbrook2020anterolateral] or growth.  For example, in recent work
-[@Rebsamen:2020aa] the authors employ correlation with FreeSurfer thickness values
-as the primary evaluation for assessing relative performance with ANTs cortical
-thickness [@Tustison:2014ab].  Aside from the fact that this is a
-prime example of flawed [^6] circularity analysis [@Kriegeskorte:2009aa], such
-an evaluation does not indicate relative utility as a biomarker.
-
-[^5]:  We used the randomForest package in R with the default hyperparameter values.
-
-[^6]:  Here, data selection is driven by the same criteria used to evaluate
-performance.  Specifically, DeepSCAN network training utilizes FreeSurfer brain
-segmentation results.  Thickness is highly correlated with segmentation which
-varies characteristically between relevant software packages. Relative
-performance with ANTs thickness (which does not use FreeSurfer for training) is
-then assessed by determining correlations with FreeSurfer thickness values.
-Almost as problematic is their use of repeatability (which they confusingly
-label as "robustness") as an additional ranking criterion.  Repeatability
-evaluations should be contextualized within considerations such as the
-bias-variance tradeoff and quantified using relevant metrics, such as the intra-class
-correlation coefficient which takes into account both inter- and intra-observer
-variability.
+for comparative evaluation.  As we have explained previously [@Tustison:2014ab],
+we find these evaluation measures to be much more useful than some other
+commonly applied criteria as they are closer to assessing the actual utility of
+these thickness measurements as actual biomarkers for
+disease[@holbrook2020anterolateral] or growth.  For example, in recent work
+[@Rebsamen:2020aa] the authors employ correlation with FreeSurfer thickness
+values as the primary evaluation for assessing relative performance with ANTs
+cortical thickness [@Tustison:2014ab].  Additionally, in this
+work[@Rebsamen:2020aa], data selection is driven by the same criteria used to
+evaluate performance---a prime example of flawed circularity analysis
+[@Kriegeskorte:2009aa].  Specifically, DeepSCAN network training utilizes
+FreeSurfer brain segmentation results.  Thickness is highly correlated with
+segmentation which varies characteristically between relevant software packages.
+Relative performance with ANTs thickness (which does not use FreeSurfer for
+training) is then assessed by determining correlations with FreeSurfer thickness
+values.  (Almost as problematic is their use of repeatability, which they
+confusingly label as "robustness," as an additional ranking criterion.
+Repeatability evaluations should be contextualized within considerations such as
+the bias-variance tradeoff and quantified using relevant metrics, such as the
+intra-class correlation coefficient which takes into account both inter- and
+intra-observer variability.)
 
 In addition to the training data listed above, to ensure generalizability, we
 also compared performance using the SRPB data set[^4] comprising over 1600

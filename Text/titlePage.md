@@ -47,26 +47,16 @@ $^{9}$Department of Neurobiology and Behavior, University of California, Irvine,
 
 \end{centering}
 
-\vspace{1.0 cm}
+\vspace{4.0 cm}
 
 \noindent\rule{4cm}{0.4pt}
 
 \scriptsize
-Corresponding authors: \
+Corresponding author: \
 Nicholas J. Tustison, DSc \
 Department of Radiology and Medical Imaging \
 University of Virginia \
 ntustison@virginia.edu
-
-James C. Gee, PhD \
-Department of Radiology \
-University of Pennsylvania \
-gee@upenn.edu
-
-Brian. B. Avants, PhD \
-Department of Radiology and Medical Imaging \
-University of Virginia \
-stnava@gmail.com
 
 \tiny
 $^{\dagger}$Data used in preparation of this article were obtained from the Alzheimer’s

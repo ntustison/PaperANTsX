@@ -8,7 +8,8 @@ output:
     latex_engine: xelatex
     keep_tex: yes
     number_sections: true
-    toc: true
+    includes:
+      after_body: authorContributions.md
   word_document:
     fig_caption: true
 bibliography:
