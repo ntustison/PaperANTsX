@@ -194,3 +194,14 @@ actual code. Training data was derived from application of joint label fusion
 [@Wang:2013aa] during the course of our previous work [@Tustison:2014ab].  When
 calling ``antspynet.desikan_killiany_tourville_labeling``, inner labels are
 estimated first followed by the outer, cortical labels.
+
+<!-- ## ADNI image data
+
+A portion of the data used in the preparation of this article were obtained from
+the Alzheimer’s Disease Neuroimaging Initiative (ADNI) database
+(adni.loni.usc.edu). The ADNI was launched in 2003 as a public-private
+partnership, led by Principal Investigator Michael W. Weiner, MD. The primary
+goal of ADNI has been to test whether serial magnetic resonance imaging (MRI),
+positron emission tomography (PET), other biological markers, and clinical and
+neuropsychological assessment can be combined to measure the progression of mild
+cognitive impairment (MCI) and early Alzheimer’s disease (AD). -->
