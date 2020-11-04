@@ -38,7 +38,7 @@ and other utilities built from ANTsR/ANTsPy functionality.
 
 The brain extraction, brain segmentation, and DKT parcellation deep learning components were
 trained using data derived from our previous work [@Tustison:2014ab].
-Specifically, the IXI[^1] , MMRR [@Landman:2011aa], NKI[^2], and OASIS[^3] data
+Specifically, the IXI [@ixi], MMRR [@Landman:2011aa], NKI [@nki], and OASIS [@oasis] data
 sets, and the corresponding derived data, comprising over 1200 subjects from age
 4 to 94, were used for all network training. Brain extraction employs a traditional 3-D
 U-net network [@Falk:2019aa] with whole brain, template-based data augmentation
@@ -46,10 +46,6 @@ U-net network [@Falk:2019aa] with whole brain, template-based data augmentation
 via 3-D U-net networks with attention gating [@Schlemper:2019aa] on image octant-based
 batches.  We emphasize that a single model was created for each of these steps
 and was used for all the experiments described below.
-
-[^1]: https://brain-development.org/ixi-dataset/
-[^2]: http://fcon_1000.projects.nitrc.org/indi/pro/nki.html
-[^3]: https://www.oasis-brains.org
 
 ## Cross-sectional cortical thickness {-}
 
@@ -104,7 +100,7 @@ intra-class correlation coefficient which takes into account both inter- and
 intra-observer variability.)
 
 In addition to the training data listed above, to ensure generalizability, we
-also compared performance using the SRPB data set[^4] comprising over 1600
+also compared performance using the SRPB data set [@srpb] comprising over 1600
 participants from 12 sites.  Note that we recognize that we are processing data
 through certain components of the proposed deep learning-based pipeline that
 were used to train the same pipeline components.  Although this does not
@@ -114,8 +110,6 @@ case, the deep learning training can be considered a type of noise reduction on
 the final model.  It should be noted that training did not use age prediction
 (or any other evaluation or related measure) as a criterion to be optimized
 during network model training (i.e., circular analysis [@Kriegeskorte:2009aa]).
-
-[^4]: https://bicr-resource.atr.jp/srpbs1600/
 
 The results are shown in Figure \ref{fig:agePrediction} where we used
 cross-validation with 500 permutations per model per data set (including a

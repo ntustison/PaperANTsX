@@ -1,6 +1,6 @@
 
 
-The Advanced Noramlization Tools (ANTs) is a state-of-the-art, open-source
+The Advanced Normalization Tools (ANTs) is a state-of-the-art, open-source
 software toolkit for image registration, segmentation, and other functionality
 for comprehensive biological and medical image analysis. Historically, ANTs is
 rooted in advanced image registration techniques which have been at the
