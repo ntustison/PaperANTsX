@@ -24,7 +24,7 @@ atropos = antspynet.deep_atropos(t1, do_preprocessing=True, verbose=True)
 # Kelly Kapowski cortical thickness
 
 kk_segmentation = atropos['segmentation_image']
-kk_segmentation = kk_segmentation[kk_segmentation == 4] = 3
+kk_segmentation[kk_segmentation == 4] = 3
 gray_matter = atropos['probability_images'][2] 
 white_matter = (atropos['probability_images'][3] + atropos['probability_images'][4]) 
 kk = ants.kelly_kapowski(s=kk_segmentation, g=gray_matter, w=white_matter, 
@@ -64,7 +64,7 @@ atropos <- deepAtropos( t1, doPreprocessing = TRUE, verbose = TRUE )
 # Kelly Kapowski cortical thickness
 
 kkSegmentation <- atropos$segmentationImage
-kkSegmentation <- kkSegmentation[kkSegmentation == 4] <- 3
+kkSegmentation[kkSegmentation == 4] <- 3
 grayMatter <- atropos$probabilityImages[[3]] 
 whiteMatter <- atropos$probabilityImages[[4]] + atropos$probabilityImages[[5]]
 kk <- kellyKapowski( s = kkSegmentation, g = grayMatter, w = whiteMatter, 
