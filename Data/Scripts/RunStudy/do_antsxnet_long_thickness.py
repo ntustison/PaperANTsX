@@ -78,8 +78,11 @@ for i in range(len(t1s)):
     kk_file =
     ants.image_write(kk_long[i]['thickness_image'], kk_file)
 
+    t1_pre_file =
+    ants.image_write(kk_long[i]['preprocessed_image'], t1_pre_file)
+
     dkt_file =
-    dkt = antspynet.desikan_killiany_tourville_labeling(t1s[i], do_preprocessing=True, verbose=True)
+    dkt = antspynet.desikan_killiany_tourville_labeling(kk_long[i]['preprocessed_image'], do_preprocessing=True, verbose=True)
     ants.image_write(dkt, dkt_file)
 
     dkt_prop_file =
