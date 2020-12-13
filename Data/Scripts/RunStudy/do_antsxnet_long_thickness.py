@@ -35,7 +35,12 @@ t1s_basename_prefix = list()
 for i in range(len(t1_files)):
     print("Reading", t1_files[i])
     t1s.append(ants.image_read(t1_files[i]))
+<<<<<<< HEAD
     t1s_basename_prefix.append(t1_files[i].replace('.nii.gz', ''))
+=======
+    t1_basename = os.path.basename(t1_files[i])
+    t1s_basename_prefix.append(t1_basename.replace('.nii.gz', ''))
+>>>>>>> d992129e94f089481a8f930f83dac7f8638ed8d4
 
 ####################
 #
@@ -43,12 +48,14 @@ for i in range(len(t1_files)):
 #
 ####################
 
-print("Longitudinal cortical thickness and DKT")
-
 kk_long = antspynet.longitudinal_cortical_thickness(t1s, initial_template="adni",
   number_of_iterations=2, refinement_transform="antsRegistrationSyNQuick[a]", verbose=True)
 
+<<<<<<< HEAD
 sst_file = output_directory + "/" + t1s_basename_prefix[i] + "SingleSubjectTemplate.nii.gz"
+=======
+sst_file = output_directory + "/" + "SingleSubjectTemplate.nii.gz"
+>>>>>>> d992129e94f089481a8f930f83dac7f8638ed8d4
 ants.image_write(kk_long[-1], sst_file)
 
 for i in range(len(t1s)):
@@ -58,11 +65,19 @@ for i in range(len(t1s)):
     t1_pre_file = output_directory + "/" + t1s_basename_prefix[i] + "Preprocessed.nii.gz"
     ants.image_write(kk_long[i]['preprocessed_image'], t1_pre_file)
 
+<<<<<<< HEAD
     dkt_file = output_directory + "/" + t1s_basename_prefix[i] + "Dkt.nii.gz"
     dkt = antspynet.desikan_killiany_tourville_labeling(kk_long[i]['preprocessed_image'], do_preprocessing=True, verbose=True)
     ants.image_write(dkt, dkt_file)
 
     dkt_prop_file = output_directory + "/" + t1s_basename_prefix[i] + "DktPropagated.nii.gz"
+=======
+    dkt_file = output_directory + "/" + t1s_basename_prefix[i] + "DktLabels.nii.gz"
+    dkt = antspynet.desikan_killiany_tourville_labeling(kk_long[i]['preprocessed_image'], do_preprocessing=True, verbose=True)
+    ants.image_write(dkt, dkt_file)
+
+    dkt_prop_file = output_directory + "/" + t1s_basename_prefix[i] + "DktPropagatedLabels.nii.gz"
+>>>>>>> d992129e94f089481a8f930f83dac7f8638ed8d4
     dkt_mask = ants.threshold_image(dkt, 1000, 3000, 1, 0)
     dkt = dkt_mask * dkt
     ants_tmp = ants.threshold_image(kk_long[i]['thickness_image'], 0, 0, 0, 1)
