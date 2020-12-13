@@ -14,7 +14,7 @@ import tensorflow as tf
 #
 ####################
 
-output_prefix = sys.argv[1]
+output_directory = sys.argv[1]
 threads = int(sys.argv[2])
 t1_files = sys.argv[3:]
 
@@ -31,34 +31,11 @@ tf.compat.v1.keras.backend.set_session(session)
 ####################
 
 t1s = list()
+t1s_basename_prefix = list()
 for i in range(len(t1_files)):
     print("Reading", t1_files[i])
     t1s.append(ants.image_read(t1_files[i]))
-
-####################
-#
-# Run cross-sectional antsxnet KK and DKT
-#
-####################
-
-print("Cross-sectional cortical thickness and DKT")
-
-for i in range(len(t1s)):
-    kk_file =
-    kk = antspynet.cortical_thickness(t1, verbose=True)
-    ants.image_write(kk['thickness_image'], kk_file)
-
-    dkt_file =
-    dkt = antspynet.desikan_killiany_tourville_labeling(t1, do_preprocessing=True, verbose=True)
-    ants.image_write(dkt, dkt_file)
-
-    dkt_prop_file =
-    dkt_mask = ants.threshold_image(dkt, 1000, 3000, 1, 0)
-    dkt = dkt_mask * dkt
-    ants_tmp = ants.threshold_image(kk['thickness_image'], 0, 0, 0, 1)
-    ants_dkt = ants.iMath(ants_tmp, "PropagateLabelsThroughMask", ants_tmp * dkt)
-    ants.image_write(ants_dkt, dkt_prop_file)
-
+    t1s_basename_prefix.append(t1_files[i].replace('.nii.gz', ''))
 
 ####################
 #
@@ -71,23 +48,23 @@ print("Longitudinal cortical thickness and DKT")
 kk_long = antspynet.longitudinal_cortical_thickness(t1s, initial_template="adni",
   number_of_iterations=2, refinement_transform="antsRegistrationSyNQuick[a]", verbose=True)
 
-sst_file =
+sst_file = output_directory + "/" + t1s_basename_prefix[i] + "SingleSubjectTemplate.nii.gz"
 ants.image_write(kk_long[-1], sst_file)
 
 for i in range(len(t1s)):
-    kk_file =
+    kk_file = output_directory + "/" + t1s_basename_prefix[i] + "CorticalThickness.nii.gz"
     ants.image_write(kk_long[i]['thickness_image'], kk_file)
 
-    t1_pre_file =
+    t1_pre_file = output_directory + "/" + t1s_basename_prefix[i] + "Preprocessed.nii.gz"
     ants.image_write(kk_long[i]['preprocessed_image'], t1_pre_file)
 
-    dkt_file =
+    dkt_file = output_directory + "/" + t1s_basename_prefix[i] + "Dkt.nii.gz"
     dkt = antspynet.desikan_killiany_tourville_labeling(kk_long[i]['preprocessed_image'], do_preprocessing=True, verbose=True)
     ants.image_write(dkt, dkt_file)
 
-    dkt_prop_file =
+    dkt_prop_file = output_directory + "/" + t1s_basename_prefix[i] + "DktPropagated.nii.gz"
     dkt_mask = ants.threshold_image(dkt, 1000, 3000, 1, 0)
     dkt = dkt_mask * dkt
-    ants_tmp = ants.threshold_image(kk['thickness_image'], 0, 0, 0, 1)
+    ants_tmp = ants.threshold_image(kk_long[i]['thickness_image'], 0, 0, 0, 1)
     ants_dkt = ants.iMath(ants_tmp, "PropagateLabelsThroughMask", ants_tmp * dkt)
     ants.image_write(ants_dkt, dkt_prop_file)
