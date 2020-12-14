@@ -3,13 +3,13 @@
 
 Software, average DKT regional thickness values for all data sets, and the
 scripts to perform both the analysis and obtain thickness values for a single
-subject are provided as open-source.  Specifically, all the ANTsX libraries are
-hosted on GitHub (https://github.com/ANTsX).  The cross-sectional data and
-analysis code are available as .csv files and R scripts at the GitHub repository
-dedicated to this paper (https://github.com/ntustison/PaperANTsX) whereas the
-longitudinal data and evaluation scripts are organized with the repository
-associated with our previous work [@Tustison:2019aa]
-(https://github.com/ntustison/CrossLong).
+subject \textcolor{blue}{(cross-sectionally or longitudinally)} are provided as
+open-source.  Specifically, all the ANTsX libraries are hosted on GitHub
+(https://github.com/ANTsX).  The cross-sectional data and analysis code are
+available as .csv files and R scripts at the GitHub repository dedicated to this
+paper (https://github.com/ntustison/PaperANTsX) whereas the longitudinal data
+and evaluation scripts are organized with the repository associated with our
+previous work [@Tustison:2019aa] (https://github.com/ntustison/CrossLong).
 
 ## ANTsXNet cortical thickness {-}
 
@@ -36,7 +36,8 @@ associated with our previous work [@Tustison:2019aa]
         language=python,
         floatplacement=!h,
         caption={\small ANTsPy/ANTsPyNet command calls
-        for a single IXI subject in the evaluation study.
+        for a single IXI subject in the evaluation study for
+        the cross-sectional pipeline.
         },
         captionpos=b,
         label=listing:antspyCorticalThickness
@@ -75,14 +76,18 @@ kk_regional_stats = ants.label_stats(kk, dkt_propagated)
 
 \setstretch{1.5}
 
-In Listing 1, we show the ANTsPy/ANTsPyNet code snippet for processing a single
-subject which starts with reading the T1-weighted MRI input image, through the
-generation of the Atropos-style six-tissue segmentation and probability images,
-application of ``ants.kelly_kapowski`` (i.e., DiReCT), DKT cortical parcellation,
-subsequent label propagation through the cortex, and, finally, regional cortical
-thickness tabulation.  Computation time on a CPU-only platform is  ~1 hour
-primarily due to the ``ants.kelly_kapowski`` function.  Note that there is a
-precise, line-by-line R-based analog available through ANTsR/ANTsRNet.
+In Listing 1, we show the ANTsPy/ANTsPyNet code snippet for cross-sectional
+processing a single subject which starts with reading the T1-weighted MRI input
+image, through the generation of the Atropos-style six-tissue segmentation and
+probability images, application of ``ants.kelly_kapowski`` (i.e., DiReCT), DKT
+cortical parcellation, subsequent label propagation through the cortex, and,
+finally, regional cortical thickness tabulation.  Computation time on a CPU-only
+platform is ~1 hour primarily due to the ``ants.kelly_kapowski`` function.
+\textcolor{blue}{The cross-sectional and longitudinal pipelines are encapsulated
+in the ANTsPyNet functions} ``antspynet.cortical_thickness`` and
+``antspynet.longitudinal_cortical_thickness``, \textcolor{blue}{respectively.}
+Note that there are precise, line-by-line R-based analogs available through
+ANTsR/ANTsRNet.
 
 Both the ``ants.deep_atropos`` and
 ``antspynet.desikan_killiany_tourville_labeling`` functions perform brain
@@ -98,22 +103,32 @@ mass, a common alignment initialization strategy. This is to ensure proper gross
 orientation.  Following brain extraction, preprocessing for the other two deep
 learning components includes ``ants.denoise_image`` and
 ``ants.n4_bias_correction`` and an affine-based reorientation to a version of
-the MNI template [@Fonov:2009aa].  We recognize the presence of some redundancy
-due to the repeated application of certain preprocessing steps.  Thus, each
-function has a ``do_preprocessing`` option to eliminate this redundancy for
-knowledgeable users but, for simplicity in presentation purposes, we do not
-provide this modified pipeline here. Although it should be noted that the time
-difference is minimal considering the longer time required by
-``ants.kelly_kapowski``. ``ants.deep_atropos`` returns the segmentation image as
-well as the posterior probability maps for each tissue type listed previously.
-``antspynet.desikan_killiany_tourville_labeling`` returns only the segmentation
-label image which includes not only the 62 cortical labels but the remaining
-labels as well.  The label numbers and corresponding structure names are given
-in the program help.  Because the DKT parcellation will, in general, not exactly
-coincide with the non-zero voxels of the resulting cortical thickness maps, we
-perform a label propagation step to ensure the entire cortex, and only the
-non-zero thickness values in the cortex, are included in the tabulated regional
-values.
+the MNI template [@Fonov:2009aa].
+
+We recognize the presence of some redundancy due to the repeated application of
+certain preprocessing steps.  Thus, each function has a ``do_preprocessing``
+option to eliminate this redundancy for knowledgeable users but, for simplicity
+in presentation purposes, we do not provide this modified pipeline here.
+Although it should be noted that the time difference is minimal considering the
+longer time required by ``ants.kelly_kapowski``. ``ants.deep_atropos`` returns
+the segmentation image as well as the posterior probability maps for each tissue
+type listed previously. ``antspynet.desikan_killiany_tourville_labeling``
+returns only the segmentation label image which includes not only the 62
+cortical labels but the remaining labels as well.  The label numbers and
+corresponding structure names are given in the program description/help.
+Because the DKT parcellation will, in general, not exactly coincide with the
+non-zero voxels of the resulting cortical thickness maps, we perform a label
+propagation step to ensure the entire cortex, and only the non-zero thickness
+values in the cortex, are included in the tabulated regional values.
+
+\textcolor{blue}{As mentioned previously, the longitudinal version,}
+``antspynet.longitudinal_cortical_thickness``, \textcolor{blue}{adds an SST
+generation step which can either be provided as a program input or it can be
+constructed from spatial normalization of all time points to a specified
+template.}  ``ants.deep_atropos`` \textcolor{blue}{is applied to the SST
+yielding spatial tissues priors which are then used as input to}
+``ants.atropos`` \textcolor{blue}{for each time point. ``ants.kelly_kapowski``
+is applied to the result to generate the desired cortical thickness maps.}
 
 ## Training {-}
 

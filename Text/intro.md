@@ -110,19 +110,21 @@ and weights into our libraries such as a recent BrainAGE estimation model
 a hippocampal segmentation tool; the winning entry of the MICCAI 2017 white
 matter hyperintensity segmentation competition [@Li:2018aa]; MRI super
 resolution using deep-projection networks [@Haris:2018aa]; and NoBrainer, a
-T1-weighted brain extraction approach based on FreeSurfer. (see Figure
+T1-weighted brain extraction approach based on FreeSurfer (see Figure
 \ref{fig:antsXnetTools}).
 
 The most recent ANTsX developmental work involves recreating our popular ANTs
-cortical thickness pipeline [@Tustison:2014ab;@Tustison:2019aa] within the
-ANTsXNet framework for, amongst other potential benefits, increased
-computational efficiency.  This structural processing pipeline is currently
-available as open-source within the ANTsXNet libraries which underwent a
-thorough evaluation using both cross-sectional and longitudinal data and
-discussed within the context of our previous evaluation of our classical ANTs
-pipelines [@Tustison:2014ab;@Tustison:2019aa].  Note that related work has been
-recently reported by external groups [@Rebsamen:2020aa;@Henschel:2020aa].
-Fortunately, these overlapping contributions provide a context for comparison to
-simultaneously motivate the utility of the ANTsX ecosystem and to editorialize
-with respect to best practices in the field.
+cortical thickness \textcolor{blue}{cross-sectional}[@Tustison:2014ab]
+\textcolor{blue}{and longitudinal}[@Tustison:2019aa] pipeline\textcolor{blue}{s}
+within the ANTsXNet framework for, amongst other potential benefits, increased
+computational efficiency.  \textcolor{blue}{These} structural processing
+pipeline\textcolor{blue}{s are} currently available as open-source within the
+ANTsXNet libraries which underwent a thorough evaluation using both
+cross-sectional and longitudinal data and discussed within the context of our
+previous evaluations [@Tustison:2014ab;@Tustison:2019aa].  Note that related
+work has been recently reported by external groups
+[@Rebsamen:2020aa;@Henschel:2020aa]. Fortunately, these overlapping
+contributions provide a context for comparison to simultaneously motivate the
+utility of the ANTsX ecosystem and to editorialize with respect to best
+practices in the field.
 
