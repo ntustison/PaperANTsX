@@ -11,6 +11,15 @@ paper (https://github.com/ntustison/PaperANTsX) whereas the longitudinal data
 and evaluation scripts are organized with the repository associated with our
 previous work [@Tustison:2019aa] (https://github.com/ntustison/CrossLong).
 
+\begin{figure}[htb]
+  \centering
+    \includegraphics[width=\textwidth]{Figures/antsxnetPipeline.pdf}
+  \caption{}
+  \label{fig:pipeline}
+\end{figure}
+
+
+
 ## ANTsXNet cortical thickness {-}
 
 \vspace{10mm}
@@ -142,17 +151,19 @@ on our to-do list).  In terms of hardware, all training was done on a DGX (GPUs:
 
 __T1-weighted brain extraction.__  A whole-image 3-D U-net model [@Falk:2019aa]
 was used in conjunction with multiple training sessions employing a Dice loss
-function followed by categorical cross entropy.  As mentioned previously, a
-center-of-mass-based transformation to a standard template was used to
-standardize such parameters as orientation and voxel size.  However, to account
-for possible different header orientations of input data, a template-based data
-augmentation scheme was used [@Tustison:2019ac] whereby forward and inverse
-transforms are used to randomly warp batch images between members of the
-training population (followed by reorientation to the standard template). A
-digital random coin flipping for possible histogram matching [@Nyul:1999aa]
-between source and target images further increased possible data augmentation.
-Although not detailed here, training for brain extraction in other modalities
-was performed similarly.
+function followed by categorical cross entropy.  \textcolor{blue}{Training data
+was derived from the same multi-site data described previously processed through
+our registration-based approach} [@Avants:2010ab].  A center-of-mass-based
+transformation to a standard template was used to standardize such parameters as
+orientation and voxel size.  However, to account for possible different header
+orientations of input data, a template-based data augmentation scheme was used
+[@Tustison:2019ac] whereby forward and inverse transforms are used to randomly
+warp batch images between members of the training population (followed by
+reorientation to the standard template). A digital random coin flipping for
+possible histogram matching [@Nyul:1999aa] between source and target images
+further increased data augmentation. \textcolor{blue}{The output of the network
+is a probabilistic mask of the brain.} Although not detailed here, training for brain
+extraction in other modalities was performed similarly.
 
 __Deep Atropos.__ Dealing with 3-D data presents unique barriers for training
 that are often unique to medical imaging.  Various strategies are employed such
@@ -179,12 +190,16 @@ considered when other groups [@Clarkson:2011aa;@Schwarz:2016aa;@Rebsamen:2020aa]
 use components of our cortical thickness pipeline which can be potentially
 problematic[@Tustison:2013aa]. Fine-tuning for this particular workflow was also
 performed between the first and last authors using manual variation of the
-weights in the weighted categorical cross entropy.  Ultimately, we settled on a
-weight vector of $(0.05, 1.5, 1, 3, 4, 3, 3)$ for the CSF, GM, WM, Deep GM,
-brain stem, and cerebellum, respectively.  Other hyperparameters can be directly
-inferred from explicit specification in the actual code.  As mentioned
-previously, training data was derived from application of the ANTs Atropos
-segmentation [@Avants:2011aa] during the course of our previous work
+weights in the weighted categorical cross entropy.
+\textcolor{blue}{Specifically, the weights of each tissue type was altered in
+order to produce segmentations which, in the aesthetic judgement of the first
+and last authors, to most resemble the traditional Atropos segmentations.}
+Ultimately, we settled on a weight vector of $(0.05, 1.5, 1, 3, 4, 3, 3)$ for
+the CSF, GM, WM, Deep GM, brain stem, and cerebellum, respectively.  Other
+hyperparameters can be directly inferred from explicit specification in the
+actual code.  As mentioned previously, training data was derived from
+application of the ANTs Atropos segmentation [@Avants:2011aa] during the course
+of our previous work
 [@Tustison:2014ab].  Data augmentation included small affine and deformable
 perturbations using ``antspynet.randomly_transform_image_data`` and random
 contralateral flips.

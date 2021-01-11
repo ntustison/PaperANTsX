@@ -37,16 +37,18 @@ libraries whereas the deep learning steps are performed through networks
 constructed and trained via ANTsRNet/ANTsPyNet with data augmentation strategies
 and other utilities built from ANTsR/ANTsPy functionality.
 
-The brain extraction, brain segmentation, and DKT parcellation deep learning components were
-trained using data derived from our previous work [@Tustison:2014ab].
-Specifically, the IXI [@ixi], MMRR [@Landman:2011aa], NKI [@nki], and OASIS [@oasis] data
-sets, and the corresponding derived data, comprising over 1200 subjects from age
-4 to 94, were used for network training. Brain extraction employs a traditional 3-D
-U-net network [@Falk:2019aa] with whole brain, template-based data augmentation
-[@Tustison:2019ac] whereas brain segmentation and DKT parcellation are processed
-via 3-D U-net networks with attention gating [@Schlemper:2019aa] on image octant-based
-batches.  We emphasize that a single model was created for each of these steps
-and was used for all the experiments described below.
+The brain extraction, brain segmentation, and DKT parcellation deep learning
+components were trained using data derived from our previous work
+[@Tustison:2014ab]. Specifically, the IXI [@ixi], MMRR [@Landman:2011aa], NKI
+[@nki], and OASIS [@oasis] data sets, and the corresponding derived data,
+comprising over 1200 subjects from age 4 to 94, were used for network training.
+Brain extraction employs a traditional 3-D U-net network [@Falk:2019aa] with
+whole brain, template-based data augmentation [@Tustison:2019ac] whereas brain
+segmentation and DKT parcellation are processed via 3-D U-net networks with
+attention gating [@Schlemper:2019aa] on image octant-based batches.  We
+emphasize that a single model (\textcolor{blue}{as opposed to ensemble
+approaches where multiple models are employed}[@Li:2018aa]) was created for each
+of these steps and was used for all the experiments described below.
 
 ## Cross-sectional cortical thickness {-}
 
@@ -150,7 +152,7 @@ specified by Equation (1).}
   \centering
   \begin{subfigure}{0.95\textwidth}
     \centering
-    \includegraphics[width=1.0\linewidth]{Figures/logPvalues2.pdf}
+    \includegraphics[width=1.0\linewidth]{Figures/variance.ratio_FINALX.png}
     \caption{}
   \end{subfigure}
   \begin{subfigure}{0.95\textwidth}
@@ -158,12 +160,23 @@ specified by Equation (1).}
     \includegraphics[width=1\linewidth]{Figures/allData_FINALX2.png}
     \caption{}
   \end{subfigure}
-\caption{Measures for the both the supervised and unsupervised evaluation
-strategies, respectively given in (a) and (b).  (a) Log p-values for diagnostic
-differentiation of LMCI-CN, AD-LMCI, and AD-CN subjects for all pipelines
-over all DKT regions.  (b) Residual variability, between subject, and variance ratio
-values per pipeline over all DKT regions. }
+  \caption{Performance over longitudinal data as determined by the variance ratio.
+    (a) Region-specific 95\% confidence intervals of the variance ratio showing the
+    superior performance of the longitudinally tailored ANTsX-based pipelines, including
+    ANTsSST and ANTsXNetLong. (b) Residual variability, between subject, and variance ratio
+    values per pipeline over all DKT regions. }
 \label{fig:longeval}
+\end{figure}
+
+\begin{figure}[!htb]
+  \centering
+    \includegraphics[width=1.0\linewidth]{Figures/logPvalues2.pdf}
+  \caption{Measures for the both the supervised and unsupervised evaluation
+  strategies, respectively given in (a) and (b).  (a) Log p-values for diagnostic
+  differentiation of LMCI-CN, AD-LMCI, and AD-CN subjects for all pipelines
+  over all DKT regions.  (b) Residual variability, between subject, and variance ratio
+  values per pipeline over all DKT regions. }
+  \label{fig:longeval}
 \end{figure}
 
 Given the excellent performance and superior computational efficiency of the
@@ -196,7 +209,7 @@ comprehensive overview of relative performance.
 First, the supervised evaluation employed Tukey post-hoc analyses with false
 discovery rate (FDR) adjustment to test the significance of the
 LMCI-CN, AD-LMCI, and AD-CN diagnostic contrasts.  This is provided by the
-following LME model
+following \textcolor{blue}{linear mixed-effects} LME model
 \begin{align}
   \Delta Y \sim & Y_{bl} + AGE_{bl} + ICV_{bl} + APOE_{bl} + GENDER + DIAGNOSIS_{bl} \\ \nonumber
                 & + VISIT:DIAGNOSIS_{bl} + (1 | ID) + (1 | SITE).
@@ -207,7 +220,7 @@ subject ($ID$) and the acquisition site. The subject-specific covariates $AGE$, 
 status, $GENDER$, $DIAGNOSIS$, $ICV$, and $VISIT$ were taken directly from the
 ADNIMERGE package.
 
-Second, linear mixed-effects (LME) [@verbeke1997linear] modeling was used to quantify
+Second, LME [@verbeke1997linear] modeling was used to quantify
 between-subject and residual variabilities, the ratio of which provides an
 estimate of the effectiveness of a given biomarker for distinguishing between
 subpopulations. In order to assess this criteria while accounting for changes
@@ -223,7 +236,7 @@ measurement corresponding to the $k^{th}$ region of interest at the time point
 indexed by $j$ and specification of variance priors to half-Cauchy distributions
 reflects commonly accepted best practice in the context of hierarchical models
 [@gelman2006prior].  The ratio of interest, $r^k$, per region
-of the residual variability, $\tau_k$, and between-subject variability, $\sigma_k$
+of the between-subject variability, $\tau_k$, and residual variability, $\sigma_k$
 is
 \begin{align}
   r^k = \frac{\tau_k}{\sigma_k}, k = 1,\ldots,62
@@ -238,7 +251,7 @@ AD-LMCI diffierentiation relative to the other pipelines. Figure
 \ref{fig:longeval}(b) shows significantly better performance for the
 longitudinal ANTsXNet pipeline where, in a longitudinal setting, we prefer to
 see lower values for residual variability and higher values for between-subject
-variability, leading to a larger variance ratio.  IN contrast, cross-sectional
+variability, leading to a larger variance ratio.  In contrast, cross-sectional
 ANTsXNet performs remarkably poorly for these measures.
 
 <!-- , suggesting that

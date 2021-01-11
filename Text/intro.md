@@ -14,7 +14,13 @@ by fourteen different registration tools, including the Symmetric Normalization
 (SyN) algorithm [@Avants:2008aa] found in ANTs [@Avants:2011ab], and found that
 "ART, SyN, IRTK, and SPM’s DARTEL Toolbox gave the best results according to
 overlap and distance measures, with ART and SyN delivering the most consistently
-high accuracy across subjects and label sets." This superior performance was
+high accuracy across subjects and label sets."  \textcolor{blue}{Participation
+in other independent competitions such [@Murphy:2011aa;@Menze:2014aa] provided
+additional evidence of the utility of ANTs registration and other tools.}
+
+
+
+<!-- This superior performance was
 reinforced in a completely different pulmonary imaging evaluation, the
 Evaluation of Methods for Pulmonary Image REgistration 2010 (EMPIRE10)
 [@Murphy:2011aa], where ANTs was the top performer for the benchmarks used to
@@ -48,7 +54,8 @@ proposed and evaluated using multiple publicly available, annotated datasets and
 demonstrated statistically significant improvement in label overlap measures
 [@Tustison:2013ac].  Moreover, the ANTs/ITK code is open-source and
 community-developed which allows the full community, including commercial
-projects, use and build on this framework.
+projects, use and build on this framework.-->
+
 
 Since its inception, though, ANTs has expanded significantly beyond its image
 registration origins.  Other core contributions include template building

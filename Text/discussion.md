@@ -48,9 +48,15 @@ medical image analysis has significantly guided the areas of active ANTsX
 development.  As demonstrated in this work with our widely used cortical
 thickness pipelines, there are many potential benefits of deep learning analogs
 to existing ANTs tools as well as the development of new ones. Performance is
-comparable-to-superior relative to existing pipelines depending on the
-evaluation metric.  We see possible additional longitudinal extensions
-incorporating subject ID and months as additional network inputs.
+\textcolor{blue}{mostly} comparable-to-superior relative to existing pipelines
+depending on the evaluation metric.  \textcolor{blue}{Specifically, the ANTsXNet
+cross-sectional pipeline does well for the age prediction performance framework
+and in terms of the ICC.  Additionally, this pipeline performs relatively well
+for longitudinal ADNI data for disease differentiation but not so much in terms
+of the generic variance ratio criterion.  However, for such longitudinal-specific
+studies, the ANTsXNet longitudinal variant performs well for both performance
+measures.} We see possible additional longitudinal extensions incorporating
+subject ID and months as additional network inputs.
 
 
 

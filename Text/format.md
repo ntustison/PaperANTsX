@@ -18,6 +18,8 @@ csl: nature.csl
 longtable: true
 urlcolor: blue
 header-includes:
+  - \usepackage[left]{lineno}
+  - \linenumbers
   - \usepackage{longtable}
   - \usepackage{graphicx}
   - \usepackage{booktabs}
