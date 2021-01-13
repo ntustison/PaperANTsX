@@ -1,6 +1,8 @@
 
 # Results {-}
 
+## The original ANTs cortical thickness pipeline {-}
+
 The original ANTs cortical thickness pipeline [@Tustison:2014ab] consists of the
 following steps:
 
@@ -29,6 +31,8 @@ comparison with our previous work [@Tustison:2014ab;@Tustison:2019aa] and 2)
 leverage an additional deep learning-based substitution within the proposed
 pipeline.
 
+## Overview of cortical thickness via ANTsXNet  {-}
+
 Note that the entire analysis/evaluation framework, from preprocessing to
 statistical analysis, is made possible through the ANTsX ecosystem and simplified
 through the open-source R and Python platforms.  Preprocessing, image registration,
@@ -50,7 +54,7 @@ emphasize that a single model (\textcolor{blue}{as opposed to ensemble
 approaches where multiple models are employed}[@Li:2018aa]) was created for each
 of these steps and was used for all the experiments described below.
 
-## Cross-sectional cortical thickness {-}
+## Cross-sectional performance evaluation {-}
 
 \begin{figure}[htb]
   \centering
@@ -146,7 +150,7 @@ specified by Equation (1).}
 \end{figure}
 
 
-## Longitudinal cortical thickness {-}
+## Longitudinal performance evaluation {-}
 
 \begin{figure}[!htb]
   \centering

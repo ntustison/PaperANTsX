@@ -1,4 +1,7 @@
 
+# The ANTsX ecosystem:  A brief overview {-}
+
+## Image registration origins {-}
 
 The Advanced Normalization Tools (ANTs) is a state-of-the-art, open-source
 software toolkit for image registration, segmentation, and other functionality
@@ -15,9 +18,12 @@ by fourteen different registration tools, including the Symmetric Normalization
 "ART, SyN, IRTK, and SPM’s DARTEL Toolbox gave the best results according to
 overlap and distance measures, with ART and SyN delivering the most consistently
 high accuracy across subjects and label sets."  \textcolor{blue}{Participation
-in other independent competitions such [@Murphy:2011aa;@Menze:2014aa] provided
-additional evidence of the utility of ANTs registration and other tools.}
-
+in other independent competitions} [@Murphy:2011aa;@Menze:2014aa]
+\textcolor{blue}{provided additional evidence of the utility of ANTs
+registration and other tools.  Despite the extremely significant potential of
+deep learning for image registration algorithmic development}
+[@Tustison:2019ab], \textcolor{blue}{ANTs registration tools continue to find
+application in the various biomedical imaging research communities.}
 
 
 <!-- This superior performance was
@@ -56,14 +62,33 @@ demonstrated statistically significant improvement in label overlap measures
 community-developed which allows the full community, including commercial
 projects, use and build on this framework.-->
 
+## Current developments {-}
+
+\begin{figure}[htbp]
+  \centering
+    \includegraphics[width=0.9\textwidth]{Figures/coreANtsXNetTools.png}
+    \caption{An illustration of the tools and applications available as part of the
+    ANTsRNet and ANTsPyNet deep learning toolkits.  Both libraries take advantage
+    of ANTs functionality through their respective language interfaces---ANTsR (R)
+    and ANTsPy (Python).  Building on the Keras/TensorFlow language, both libraries
+    standardize popular network architectures within the ANTs ecosystem and are
+    cross-compatible.  These networks are used to train models and weights for such
+    applications as brain extraction which are then disseminated to the public.}
+ \label{fig:antsXnetTools}
+ \end{figure}
 
 Since its inception, though, ANTs has expanded significantly beyond its image
 registration origins.  Other core contributions include template building
 [@Avants:2010aa], segmentation [@Avants:2011aa], image preprocessing (e.g., bias
 correction [@Tustison2009e] and denoising [@Manjon:2010aa]), joint label fusion
 [@Wang:2013aa;@Wang:2013ab], and brain cortical thickness estimation
-[@Das:2009aa;@Tustison:2014ab] (cf Table \ref{table:papers}). Additionally, ANTs
-has been integrated into multiple, publicly available workflows such as fMRIprep
+[@Das:2009aa;@Tustison:2014ab] (cf Table \ref{table:papers}).
+\textcolor{blue}{According to GitHub, recent unique “clones” have averaged 34
+per day with the total number of clones being approximately twice that many.  50
+unique contributors to the ANTs library have made a total of over 4500 commits.
+Additional insights into usage can be viewed at the ANTs GitHub website.}
+
+Additionally, ANTs has been integrated into multiple, publicly available workflows such as fMRIprep
 [@Esteban:2019aa] and the Spinal Cord Toolbox [@De-Leener:2017aa].  Frequently
 used ANTs pipelines, such as cortical thickness estimation [@Tustison:2014ab],
 have been integrated into Docker containers and packaged as Brain Imaging Data
@@ -77,41 +102,32 @@ components[@Tustison2009e;@Manjon:2010aa] into their own libraries.
 
 \input{papers_table}
 
-\begin{figure}[htbp] \centering \includegraphics{Figures/coreANtsXNetTools.png}
- \caption{An illustration of the tools and applications available as part of the
- ANTsRNet and ANTsPyNet deep learning toolkits.  Both libraries take advantage
- of ANTs functionality through their respective language interfaces---ANTsR (R)
- and ANTsPy (Python).  Building on the Keras/TensorFlow language, both libraries
- standardize popular network architectures within the ANTs ecosystem and are
- cross-compatible.  These networks are used to train models and weights for such
- applications as brain extraction which are then disseminated to the public.}
- \label{fig:antsXnetTools} \end{figure}
-
 Over the course of its development, ANTs has been extended to complementary
 frameworks resulting in the Python- and R-based ANTsPy and ANTsR toolkits,
 respectively. These ANTs-based interfaces with extremely popular, high-level,
 open-source programming platforms have significantly increased the user base of
-ANTs and facilitated research workflows which were not previously possible. The
-rapidly rising popularity of deep learning motivated further recent enhancement
-of ANTs and its extensions.  Despite the existence of an abundance of online
-innovation and code for deep learning algorithms, much of it is disorganized and
-lacks a uniformity in structure and external data interfaces which would
-facilitate greater uptake. With this in mind, ANTsR spawned the deep learning
-ANTsRNet package which is a growing Keras/TensorFlow-based library of popular
-deep learning architectures and applications specifically geared towards medical
-imaging. Analogously, ANTsPyNet is an additional ANTsX complement to ANTsPy.
-Both, which we collectively refer to as "ANTsXNet", are co-developed so as to
-ensure cross-compatibility such that training performed in one library is
-readily accessible by the other library.  In addition to a variety of popular
-network architectures (which are implemented in both 2-D and 3-D), ANTsXNet
-contains a host of functionality for medical image analysis that have been
-developed in-house and collected from other open-source projects. For example,
-an extremely popular ANTsXNet application is a multi-modal brain extraction tool
+ANTs and facilitated research workflows \textcolor{blue}{which leverage the
+advantages of these high-level programming languages.}  The rapidly rising
+popularity of deep learning motivated further recent enhancement of ANTs and its
+extensions.  Despite the existence of an abundance of online innovation and code
+for deep learning algorithms, much of it is disorganized and lacks a uniformity
+in structure and external data interfaces which would facilitate greater uptake.
+With this in mind, ANTsR spawned the deep learning ANTsRNet package which is a
+growing Keras/TensorFlow-based library of popular deep learning architectures
+and applications specifically geared towards medical imaging. Analogously,
+ANTsPyNet is an additional ANTsX complement to ANTsPy. Both, which we
+collectively refer to as "ANTsXNet", are co-developed so as to ensure
+cross-compatibility such that training performed in one library is readily
+accessible by the other library. In addition to a variety of popular network
+architectures (which are implemented in both 2-D and 3-D), ANTsXNet contains a
+host of functionality for medical image analysis that have been developed
+in-house and collected from other open-source projects. For example, an
+extremely popular ANTsXNet application is a multi-modal brain extraction tool
 that uses different variants of the popular U-net [@Falk:2019aa] architecture
 for segmenting the brain in multiple modalities.  These modalities include
 conventional T1-weighted structural MRI as well as T2-weighted MRI, FLAIR,
 fractional anisotropy and BOLD.  Demographic specialization also includes infant
-T1-weighted and/or T2-weighted MRI.  Additionally, we have included other models
+T1-weighted and/or T2-weighted MRI. Additionally, we have included other models
 and weights into our libraries such as a recent BrainAGE estimation model
 [@Bashyam:2020aa], based on $>14,000$ individuals; HippMapp3r [@Goubran:2020aa],
 a hippocampal segmentation tool; the winning entry of the MICCAI 2017 white
@@ -120,11 +136,36 @@ resolution using deep-projection networks [@Haris:2018aa]; and NoBrainer, a
 T1-weighted brain extraction approach based on FreeSurfer (see Figure
 \ref{fig:antsXnetTools}).
 
-The most recent ANTsX developmental work involves recreating our popular ANTs
-cortical thickness \textcolor{blue}{cross-sectional}[@Tustison:2014ab]
-\textcolor{blue}{and longitudinal}[@Tustison:2019aa] pipeline\textcolor{blue}{s}
-within the ANTsXNet framework for, amongst other potential benefits, increased
-computational efficiency.  \textcolor{blue}{These} structural processing
+## The ANTsXNet cortical thickness pipeline {-}
+
+\begin{figure}[htb]
+  \centering
+    \includegraphics[width=\textwidth]{Figures/antsxnetPipeline.pdf}
+  \caption{\textcolor{blue}{Illustration of the ANTsXNet cortical thickness pipeline and the
+  relationship to its traditional ANTs analog.  The hash-designated sections
+  denote pipeline steps which have been obviated by the deep learning approach.
+  These include template-based brain extraction, template-based $n$-tissue
+  segmentation, and joint label fusion for cortical labeling.}}
+  \label{fig:pipeline}
+\end{figure}
+
+The most recent ANTsX \textcolor{blue}{innovation involves the development of a
+deep learning analog} of our popular ANTs cortical thickness
+\textcolor{blue}{cross-sectional}[@Tustison:2014ab] \textcolor{blue}{and
+longitudinal}[@Tustison:2019aa] pipeline\textcolor{blue}{s} within the ANTsXNet
+framework for, amongst other potential benefits, increased computational
+efficiency.  \textcolor{blue}{Figure} \ref{fig:pipeline},
+\textcolor{blue}{adapted from our previous work} [@Tustison:2014ab]
+\textcolor{blue}{illustrates some of the major changes associated with the
+single-subject pipeline.  It should be noted that this improvement in efficiency
+is principally a result of eliminating deformable image registration from the
+pipeline---a step which has historically been used to propagate prior,
+population-based information (e.g., tissue maps) to individual subjects for such
+tasks as brain extraction} [@Avants:2010ab] \textcolor{blue}{and tissue
+segmentation} [@Avants:2011aa] \textcolor{blue}{which is now configured within
+the neural networks.}
+
+\textcolor{blue}{These} structural processing
 pipeline\textcolor{blue}{s are} currently available as open-source within the
 ANTsXNet libraries which underwent a thorough evaluation using both
 cross-sectional and longitudinal data and discussed within the context of our

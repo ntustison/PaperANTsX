@@ -29,19 +29,23 @@ preprocessing (ANTsR/ANTsPy); data augmentation (ANTsR/ANTsPy); network construc
 and training (ANTsRNet/ANTsPyNet); and visualization and statistical
 analysis of the results (ANTsR/ANTsPy).
 
-It is the comprehensiveness of ANTsX that provides significant advantages over
-much of the deep learning work that is currently taking place in medical imaging
-and related fields.  For example, related work [@Rebsamen:2020aa] also built a
-similar pipeline and assessed performance.  However, due to the lack of a
-complete processing and analysis framework, training data was generated using
-the FreeSurfer stream, deep learning-based brain segmentation employed DeepSCAN
-[@deepscan] (in-house software), and cortical thickness estimation [@Das:2009aa]
-used the ANTs toolkit.  For the reader interested in reproducing the authors'
-results, they are primarily prevented from doing so due, as far as we can tell,
-to the lack of the public availability of the only software they actually
-produced themselves, i.e., DeepSCAN.  However, even further inhibiting usage is
-the fact that the external utilities derive from different sources and so issues
-such as interoperability are relevant.
+\textcolor{blue}{It is the comprehensiveness of ANTsX that provides significant
+advantages over much of the deep learning work that is currently taking place in
+medical imaging. In other words, various steps in the deep learning training
+processing (e.g., data augmentation, preprocessing) can all be performed within
+the same framework where such important details as header information for image
+geometry are treated the same.} In contrast, related work [@Rebsamen:2020aa]
+described and evaluated a similar thickness measurement pipeline.  However, due
+to the lack of a complete processing and analysis framework, training data was
+generated using the FreeSurfer stream, deep learning-based brain segmentation
+employed DeepSCAN [@deepscan] (in-house software), and cortical thickness
+estimation [@Das:2009aa] was generated using the ANTs toolkit.
+\textcolor{blue}{For the reader interested in reproducing the authors' results,
+they are primarily prevented from doing so due, as far as we can tell, to the
+lack of the public availability of the DeepSCAN software. However, in addition,
+the interested reader must also ensure the consistency of the input/output
+interface between packages (a task for which the Nipype development team is
+quite familiar.)}
 
 In terms of future work, the recent surge and utility of deep learning in
 medical image analysis has significantly guided the areas of active ANTsX

@@ -11,16 +11,9 @@ paper (https://github.com/ntustison/PaperANTsX) whereas the longitudinal data
 and evaluation scripts are organized with the repository associated with our
 previous work [@Tustison:2019aa] (https://github.com/ntustison/CrossLong).
 
-\begin{figure}[htb]
-  \centering
-    \includegraphics[width=\textwidth]{Figures/antsxnetPipeline.pdf}
-  \caption{}
-  \label{fig:pipeline}
-\end{figure}
 
 
-
-## ANTsXNet cortical thickness {-}
+## Implementation {-}
 
 \vspace{10mm}
 
@@ -90,10 +83,9 @@ processing a single subject which starts with reading the T1-weighted MRI input
 image, through the generation of the Atropos-style six-tissue segmentation and
 probability images, application of ``ants.kelly_kapowski`` (i.e., DiReCT), DKT
 cortical parcellation, subsequent label propagation through the cortex, and,
-finally, regional cortical thickness tabulation.  Computation time on a CPU-only
-platform is ~1 hour primarily due to the ``ants.kelly_kapowski`` function.
-\textcolor{blue}{The cross-sectional and longitudinal pipelines are encapsulated
-in the ANTsPyNet functions} ``antspynet.cortical_thickness`` and
+finally, regional cortical thickness tabulation.  \textcolor{blue}{The
+cross-sectional and longitudinal pipelines are encapsulated in the ANTsPyNet
+functions} ``antspynet.cortical_thickness`` and
 ``antspynet.longitudinal_cortical_thickness``, \textcolor{blue}{respectively.}
 Note that there are precise, line-by-line R-based analogs available through
 ANTsR/ANTsRNet.
@@ -136,10 +128,28 @@ generation step which can either be provided as a program input or it can be
 constructed from spatial normalization of all time points to a specified
 template.}  ``ants.deep_atropos`` \textcolor{blue}{is applied to the SST
 yielding spatial tissues priors which are then used as input to}
-``ants.atropos`` \textcolor{blue}{for each time point. ``ants.kelly_kapowski``
-is applied to the result to generate the desired cortical thickness maps.}
+``ants.atropos`` \textcolor{blue}{for each time point. } ``ants.kelly_kapowski``
+\textcolor{blue}{is applied to the result to generate the desired cortical
+thickness maps.}
 
-## Training {-}
+\textcolor{blue}{Computational time on a CPU-only platform is approximately 1
+hour primarily due to the} ``ants.kelly_kapowski`` \textcolor{blue}{function.
+Other preprocessing steps, bias correction and denoising, are on the order of a
+couple minutes. This total time should be compared with $4-5$ hours
+using the traditional pipeline employing the} ``quick``
+\textcolor{blue}{registration option or $10-15$ hours with the more
+comprehensive registration parameters employed).  As mentioned previously,
+elimination of the registration-based propagation of prior probability images to
+individual subjects is the principal source of reduced computational time. For
+ROI-based analyses, this is in addition to the elimination of the optional
+generation of a population-specific template. Additionally, the use of}
+``antspynet.desikan_killiany_tourville_labeling``, \textcolor{blue}{for cortical
+labeling (which completes in less than five minutes) eliminates the need for
+joint label fusion which requires multiple pairwise registrations for each
+subject in addition to the fusion algorithm itself.}
+
+
+## Training details {-}
 
 Training differed slightly between models and so we provide details for each of
 these components below.  For all training, we used ANTsRNet scripts and custom
@@ -192,8 +202,7 @@ problematic[@Tustison:2013aa]. Fine-tuning for this particular workflow was also
 performed between the first and last authors using manual variation of the
 weights in the weighted categorical cross entropy.
 \textcolor{blue}{Specifically, the weights of each tissue type was altered in
-order to produce segmentations which, in the aesthetic judgement of the first
-and last authors, to most resemble the traditional Atropos segmentations.}
+order to produce segmentations which most resemble the traditional Atropos segmentations.}
 Ultimately, we settled on a weight vector of $(0.05, 1.5, 1, 3, 4, 3, 3)$ for
 the CSF, GM, WM, Deep GM, brain stem, and cerebellum, respectively.  Other
 hyperparameters can be directly inferred from explicit specification in the
