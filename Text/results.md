@@ -231,7 +231,7 @@ subpopulations. In order to assess this criteria while accounting for changes
 that may occur through the passage of time, we used the following Bayesian LME
 model:
 \begin{gather}
-  Y^k_{ij} \sim N(\alpha^k_i + \beta^k_i t, \sigma_k^2) \\ \nonumber
+  Y^k_{ij} \sim N(\alpha^k_i + \beta^k_i t_{ij}, \sigma_k^2) \\ \nonumber
   \alpha^k_i \sim N(\alpha^k_0, \tau^2_k) \,\,\,\, \beta^k_i \sim N(\beta^k_0, \rho^2_k) \\ \nonumber
   \alpha^k_0, \beta^k_0 \sim N(0,10) \,\,\,\,  \sigma_k, \tau_k, \rho_k \sim \mbox{Cauchy}^+ (0, 5)
 \end{gather}
