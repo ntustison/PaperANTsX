@@ -51,8 +51,9 @@ whole brain, template-based data augmentation [@Tustison:2019ac] whereas brain
 segmentation and DKT parcellation are processed via 3-D U-net networks with
 attention gating [@Schlemper:2019aa] on image octant-based batches.  We
 emphasize that a single model (\textcolor{blue}{as opposed to ensemble
-approaches where multiple models are employed}[@Li:2018aa]) was created for each
-of these steps and was used for all the experiments described below.
+approaches where multiple models are used to produce the final solution}
+[@Li:2018aa]) was created for each of these steps and was used for all the
+experiments described below.
 
 ## Cross-sectional performance evaluation {-}
 

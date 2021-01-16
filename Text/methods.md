@@ -133,8 +133,8 @@ yielding spatial tissues priors which are then used as input to}
 thickness maps.}
 
 \textcolor{blue}{Computational time on a CPU-only platform is approximately 1
-hour primarily due to the} ``ants.kelly_kapowski`` \textcolor{blue}{function.
-Other preprocessing steps, bias correction and denoising, are on the order of a
+hour primarily due to} ``ants.kelly_kapowski`` \textcolor{blue}{processing.
+Other preprocessing steps, i.e., bias correction and denoising, are on the order of a
 couple minutes. This total time should be compared with $4-5$ hours
 using the traditional pipeline employing the} ``quick``
 \textcolor{blue}{registration option or $10-15$ hours with the more

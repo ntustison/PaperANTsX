@@ -33,7 +33,7 @@ analysis of the results (ANTsR/ANTsPy).
 advantages over much of the deep learning work that is currently taking place in
 medical imaging. In other words, various steps in the deep learning training
 processing (e.g., data augmentation, preprocessing) can all be performed within
-the same framework where such important details as header information for image
+the same ecosystem where such important details as header information for image
 geometry are treated the same.} In contrast, related work [@Rebsamen:2020aa]
 described and evaluated a similar thickness measurement pipeline.  However, due
 to the lack of a complete processing and analysis framework, training data was

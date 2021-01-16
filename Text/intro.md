@@ -9,21 +9,21 @@ for comprehensive biological and medical image analysis. Historically, ANTs is
 rooted in advanced image registration techniques which have been at the
 forefront of the field due to seminal contributions that date back to the
 original elastic matching method of Bajcsy and co-investigators
-[@Bajcsy:1982aa;@Bajcsy:1989aa;@Gee:2003aa] and continues to set the standard in
-the field.   Various independent platforms have been used to evaluate ANTs tools
-since their early development. In a landmark paper [@Klein:2009aa], the authors
-reported an extensive evaluation using multiple neuroimaging datasets analyzed
-by fourteen different registration tools, including the Symmetric Normalization
-(SyN) algorithm [@Avants:2008aa] found in ANTs [@Avants:2011ab], and found that
-"ART, SyN, IRTK, and SPM’s DARTEL Toolbox gave the best results according to
-overlap and distance measures, with ART and SyN delivering the most consistently
-high accuracy across subjects and label sets."  \textcolor{blue}{Participation
-in other independent competitions} [@Murphy:2011aa;@Menze:2014aa]
-\textcolor{blue}{provided additional evidence of the utility of ANTs
-registration and other tools.  Despite the extremely significant potential of
-deep learning for image registration algorithmic development}
-[@Tustison:2019ab], \textcolor{blue}{ANTs registration tools continue to find
-application in the various biomedical imaging research communities.}
+[@Bajcsy:1982aa;@Bajcsy:1989aa;@Gee:2003aa]. Various independent platforms have
+been used to evaluate ANTs tools since their early development. In a landmark
+paper [@Klein:2009aa], the authors reported an extensive evaluation using
+multiple neuroimaging datasets analyzed by fourteen different registration
+tools, including the Symmetric Normalization (SyN) algorithm [@Avants:2008aa],
+and found that "ART, SyN, IRTK, and SPM’s DARTEL Toolbox gave the best results
+according to overlap and distance measures, with ART and SyN delivering the most
+consistently high accuracy across subjects and label sets."
+\textcolor{blue}{Participation in other independent competitions}
+[@Murphy:2011aa;@Menze:2014aa] \textcolor{blue}{provided additional evidence of
+the utility of ANTs registration and other tools.  Despite the extremely
+significant potential of deep learning for image registration algorithmic
+development} [@Tustison:2019ab], \textcolor{blue}{ANTs registration tools
+continue to find application in the various biomedical imaging research
+communities.}
 
 
 <!-- This superior performance was
@@ -83,11 +83,6 @@ registration origins.  Other core contributions include template building
 correction [@Tustison2009e] and denoising [@Manjon:2010aa]), joint label fusion
 [@Wang:2013aa;@Wang:2013ab], and brain cortical thickness estimation
 [@Das:2009aa;@Tustison:2014ab] (cf Table \ref{table:papers}).
-\textcolor{blue}{According to GitHub, recent unique “clones” have averaged 34
-per day with the total number of clones being approximately twice that many.  50
-unique contributors to the ANTs library have made a total of over 4500 commits.
-Additional insights into usage can be viewed at the ANTs GitHub website.}
-
 Additionally, ANTs has been integrated into multiple, publicly available workflows such as fMRIprep
 [@Esteban:2019aa] and the Spinal Cord Toolbox [@De-Leener:2017aa].  Frequently
 used ANTs pipelines, such as cortical thickness estimation [@Tustison:2014ab],
@@ -99,6 +94,12 @@ including Neurodebian [@Halchenko:2012aa] (Debian OS), Neuroconductor
 [@Gorgolewski:2011aa] (Python).  Even competing softwares, such as FreeSurfer
 [@Fischl:2012aa], have incorporated well-performing and complementary ANTs
 components[@Tustison2009e;@Manjon:2010aa] into their own libraries.
+\textcolor{blue}{Finally, according to GitHub, recent unique “clones” have
+averaged 34 per day with the total number of clones being approximately twice
+that many.  50 unique contributors to the ANTs library have made a total of over
+4500 commits. Additional insights into usage can be viewed at the ANTs GitHub
+website.}
+
 
 \input{papers_table}
 
@@ -149,13 +150,13 @@ T1-weighted brain extraction approach based on FreeSurfer (see Figure
   \label{fig:pipeline}
 \end{figure}
 
-The most recent ANTsX \textcolor{blue}{innovation involves the development of a
-deep learning analog} of our popular ANTs cortical thickness
+The most recent ANTsX \textcolor{blue}{innovation involves the development of
+deep learning analogs} of our popular ANTs cortical thickness
 \textcolor{blue}{cross-sectional}[@Tustison:2014ab] \textcolor{blue}{and
 longitudinal}[@Tustison:2019aa] pipeline\textcolor{blue}{s} within the ANTsXNet
 framework for, amongst other potential benefits, increased computational
 efficiency.  \textcolor{blue}{Figure} \ref{fig:pipeline},
-\textcolor{blue}{adapted from our previous work} [@Tustison:2014ab]
+\textcolor{blue}{adapted from our previous work} [@Tustison:2014ab],
 \textcolor{blue}{illustrates some of the major changes associated with the
 single-subject pipeline.  It should be noted that this improvement in efficiency
 is principally a result of eliminating deformable image registration from the
@@ -165,14 +166,12 @@ tasks as brain extraction} [@Avants:2010ab] \textcolor{blue}{and tissue
 segmentation} [@Avants:2011aa] \textcolor{blue}{which is now configured within
 the neural networks.}
 
-\textcolor{blue}{These} structural processing
-pipeline\textcolor{blue}{s are} currently available as open-source within the
-ANTsXNet libraries which underwent a thorough evaluation using both
-cross-sectional and longitudinal data and discussed within the context of our
-previous evaluations [@Tustison:2014ab;@Tustison:2019aa].  Note that related
-work has been recently reported by external groups
-[@Rebsamen:2020aa;@Henschel:2020aa]. Fortunately, these overlapping
-contributions provide a context for comparison to simultaneously motivate the
-utility of the ANTsX ecosystem and to editorialize with respect to best
-practices in the field.
+\textcolor{blue}{These} structural processing pipeline\textcolor{blue}{s are}
+currently available as open-source within the ANTsXNet libraries which underwent
+a thorough evaluation using both cross-sectional and longitudinal data and
+discussed within the context of our previous evaluations
+[@Tustison:2014ab;@Tustison:2019aa].  Note that related work has been recently
+reported by external groups [@Rebsamen:2020aa;@Henschel:2020aa]. Fortunately,
+these overlapping contributions provide a context for comparison to motivate the
+utility of the ANTsX ecosystem.
 
