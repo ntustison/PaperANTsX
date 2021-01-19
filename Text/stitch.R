@@ -28,6 +28,6 @@ for( i in 1:length( rmdFiles ) )
   }
 
 cat( '\n Pandoc rendering', stitchedFile, '\n' )
-render( stitchedFile, pdf_document( number_sections = TRUE, pandoc_args = c( "--variable=subparagraph", "--include-after-body=authorContributions.md" ) ) )
-render( stitchedFile, word_document() )
+render( stitchedFile, pdf_document( number_sections = TRUE, keep_tex = TRUE, pandoc_args = c( "--variable=subparagraph", "--include-after-body=authorContributions.md" ) ) )
+# render( stitchedFile, word_document() )
 

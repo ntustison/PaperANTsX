@@ -4,14 +4,14 @@ author:
 address:
 output:
   pdf_document:
+    keep_tex: true
     fig_caption: true
     latex_engine: xelatex
-    keep_tex: yes
     number_sections: true
     includes:
       after_body: authorContributions.md
-  word_document:
-    fig_caption: true
+    word_document:
+      fig_caption: true
 bibliography:
   - references.bib
 csl: nature.csl

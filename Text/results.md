@@ -17,19 +17,21 @@ following steps:
     * brain stem; and
 * cortical thickness estimation [@Das:2009aa].
 
-Our recent longitudinal variant incorporates an additional step involving the
-construction of a single subject template (SST) [@Avants:2010aa] coupled with the
-generation of tissue spatial priors of the SST for use with the processing of the
-individual time points as described above.
+Our recent longitudinal variant [@Tustison:2019aa] incorporates an additional
+step involving the construction of a single subject template (SST)
+[@Avants:2010aa] coupled with the generation of tissue spatial priors of the SST
+for use with the processing of the individual time points as described above.
 
 Although the resulting thickness maps are conducive to voxel-based
 [@Ashburner:2000aa] and related analyses[@Avants:2012aa], here we employ the
-well-known Desikan-Killiany-Tourville (DKT) [@Klein:2012aa] labeling protocol (31
-labels per hemisphere) to parcellate the cortex for averaging thickness values
-regionally. This allows us to 1) be consistent in our evaluation strategy for
-comparison with our previous work [@Tustison:2014ab;@Tustison:2019aa] and 2)
-leverage an additional deep learning-based substitution within the proposed
-pipeline.
+well-known Desikan-Killiany-Tourville (DKT) [@Klein:2012aa] labeling protocol
+(31 labels per hemisphere) to parcellate the cortex for averaging thickness
+values regionally (see Table \ref{table:dkt_labels}). This allows us to 1) be
+consistent in our evaluation strategy for comparison with our previous work
+[@Tustison:2014ab;@Tustison:2019aa] and 2) leverage an additional deep
+learning-based substitution within the proposed pipeline.
+
+\input{dktRegions}
 
 ## Overview of cortical thickness via ANTsXNet  {-}
 
@@ -170,18 +172,17 @@ specified by Equation (1).}
     superior performance of the longitudinally tailored ANTsX-based pipelines, including
     ANTsSST and ANTsXNetLong. (b) Residual variability, between subject, and variance ratio
     values per pipeline over all DKT regions. }
-\label{fig:longeval}
+\label{fig:longeval1}
 \end{figure}
 
 \begin{figure}[!htb]
   \centering
     \includegraphics[width=1.0\linewidth]{Figures/logPvalues2.pdf}
-  \caption{Measures for the both the supervised and unsupervised evaluation
-  strategies, respectively given in (a) and (b).  (a) Log p-values for diagnostic
-  differentiation of LMCI-CN, AD-LMCI, and AD-CN subjects for all pipelines
-  over all DKT regions.  (b) Residual variability, between subject, and variance ratio
-  values per pipeline over all DKT regions. }
-  \label{fig:longeval}
+  \caption{Measures for the supervised evaluation
+  strategy where log p-values for diagnostic
+  differentiation of LMCI-CN, AD-LMCI, and AD-CN subjects are plotted for all pipelines
+  over all DKT regions. }
+  \label{fig:longeval2}
 \end{figure}
 
 Given the excellent performance and superior computational efficiency of the
@@ -214,7 +215,7 @@ comprehensive overview of relative performance.
 First, the supervised evaluation employed Tukey post-hoc analyses with false
 discovery rate (FDR) adjustment to test the significance of the
 LMCI-CN, AD-LMCI, and AD-CN diagnostic contrasts.  This is provided by the
-following \textcolor{blue}{linear mixed-effects} LME model
+following \textcolor{blue}{linear mixed-effects} (LME) model
 \begin{align}
   \Delta Y \sim & Y_{bl} + AGE_{bl} + ICV_{bl} + APOE_{bl} + GENDER + DIAGNOSIS_{bl} \\ \nonumber
                 & + VISIT:DIAGNOSIS_{bl} + (1 | ID) + (1 | SITE).
@@ -249,15 +250,16 @@ is
 where the posterior distribution of $r_k$ was summarized via the posterior
 median.
 
-Results for both longitudinal evaluation scenarios are shown in Figure
-\ref{fig:longeval}. Log p-values are provided in Figure \ref{fig:longeval}(a)
-which demonstrate excellent LMCI-CN and AD-CN differentiation and comparable
-AD-LMCI diffierentiation relative to the other pipelines. Figure
-\ref{fig:longeval}(b) shows significantly better performance for the
-longitudinal ANTsXNet pipeline where, in a longitudinal setting, we prefer to
-see lower values for residual variability and higher values for between-subject
-variability, leading to a larger variance ratio.  In contrast, cross-sectional
-ANTsXNet performs remarkably poorly for these measures.
+\textcolor{blue}{Results for all pipelines with respect to the longitudinal
+evaluation criteria are shown in Figures \ref{fig:longeval1} and
+\ref{fig:longeval2}.  Figure \ref{fig:longeval1}(a) provides the 95\% confidence
+intervals of the variance ratio for all 64 regions of the DKT cortical labeling
+where ANTsSST consistently performs best with the ANTsXNetLong also performing
+well.  These quantities are summarized in Figure \ref{fig:longeval1}(b).  The
+second evaluation criteria compares diagnostic differentiation via LMEs.  Log
+p-values are provided in Figure \ref{fig:longeval2} which demonstrate excellent
+LMCI-CN and AD-CN differentiation for both deep learning pipelines and
+comparable AD-LMCI diffierentiation relative to the other pipelines.}
 
 <!-- , suggesting that
 better classification performance---e.g., superior differentiation between
