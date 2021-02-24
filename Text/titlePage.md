@@ -31,7 +31,7 @@ Michael A. Yassa$^{9}$,
 James R. Stone$^{1}$,
 James C. Gee$^{2}$,
 Brian B. Avants$^{1}$
-for the Alzheimer’s Disease Neuroimaging Initiative$^{\dagger}$
+for the Alzheimer’s Disease Neuroimaging Initiative
 
 \footnotesize
 
@@ -57,15 +57,15 @@ Department of Radiology and Medical Imaging \
 University of Virginia \
 ntustison@virginia.edu
 
+<!-- \tiny
 \noindent\rule{4cm}{0.4pt}
 
-\tiny
 $^{\dagger}$Data used in preparation of this article were obtained from the Alzheimer’s
 Disease Neuroimaging Initiative (ADNI) database (http://adni.loni.usc.edu). As
 such, the investigators within the ADNI contributed to the design and
 implementation of ADNI and/or provided data but did not participate in analysis
 or writing of this report. A complete listing of ADNI investigators can be found
-at: http://adni.loni.usc.edu/wp-content/uploads/how to apply/AD NI Acknowledgement List.pdf
+at: http://adni.loni.usc.edu/wp-content/uploads/how to apply/AD NI Acknowledgement List.pdf -->
 
 \normalsize
 

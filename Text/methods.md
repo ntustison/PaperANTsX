@@ -1,19 +1,75 @@
 
 # Methods {-}
 
+## The original ANTs cortical thickness pipeline {-}
+
+The original ANTs cortical thickness pipeline [@Tustison:2014ab] consists of the
+following steps:
+
+* preprocessing: denoising [@Manjon:2010aa] and bias correction [@Tustison:2010ac];
+* brain extraction [@Avants:2010ab];
+* brain segmentation with spatial tissue priors [@Avants:2011aa] comprising the
+    * cerebrospinal fluid (CSF),
+    * gray matter (GM),
+    * white matter (WM),
+    * deep gray matter,
+    * cerebellum, and
+    * brain stem; and
+* cortical thickness estimation [@Das:2009aa].
+
+Our recent longitudinal variant [@Tustison:2019aa] incorporates an additional
+step involving the construction of a single subject template (SST)
+[@Avants:2010aa] coupled with the generation of tissue spatial priors of the SST
+for use with the processing of the individual time points as described above.
+
+Although the resulting thickness maps are conducive to voxel-based
+[@Ashburner:2000aa] and related analyses[@Avants:2012aa], here we employ the
+well-known Desikan-Killiany-Tourville (DKT) [@Klein:2012aa] labeling protocol
+(31 labels per hemisphere) to parcellate the cortex for averaging thickness
+values regionally (cf Table \ref{table:dkt_labels}). This allows us to 1) be
+consistent in our evaluation strategy for comparison with our previous work
+[@Tustison:2014ab;@Tustison:2019aa] and 2) leverage an additional deep
+learning-based substitution within the proposed pipeline.
+
+\input{dktRegions}
+
+## Overview of cortical thickness via ANTsXNet  {-}
+
+The entire analysis/evaluation framework, from preprocessing to
+statistical analysis, is made possible through the ANTsX ecosystem and simplified
+through the open-source R and Python platforms.  Preprocessing, image registration,
+and cortical thickness estimation are all available through the ANTsPy and ANTsR
+libraries whereas the deep learning steps are performed through networks
+constructed and trained via ANTsRNet/ANTsPyNet with data augmentation strategies
+and other utilities built from ANTsR/ANTsPy functionality.
+
+The brain extraction, brain segmentation, and DKT parcellation deep learning
+components were trained using data derived from our previous work
+[@Tustison:2014ab]. Specifically, the IXI [@ixi], MMRR [@Landman:2011aa], NKI
+[@nki], and OASIS [@oasis] data sets, and the corresponding derived data,
+comprising over 1200 subjects from age 4 to 94, were used for network training.
+Brain extraction employs a traditional 3-D U-net network [@Falk:2019aa] with
+whole brain, template-based data augmentation [@Tustison:2019ac] whereas brain
+segmentation and DKT parcellation are processed via 3-D U-net networks with
+attention gating [@Schlemper:2019aa] on image octant-based batches.
+\textcolor{blue}{Additional network architecture details are given below.}  We
+emphasize that a single model (\textcolor{blue}{as opposed to ensemble
+approaches where multiple models are used to produce the final solution}
+[@Li:2018aa]) was created for each of these steps and was used for all the
+experiments described below.
+
+
+## Implementation {-}
+
 Software, average DKT regional thickness values for all data sets, and the
 scripts to perform both the analysis and obtain thickness values for a single
-subject \textcolor{blue}{(cross-sectionally or longitudinally)} are provided as
+subject \textcolor{black}{(cross-sectionally or longitudinally)} are provided as
 open-source.  Specifically, all the ANTsX libraries are hosted on GitHub
 (https://github.com/ANTsX).  The cross-sectional data and analysis code are
 available as .csv files and R scripts at the GitHub repository dedicated to this
 paper (https://github.com/ntustison/PaperANTsX) whereas the longitudinal data
 and evaluation scripts are organized with the repository associated with our
 previous work [@Tustison:2019aa] (https://github.com/ntustison/CrossLong).
-
-
-
-## Implementation {-}
 
 \vspace{10mm}
 
@@ -83,10 +139,10 @@ processing a single subject which starts with reading the T1-weighted MRI input
 image, through the generation of the Atropos-style six-tissue segmentation and
 probability images, application of ``ants.kelly_kapowski`` (i.e., DiReCT), DKT
 cortical parcellation, subsequent label propagation through the cortex, and,
-finally, regional cortical thickness tabulation.  \textcolor{blue}{The
+finally, regional cortical thickness tabulation.  \textcolor{black}{The
 cross-sectional and longitudinal pipelines are encapsulated in the ANTsPyNet
 functions} ``antspynet.cortical_thickness`` and
-``antspynet.longitudinal_cortical_thickness``, \textcolor{blue}{respectively.}
+``antspynet.longitudinal_cortical_thickness``, \textcolor{black}{respectively.}
 Note that there are precise, line-by-line R-based analogs available through
 ANTsR/ANTsRNet.
 
@@ -122,28 +178,28 @@ non-zero voxels of the resulting cortical thickness maps, we perform a label
 propagation step to ensure the entire cortex, and only the non-zero thickness
 values in the cortex, are included in the tabulated regional values.
 
-\textcolor{blue}{As mentioned previously, the longitudinal version,}
-``antspynet.longitudinal_cortical_thickness``, \textcolor{blue}{adds an SST
+\textcolor{black}{As mentioned previously, the longitudinal version,}
+``antspynet.longitudinal_cortical_thickness``, \textcolor{black}{adds an SST
 generation step which can either be provided as a program input or it can be
 constructed from spatial normalization of all time points to a specified
-template.}  ``ants.deep_atropos`` \textcolor{blue}{is applied to the SST
+template.}  ``ants.deep_atropos`` \textcolor{black}{is applied to the SST
 yielding spatial tissues priors which are then used as input to}
-``ants.atropos`` \textcolor{blue}{for each time point. } ``ants.kelly_kapowski``
-\textcolor{blue}{is applied to the result to generate the desired cortical
+``ants.atropos`` \textcolor{black}{for each time point. } ``ants.kelly_kapowski``
+\textcolor{black}{is applied to the result to generate the desired cortical
 thickness maps.}
 
-\textcolor{blue}{Computational time on a CPU-only platform is approximately 1
-hour primarily due to} ``ants.kelly_kapowski`` \textcolor{blue}{processing.
+\textcolor{black}{Computational time on a CPU-only platform is approximately 1
+hour primarily due to} ``ants.kelly_kapowski`` \textcolor{black}{processing.
 Other preprocessing steps, i.e., bias correction and denoising, are on the order of a
 couple minutes. This total time should be compared with $4-5$ hours
 using the traditional pipeline employing the} ``quick``
-\textcolor{blue}{registration option or $10-15$ hours with the more
+\textcolor{black}{registration option or $10-15$ hours with the more
 comprehensive registration parameters employed).  As mentioned previously,
 elimination of the registration-based propagation of prior probability images to
 individual subjects is the principal source of reduced computational time. For
 ROI-based analyses, this is in addition to the elimination of the optional
 generation of a population-specific template. Additionally, the use of}
-``antspynet.desikan_killiany_tourville_labeling``, \textcolor{blue}{for cortical
+``antspynet.desikan_killiany_tourville_labeling``, \textcolor{black}{for cortical
 labeling (which completes in less than five minutes) eliminates the need for
 joint label fusion which requires multiple pairwise registrations for each
 subject in addition to the fusion algorithm itself.}
@@ -161,7 +217,7 @@ on our to-do list).  In terms of hardware, all training was done on a DGX (GPUs:
 
 __T1-weighted brain extraction.__  A whole-image 3-D U-net model [@Falk:2019aa]
 was used in conjunction with multiple training sessions employing a Dice loss
-function followed by categorical cross entropy.  \textcolor{blue}{Training data
+function followed by categorical cross entropy.  \textcolor{black}{Training data
 was derived from the same multi-site data described previously processed through
 our registration-based approach} [@Avants:2010ab].  A center-of-mass-based
 transformation to a standard template was used to standardize such parameters as
@@ -171,8 +227,10 @@ orientations of input data, a template-based data augmentation scheme was used
 warp batch images between members of the training population (followed by
 reorientation to the standard template). A digital random coin flipping for
 possible histogram matching [@Nyul:1999aa] between source and target images
-further increased data augmentation. \textcolor{blue}{The output of the network
-is a probabilistic mask of the brain.} Although not detailed here, training for brain
+further increased data augmentation. \textcolor{black}{The output of the network
+is a probabilistic mask of the brain.} \textcolor{blue}{The architecture
+consisted of four encoding/decoding layers with eight filters at the base layer
+which doubled every layer.} Although not detailed here, training for brain
 extraction in other modalities was performed similarly.
 
 __Deep Atropos.__ Dealing with 3-D data presents unique barriers for training
@@ -189,7 +247,10 @@ extracted affine normalization to the MNI template, the normalized image is
 cropped to a size of [160, 190, 160].  Overlapping octant patches of size [112,
 112, 112] were extracted from each image and trained using a batch size of 12
 such octant patches with weighted categorical cross entropy as the loss
-function.  As we point out in our earlier work [@Tustison:2014ab], obtaining
+function.  \textcolor{blue}{The architecture consisted of four encoding/decoding
+layers with 16 filters at the base layer which doubled every layer.}
+
+As we point out in our earlier work [@Tustison:2014ab], obtaining
 proper brain segmentation is perhaps the most critical step to estimating
 thickness values that have the greatest utility as a potential biomarker.  In
 fact, the first and last authors (NT and BA, respectively) spent much time
@@ -201,7 +262,7 @@ use components of our cortical thickness pipeline which can be potentially
 problematic[@Tustison:2013aa]. Fine-tuning for this particular workflow was also
 performed between the first and last authors using manual variation of the
 weights in the weighted categorical cross entropy.
-\textcolor{blue}{Specifically, the weights of each tissue type was altered in
+\textcolor{black}{Specifically, the weights of each tissue type were altered in
 order to produce segmentations which most resemble the traditional Atropos segmentations.}
 Ultimately, we settled on a weight vector of $(0.05, 1.5, 1, 3, 4, 3, 3)$ for
 the CSF, GM, WM, Deep GM, brain stem, and cerebellum, respectively.  Other

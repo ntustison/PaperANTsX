@@ -113,7 +113,7 @@ Michael A. Yassa$^{9}$,
 James R. Stone$^{1}$,
 James C. Gee$^{2}$,
 Brian B. Avants$^{1}$
-for the Alzheimer’s Disease Neuroimaging Initiative$^{\dagger}$
+for the Alzheimer’s Disease Neuroimaging Initiative
 
 \footnotesize
 
@@ -138,21 +138,6 @@ Nicholas J. Tustison, DSc\\
 Department of Radiology and Medical Imaging\\
 University of Virginia\\
 \href{mailto:ntustison@virginia.edu}{\nolinkurl{ntustison@virginia.edu}}
-
-\noindent
-
-\rule{4cm}{0.4pt}
-
-\tiny
-
-\(^{\dagger}\)Data used in preparation of this article were obtained
-from the Alzheimer's Disease Neuroimaging Initiative (ADNI) database
-(\url{http://adni.loni.usc.edu}). As such, the investigators within the
-ADNI contributed to the design and implementation of ADNI and/or
-provided data but did not participate in analysis or writing of this
-report. A complete listing of ADNI investigators can be found at:
-\url{http://adni.loni.usc.edu/wp-content/uploads/how} to apply/AD NI
-Acknowledgement List.pdf
 
 \normalsize
 
@@ -179,12 +164,14 @@ extensions ANTsRNet and ANTsPyNet (built on the popular TensorFlow/Keras
 libraries) contain several popular network architectures and trained
 models for specific applications. One such comprehensive application is
 a deep learning analog for generating cortical thickness data from
-structural T1-weighted brain MRI. Not only does this significantly
-improve computational efficiency and provide comparable-to-superior
-accuracy \textcolor{blue}{over multiple criteria relative
-to} the existing ANTs pipeline\textcolor{blue}{s} but it also
-illustrates the importance of the comprehensive ANTsX approach as a
-framework for medical image analysis.
+structural T1-weighted brain MRI,
+\textcolor{blue}{both cross-sectionally and longitudinally}. These
+pipelines significantly improve computational efficiency and provide
+comparable-to-superior accuracy
+\textcolor{blue}{over multiple criteria relative
+to} the existing ANTs \textcolor{blue}{workflows} and
+\textcolor{blue}{simultaneously} illustrate the importance of the
+comprehensive ANTsX approach as a framework for medical image analysis.
 
 \newpage
 
@@ -255,15 +242,16 @@ into Docker containers and packaged as Brain Imaging Data Structure
 It has also been independently ported for various platforms including
 Neurodebian\textsuperscript{20} (Debian OS),
 Neuroconductor\textsuperscript{21} (the R statistical project), and
-Nipype\textsuperscript{22} (Python). Even competing softwares, such as
-FreeSurfer\textsuperscript{23}, have incorporated well-performing and
-complementary ANTs components\textsuperscript{11,12} into their own
-libraries.
-\textcolor{blue}{Finally, according to GitHub, recent unique “clones” have
-averaged 34 per day with the total number of clones being approximately twice
-that many.  50 unique contributors to the ANTs library have made a total of over
-4500 commits. Additional insights into usage can be viewed at the ANTs GitHub
-website.}
+Nipype\textsuperscript{22} (Python).
+\textcolor{blue}{Additionally, other widely
+used software}, such as FreeSurfer\textsuperscript{23}, have
+incorporated well-performing and complementary ANTs
+components\textsuperscript{11,12} into their own libraries.
+\textcolor{blue}{Finally, according to GitHub, recent
+unique “clones” have averaged 34 per day with the total number of clones being
+approximately twice that many.  50 unique contributors to the ANTs library have
+made a total of over 4500 commits. Additional insights into usage can be viewed
+at the ANTs GitHub website.}
 
 \input{papers_table}
 
@@ -279,31 +267,32 @@ of ANTs and its extensions. Despite the existence of an abundance of
 online innovation and code for deep learning algorithms, much of it is
 disorganized and lacks a uniformity in structure and external data
 interfaces which would facilitate greater uptake. With this in mind,
-ANTsR spawned the deep learning ANTsRNet package which is a growing
-Keras/TensorFlow-based library of popular deep learning architectures
-and applications specifically geared towards medical imaging.
-Analogously, ANTsPyNet is an additional ANTsX complement to ANTsPy.
-Both, which we collectively refer to as ``ANTsXNet'', are co-developed
-so as to ensure cross-compatibility such that training performed in one
-library is readily accessible by the other library. In addition to a
-variety of popular network architectures (which are implemented in both
-2-D and 3-D), ANTsXNet contains a host of functionality for medical
-image analysis that have been developed in-house and collected from
-other open-source projects. For example, an extremely popular ANTsXNet
-application is a multi-modal brain extraction tool that uses different
-variants of the popular U-net\textsuperscript{24} architecture for
-segmenting the brain in multiple modalities. These modalities include
-conventional T1-weighted structural MRI as well as T2-weighted MRI,
-FLAIR, fractional anisotropy and BOLD. Demographic specialization also
-includes infant T1-weighted and/or T2-weighted MRI. Additionally, we
-have included other models and weights into our libraries such as a
-recent BrainAGE estimation model\textsuperscript{25}, based on
-\(>14,000\) individuals; HippMapp3r\textsuperscript{26}, a hippocampal
-segmentation tool; the winning entry of the MICCAI 2017 white matter
-hyperintensity segmentation competition\textsuperscript{27}; MRI super
-resolution using deep-projection networks\textsuperscript{28}; and
-NoBrainer, a T1-weighted brain extraction approach based on FreeSurfer
-(see Figure \ref{fig:antsXnetTools}).
+ANTsR spawned the deep learning ANTsRNet package\textsuperscript{24}
+which is a growing Keras/TensorFlow-based library of popular deep
+learning architectures and applications specifically geared towards
+medical imaging. Analogously, ANTsPyNet is an additional ANTsX
+complement to ANTsPy. Both, which we collectively refer to as
+``ANTsXNet'', are co-developed so as to ensure cross-compatibility such
+that training performed in one library is readily accessible by the
+other library. In addition to a variety of popular network architectures
+(which are implemented in both 2-D and 3-D), ANTsXNet contains a host of
+functionality for medical image analysis that have been developed
+in-house and collected from other open-source projects. For example, an
+extremely popular ANTsXNet application is a multi-modal brain extraction
+tool that uses different variants of the popular
+U-net\textsuperscript{25} architecture for segmenting the brain in
+multiple modalities. These modalities include conventional T1-weighted
+structural MRI as well as T2-weighted MRI, FLAIR, fractional anisotropy
+and BOLD. Demographic specialization also includes infant T1-weighted
+and/or T2-weighted MRI. Additionally, we have included other models and
+weights into our libraries such as a recent BrainAGE estimation
+model\textsuperscript{26}, based on \(>14,000\) individuals;
+HippMapp3r\textsuperscript{27}, a hippocampal segmentation tool; the
+winning entry of the MICCAI 2017 white matter hyperintensity
+segmentation competition\textsuperscript{28}; MRI super resolution using
+deep-projection networks\textsuperscript{29}; and NoBrainer, a
+T1-weighted brain extraction approach based on FreeSurfer (see Figure
+\ref{fig:antsXnetTools}).
 
 \hypertarget{the-antsxnet-cortical-thickness-pipeline}{%
 \subsection*{The ANTsXNet cortical thickness
@@ -327,30 +316,28 @@ The most recent ANTsX
 deep learning analogs} of our popular ANTs cortical thickness
 \textcolor{blue}{cross-sectional}\textsuperscript{16}
 \textcolor{blue}{and
-longitudinal}\textsuperscript{29} pipeline\textcolor{blue}{s} within the
-ANTsXNet framework for, amongst other potential benefits, increased
-computational efficiency. \textcolor{blue}{Figure} \ref{fig:pipeline},
+longitudinal}\textsuperscript{30} pipeline\textcolor{blue}{s} within the
+ANTsXNet framework. \textcolor{blue}{Figure} \ref{fig:pipeline},
 \textcolor{blue}{adapted from our previous work}\textsuperscript{16},
 \textcolor{blue}{illustrates some of the major changes associated with the
-single-subject pipeline.  It should be noted that this improvement in efficiency
-is principally a result of eliminating deformable image registration from the
+single-subject pipeline.  The resulting improvement in efficiency
+derives primarily from eliminating deformable image registration from the
 pipeline---a step which has historically been used to propagate prior,
 population-based information (e.g., tissue maps) to individual subjects for such
-tasks as brain extraction}\textsuperscript{30}
+tasks as brain extraction}\textsuperscript{31}
 \textcolor{blue}{and tissue
 segmentation}\textsuperscript{10}
 \textcolor{blue}{which is now configured within
 the neural networks.}
 
-\textcolor{blue}{These} structural processing
-pipeline\textcolor{blue}{s are} currently available as open-source
-within the ANTsXNet libraries which underwent a thorough evaluation
-using both cross-sectional and longitudinal data and discussed within
-the context of our previous evaluations\textsuperscript{16,29}. Note
-that related work has been recently reported by external
-groups\textsuperscript{31,32}. Fortunately, these overlapping
-contributions provide a context for comparison to motivate the utility
-of the ANTsX ecosystem.
+\textcolor{blue}{These} structural MRI processing
+pipeline\textcolor{blue}{s
+are} currently available as open-source within the ANTsXNet libraries.
+\textcolor{blue}{Evaluations using both cross-sectional and longitudinal data
+are described in subsequent sections and couched} within the context of
+our previous publications\textsuperscript{16,30}. Related work has been
+recently reported by external groups\textsuperscript{32,33} and provide
+a context for comparison to motivate the utility of the ANTsX ecosystem.
 
 \hypertarget{results}{%
 \section*{Results}\label{results}}
@@ -369,9 +356,9 @@ consists of the following steps:
 \tightlist
 \item
   preprocessing: denoising\textsuperscript{12} and bias
-  correction\textsuperscript{33};
+  correction\textsuperscript{34};
 \item
-  brain extraction\textsuperscript{30};
+  brain extraction\textsuperscript{31};
 \item
   brain segmentation with spatial tissue priors\textsuperscript{10}
   comprising the
@@ -395,20 +382,20 @@ consists of the following steps:
   cortical thickness estimation\textsuperscript{15}.
 \end{itemize}
 
-Our recent longitudinal variant\textsuperscript{29} incorporates an
+Our recent longitudinal variant\textsuperscript{30} incorporates an
 additional step involving the construction of a single subject template
 (SST)\textsuperscript{9} coupled with the generation of tissue spatial
 priors of the SST for use with the processing of the individual time
 points as described above.
 
 Although the resulting thickness maps are conducive to
-voxel-based\textsuperscript{34} and related
-analyses\textsuperscript{35}, here we employ the well-known
-Desikan-Killiany-Tourville (DKT)\textsuperscript{36} labeling protocol
+voxel-based\textsuperscript{35} and related
+analyses\textsuperscript{36}, here we employ the well-known
+Desikan-Killiany-Tourville (DKT)\textsuperscript{37} labeling protocol
 (31 labels per hemisphere) to parcellate the cortex for averaging
-thickness values regionally (see Table \ref{table:dkt_labels}). This
+thickness values regionally (cf Table \ref{table:dkt_labels}). This
 allows us to 1) be consistent in our evaluation strategy for comparison
-with our previous work\textsuperscript{16,29} and 2) leverage an
+with our previous work\textsuperscript{16,30} and 2) leverage an
 additional deep learning-based substitution within the proposed
 pipeline.
 
@@ -420,9 +407,9 @@ ANTsXNet}\label{overview-of-cortical-thickness-via-antsxnet}}
 \addcontentsline{toc}{subsection}{Overview of cortical thickness via
 ANTsXNet}
 
-Note that the entire analysis/evaluation framework, from preprocessing
-to statistical analysis, is made possible through the ANTsX ecosystem
-and simplified through the open-source R and Python platforms.
+The entire analysis/evaluation framework, from preprocessing to
+statistical analysis, is made possible through the ANTsX ecosystem and
+simplified through the open-source R and Python platforms.
 Preprocessing, image registration, and cortical thickness estimation are
 all available through the ANTsPy and ANTsR libraries whereas the deep
 learning steps are performed through networks constructed and trained
@@ -431,17 +418,17 @@ utilities built from ANTsR/ANTsPy functionality.
 
 The brain extraction, brain segmentation, and DKT parcellation deep
 learning components were trained using data derived from our previous
-work\textsuperscript{16}. Specifically, the IXI\textsuperscript{37},
-MMRR\textsuperscript{38}, NKI\textsuperscript{39}, and
-OASIS\textsuperscript{40} data sets, and the corresponding derived data,
+work\textsuperscript{16}. Specifically, the IXI\textsuperscript{38},
+MMRR\textsuperscript{39}, NKI\textsuperscript{40}, and
+OASIS\textsuperscript{41} data sets, and the corresponding derived data,
 comprising over 1200 subjects from age 4 to 94, were used for network
 training. Brain extraction employs a traditional 3-D U-net
-network\textsuperscript{24} with whole brain, template-based data
-augmentation\textsuperscript{41} whereas brain segmentation and DKT
+network\textsuperscript{25} with whole brain, template-based data
+augmentation\textsuperscript{24} whereas brain segmentation and DKT
 parcellation are processed via 3-D U-net networks with attention
 gating\textsuperscript{42} on image octant-based batches. We emphasize
 that a single model (\textcolor{blue}{as opposed to ensemble
-approaches where multiple models are used to produce the final solution}\textsuperscript{27})
+approaches where multiple models are used to produce the final solution}\textsuperscript{28})
 was created for each of these steps and was used for all the experiments
 described below.
 
@@ -484,7 +471,7 @@ explained previously\textsuperscript{16}, we find these evaluation
 measures to be much more useful than other commonly applied criteria as
 they are closer to assessing the actual utility of these thickness
 measurements as biomarkers for disease\textsuperscript{45} or growth.
-For example, in recent work\textsuperscript{31} the authors employ
+For example, in recent work\textsuperscript{32} the authors employ
 correlation with FreeSurfer thickness values as the primary evaluation
 for assessing relative performance with ANTs cortical
 thickness\textsuperscript{16}. This evaluation, unfortunately, is
@@ -537,12 +524,12 @@ rater'') of 0.99 for both pipelines.
   \centering
   \begin{subfigure}{0.4\textwidth}
     \centering
-    \includegraphics[width=0.7\linewidth]{Figures/rfImportance_SRPB1600_ANTs.pdf}
+    \includegraphics[width=0.75\linewidth]{Figures/rfImportance_SRPB1600_ANTs.pdf}
     \caption{ANTs}
   \end{subfigure}%
   \begin{subfigure}{0.4\textwidth}
     \centering
-    \includegraphics[width=0.7\linewidth]{Figures/rfImportance_SRPB1600_ANTsXNet.pdf}
+    \includegraphics[width=0.75\linewidth]{Figures/rfImportance_SRPB1600_ANTsXNet.pdf}
     \caption{ANTsXNet}
   \end{subfigure}
 \caption{Importance plots for the SRPB data set using ``MeanDecreaseAccuracy'' for the
@@ -591,7 +578,7 @@ the proposed ANTsXNet pipeline for cross-sectional data, we evaluated
 its performance on longitudinal data using the longitudinally-specific
 evaluation strategy and data we employed with the introduction of the
 longitudinal version of the ANTs cortical thickness
-pipeline\textsuperscript{29}. \textcolor{blue}{
+pipeline\textsuperscript{30}. \textcolor{blue}{
 We also evaluated an ANTsXNet-based pipeline tailored specifically for longitudinal
 data.  In this variant, an SST is generated and processed using the previously
 described ANTsXNet cross-sectional pipeline which yields tissue spatial priors.
@@ -599,8 +586,8 @@ These spatial priors are used in our traditional brain segmentation approach}\te
 significantly improved due to the elimination of the costly SST prior generation
 which uses multiple registrations combined with joint label fusion}\textsuperscript{14}.
 
-The ADNI-1 data used for our previous longitudinal performance
-evaluation\textsuperscript{29} consisted of over 600 subjects (197
+The ADNI-1 data used for our longitudinal performance
+evaluation\textsuperscript{30} consisted of over 600 subjects (197
 cognitive normals, 324 LMCI subjects, and 142 AD subjects) with one or
 more follow-up image acquisition sessions every 6 months (up to 36
 months) for a total of over 2500 images. In addition to the ANTsXNet
@@ -611,32 +598,19 @@ included the FreeSurfer\textsuperscript{23} cross-sectional
 cross-sectional pipeline (``ANTsCross'') in addition to two longitudinal
 ANTs-based variants (``ANTsNative'' and ``ANTsSST''). Two evaluation
 measurements, one unsupervised and one supervised, were used to assess
-comparative performance between all five pipelines. We add the results
+comparative performance between all seven pipelines. We add the results
 of the ANTsXNet pipeline
 \textcolor{blue}{cross-sectional and longitudinal} evaluations in
 relation to these other pipelines to provide a comprehensive overview of
 relative performance.
 
-First, the supervised evaluation employed Tukey post-hoc analyses with
-false discovery rate (FDR) adjustment to test the significance of the
-LMCI-CN, AD-LMCI, and AD-CN diagnostic contrasts. This is provided by
-the following \textcolor{blue}{linear mixed-effects} (LME) model
-\begin{align}
-  \Delta Y \sim & Y_{bl} + AGE_{bl} + ICV_{bl} + APOE_{bl} + GENDER + DIAGNOSIS_{bl} \\ \nonumber
-                & + VISIT:DIAGNOSIS_{bl} + (1 | ID) + (1 | SITE).
-\end{align} Here, \(\Delta Y\) is the change in thickness of the
-\(k^{th}\) DKT region from baseline (bl) thickness \(Y_{bl}\) with
-random intercepts for both the individual subject (\(ID\)) and the
-acquisition site. The subject-specific covariates \(AGE\), \(APOE\)
-status, \(GENDER\), \(DIAGNOSIS\), \(ICV\), and \(VISIT\) were taken
-directly from the ADNIMERGE package.
-
-Second, LME\textsuperscript{48} modeling was used to quantify
-between-subject and residual variabilities, the ratio of which provides
-an estimate of the effectiveness of a given biomarker for distinguishing
-between subpopulations. In order to assess this criteria while
-accounting for changes that may occur through the passage of time, we
-used the following Bayesian LME model: \begin{gather}
+First, \textcolor{blue}{linear mixed-effects} (LME)\textsuperscript{48}
+modeling was used to quantify between-subject and residual
+variabilities, the ratio of which provides an estimate of the
+effectiveness of a given biomarker for distinguishing between
+subpopulations. In order to assess this criteria while accounting for
+changes that may occur through the passage of time, we used the
+following Bayesian LME model: \begin{gather}
   Y^k_{ij} \sim N(\alpha^k_i + \beta^k_i t_{ij}, \sigma_k^2) \\ \nonumber
   \alpha^k_i \sim N(\alpha^k_0, \tau^2_k) \,\,\,\, \beta^k_i \sim N(\beta^k_0, \rho^2_k) \\ \nonumber
   \alpha^k_0, \beta^k_0 \sim N(0,10) \,\,\,\,  \sigma_k, \tau_k, \rho_k \sim \mbox{Cauchy}^+ (0, 5)
@@ -652,16 +626,28 @@ variability, \(\tau_k\), and residual variability, \(\sigma_k\) is
 \end{align} where the posterior distribution of \(r_k\) was summarized
 via the posterior median.
 
+Second, the supervised evaluation employed Tukey post-hoc analyses with
+false discovery rate (FDR) adjustment to test the significance of the
+LMCI-CN, AD-LMCI, and AD-CN diagnostic contrasts. This is provided by
+the following LME model \begin{align}
+  \Delta Y \sim & Y_{bl} + AGE_{bl} + ICV_{bl} + APOE_{bl} + GENDER + DIAGNOSIS_{bl} \\ \nonumber
+                & + VISIT:DIAGNOSIS_{bl} + (1 | ID) + (1 | SITE).
+\end{align} Here, \(\Delta Y\) is the change in thickness of the
+\(k^{th}\) DKT region from baseline (bl) thickness \(Y_{bl}\) with
+random intercepts for both the individual subject (\(ID\)) and the
+acquisition site. The subject-specific covariates \(AGE\), \(APOE\)
+status, \(GENDER\), \(DIAGNOSIS\), \(ICV\), and \(VISIT\) were taken
+directly from the ADNIMERGE package.
+
 \textcolor{blue}{Results for all pipelines with respect to the longitudinal
 evaluation criteria are shown in Figures \ref{fig:longeval1} and
 \ref{fig:longeval2}.  Figure \ref{fig:longeval1}(a) provides the 95\% confidence
 intervals of the variance ratio for all 64 regions of the DKT cortical labeling
-where ANTsSST consistently performs best with the ANTsXNetLong also performing
+where ANTsSST consistently performs best with ANTsXNetLong also performing
 well.  These quantities are summarized in Figure \ref{fig:longeval1}(b).  The
 second evaluation criteria compares diagnostic differentiation via LMEs.  Log
 p-values are provided in Figure \ref{fig:longeval2} which demonstrate excellent
-LMCI-CN and AD-CN differentiation for both deep learning pipelines and
-comparable AD-LMCI diffierentiation relative to the other pipelines.}
+LMCI-CN and AD-CN differentiation for both deep learning pipelines.}
 
 \hypertarget{discussion}{%
 \section*{Discussion}\label{discussion}}
@@ -689,7 +675,7 @@ variants which leverage deep learning for improved computational
 efficiency and also provides superior performance with respect to
 previously proposed evaluation measures for both
 cross-sectional\textsuperscript{16} and longitudinal
-scenarios\textsuperscript{29}. In addition to providing the tools which
+scenarios\textsuperscript{30}. In addition to providing the tools which
 generated the original training data for the proposed ANTsXNet pipeline,
 the ANTsX ecosystem provides a full-featured platform for the additional
 steps such as preprocessing (ANTsR/ANTsPy); data augmentation
@@ -703,7 +689,7 @@ medical imaging. In other words, various steps in the deep learning training
 processing (e.g., data augmentation, preprocessing) can all be performed within
 the same ecosystem where such important details as header information for image
 geometry are treated the same.} In contrast, related
-work\textsuperscript{31} described and evaluated a similar thickness
+work\textsuperscript{32} described and evaluated a similar thickness
 measurement pipeline. However, due to the lack of a complete processing
 and analysis framework, training data was generated using the FreeSurfer
 stream, deep learning-based brain segmentation employed
@@ -745,7 +731,7 @@ data and analysis code are available as .csv files and R scripts at the
 GitHub repository dedicated to this paper
 (\url{https://github.com/ntustison/PaperANTsX}) whereas the longitudinal
 data and evaluation scripts are organized with the repository associated
-with our previous work\textsuperscript{29}
+with our previous work\textsuperscript{30}
 (\url{https://github.com/ntustison/CrossLong}).
 
 \hypertarget{implementation}{%
@@ -912,15 +898,15 @@ of hardware, all training was done on a DGX (GPUs: 4X Tesla V100, system
 memory: 256 GB LRDIMM DDR4).
 
 \textbf{T1-weighted brain extraction.} A whole-image 3-D U-net
-model\textsuperscript{24} was used in conjunction with multiple training
+model\textsuperscript{25} was used in conjunction with multiple training
 sessions employing a Dice loss function followed by categorical cross
 entropy. \textcolor{blue}{Training data
 was derived from the same multi-site data described previously processed through
-our registration-based approach}\textsuperscript{30}. A
+our registration-based approach}\textsuperscript{31}. A
 center-of-mass-based transformation to a standard template was used to
 standardize such parameters as orientation and voxel size. However, to
 account for possible different header orientations of input data, a
-template-based data augmentation scheme was used\textsuperscript{41}
+template-based data augmentation scheme was used\textsuperscript{24}
 whereby forward and inverse transforms are used to randomly warp batch
 images between members of the training population (followed by
 reorientation to the standard template). A digital random coin flipping
@@ -955,7 +941,7 @@ spent much time during the original ANTs pipeline
 development\textsuperscript{16} trying to get the segmentation correct
 which required manually looking at many images and manually adjusting
 where necessary. This fine-tuning is often omitted or not considered
-when other groups\textsuperscript{31,53,54} use components of our
+when other groups\textsuperscript{32,53,54} use components of our
 cortical thickness pipeline which can be potentially
 problematic\textsuperscript{55}. Fine-tuning for this particular
 workflow was also performed between the first and last authors using
@@ -1003,6 +989,15 @@ are estimated first followed by the outer, cortical labels.
 \hypertarget{acknowledgments}{%
 \subsection*{Acknowledgments}\label{acknowledgments}}
 \addcontentsline{toc}{subsection}{Acknowledgments}
+
+Data used in preparation of this article were obtained from the
+Alzheimer's Disease Neuroimaging Initiative (ADNI) database
+(\url{http://adni.loni.usc.edu}). As such, the investigators within the
+ADNI contributed to the design and implementation of ADNI and/or
+provided data but did not participate in analysis or writing of this
+report. A complete listing of ADNI investigators can be found at:
+\url{http://adni.loni.usc.edu/wp-content/uploads/how} to apply/AD NI
+Acknowledgement List.pdf
 
 Data collection and sharing for this project was funded by the
 Alzheimer's Disease Neuroimaging Initiative (ADNI) (National Institutes
@@ -1151,91 +1146,91 @@ Neuroinform} \textbf{5}, 13 (2011).
 23. Fischl, B. FreeSurfer. \emph{Neuroimage} \textbf{62}, 774--81
 (2012).
 
+\leavevmode\hypertarget{ref-Tustison:2019ac}{}%
+24. Tustison, N. J. \emph{et al.} Convolutional neural networks with
+template-based data augmentation for functional lung image
+quantification. \emph{Acad Radiol} \textbf{26}, 412--423 (2019).
+
 \leavevmode\hypertarget{ref-Falk:2019aa}{}%
-24. Falk, T. \emph{et al.} U-net: Deep learning for cell counting,
+25. Falk, T. \emph{et al.} U-net: Deep learning for cell counting,
 detection, and morphometry. \emph{Nat Methods} \textbf{16}, 67--70
 (2019).
 
 \leavevmode\hypertarget{ref-Bashyam:2020aa}{}%
-25. Bashyam, V. M. \emph{et al.} MRI signatures of brain age and disease
+26. Bashyam, V. M. \emph{et al.} MRI signatures of brain age and disease
 over the lifespan based on a deep brain network and 14,468 individuals
 worldwide. \emph{Brain} \textbf{143}, 2312--2324 (2020).
 
 \leavevmode\hypertarget{ref-Goubran:2020aa}{}%
-26. Goubran, M. \emph{et al.} Hippocampal segmentation for brains with
+27. Goubran, M. \emph{et al.} Hippocampal segmentation for brains with
 extensive atrophy using three-dimensional convolutional neural networks.
 \emph{Hum Brain Mapp} \textbf{41}, 291--308 (2020).
 
 \leavevmode\hypertarget{ref-Li:2018aa}{}%
-27. Li, H. \emph{et al.} Fully convolutional network ensembles for white
+28. Li, H. \emph{et al.} Fully convolutional network ensembles for white
 matter hyperintensities segmentation in mr images. \emph{Neuroimage}
 \textbf{183}, 650--665 (2018).
 
 \leavevmode\hypertarget{ref-Haris:2018aa}{}%
-28. Haris, M., Shakhnarovich, G. \& Ukita, N. Deep back-projection
+29. Haris, M., Shakhnarovich, G. \& Ukita, N. Deep back-projection
 networks for super-resolution. in \emph{2018 IEEE/CVF Conference on
 Computer Vision and Pattern Recognition} 1664--1673 (2018).
 doi:\href{https://doi.org/10.1109/CVPR.2018.00179}{10.1109/CVPR.2018.00179}.
 
 \leavevmode\hypertarget{ref-Tustison:2019aa}{}%
-29. Tustison, N. J. \emph{et al.} Longitudinal mapping of cortical
+30. Tustison, N. J. \emph{et al.} Longitudinal mapping of cortical
 thickness measurements: An Alzheimer's Disease Neuroimaging
 Initiative-based evaluation study. \emph{J Alzheimers Dis} (2019)
 doi:\href{https://doi.org/10.3233/JAD-190283}{10.3233/JAD-190283}.
 
 \leavevmode\hypertarget{ref-Avants:2010ab}{}%
-30. Avants, B. B., Klein, A., Tustison, N. J., Woo, J. \& Gee, J. C.
+31. Avants, B. B., Klein, A., Tustison, N. J., Woo, J. \& Gee, J. C.
 Evaluation of open-access, automated brain extraction methods on
 multi-site multi-disorder data. in \emph{16th annual meeting for the
 organization of human brain mapping} (2010).
 
 \leavevmode\hypertarget{ref-Rebsamen:2020aa}{}%
-31. Rebsamen, M., Rummel, C., Reyes, M., Wiest, R. \& McKinley, R.
+32. Rebsamen, M., Rummel, C., Reyes, M., Wiest, R. \& McKinley, R.
 Direct cortical thickness estimation using deep learning-based anatomy
 segmentation and cortex parcellation. \emph{Hum Brain Mapp} (2020)
 doi:\href{https://doi.org/10.1002/hbm.25159}{10.1002/hbm.25159}.
 
 \leavevmode\hypertarget{ref-Henschel:2020aa}{}%
-32. Henschel, L. \emph{et al.} FastSurfer - a fast and accurate deep
+33. Henschel, L. \emph{et al.} FastSurfer - a fast and accurate deep
 learning based neuroimaging pipeline. \emph{Neuroimage} \textbf{219},
 117012 (2020).
 
 \leavevmode\hypertarget{ref-Tustison:2010ac}{}%
-33. Tustison, N. J. \emph{et al.} N4ITK: Improved N3 bias correction.
+34. Tustison, N. J. \emph{et al.} N4ITK: Improved N3 bias correction.
 \emph{IEEE Trans Med Imaging} \textbf{29}, 1310--20 (2010).
 
 \leavevmode\hypertarget{ref-Ashburner:2000aa}{}%
-34. Ashburner, J. \& Friston, K. J. Voxel-based morphometry--the
+35. Ashburner, J. \& Friston, K. J. Voxel-based morphometry--the
 methods. \emph{Neuroimage} \textbf{11}, 805--21 (2000).
 
 \leavevmode\hypertarget{ref-Avants:2012aa}{}%
-35. Avants, B. \emph{et al.} Eigenanatomy improves detection power for
+36. Avants, B. \emph{et al.} Eigenanatomy improves detection power for
 longitudinal cortical change. \emph{Med Image Comput Comput Assist
 Interv} \textbf{15}, 206--13 (2012).
 
 \leavevmode\hypertarget{ref-Klein:2012aa}{}%
-36. Klein, A. \& Tourville, J. 101 labeled brain images and a consistent
+37. Klein, A. \& Tourville, J. 101 labeled brain images and a consistent
 human cortical labeling protocol. \emph{Front Neurosci} \textbf{6}, 171
 (2012).
 
 \leavevmode\hypertarget{ref-ixi}{}%
-37. https://brain-development.org/ixi-dataset/.
+38. https://brain-development.org/ixi-dataset/.
 
 \leavevmode\hypertarget{ref-Landman:2011aa}{}%
-38. Landman, B. A. \emph{et al.} Multi-parametric neuroimaging
+39. Landman, B. A. \emph{et al.} Multi-parametric neuroimaging
 reproducibility: A 3-T resource study. \emph{Neuroimage} \textbf{54},
 2854--66 (2011).
 
 \leavevmode\hypertarget{ref-nki}{}%
-39. http://fcon\_1000.projects.nitrc.org/indi/pro/nki.html.
+40. http://fcon\_1000.projects.nitrc.org/indi/pro/nki.html.
 
 \leavevmode\hypertarget{ref-oasis}{}%
-40. https://www.oasis-brains.org.
-
-\leavevmode\hypertarget{ref-Tustison:2019ac}{}%
-41. Tustison, N. J. \emph{et al.} Convolutional neural networks with
-template-based data augmentation for functional lung image
-quantification. \emph{Acad Radiol} \textbf{26}, 412--423 (2019).
+41. https://www.oasis-brains.org.
 
 \leavevmode\hypertarget{ref-Schlemper:2019aa}{}%
 42. Schlemper, J. \emph{et al.} Attention gated networks: Learning to
@@ -1310,10 +1305,12 @@ practices in the computational sciences. \emph{Front Neurosci}
 
 {\bf Author contributions}
 
-Conception and design N.T., A.H., M.Y., J.S., B.A.
-Analysis and interpretation  N.T., A.H., D.G., M.Y., J.S. B.A.
-Creation of new software N.T., P.C., H.J., J.M., G.D., J.D., S.D., N.C., J.G., B.A.
-Drafting of manuscript N.T., A.H., P.C., H.J., J.M., G.D., J.G., B.A.
+\begin{itemize}
+\item Conception and design N.T., A.H., M.Y., J.S., B.A.
+\item Analysis and interpretation  N.T., A.H., D.G., M.Y., J.S. B.A.
+\item Creation of new software N.T., P.C., H.J., J.M., G.D., J.D., S.D., N.C., J.G., B.A.
+\item Drafting of manuscript N.T., A.H., P.C., H.J., J.M., G.D., J.G., B.A.
+\end{itemize}
 
 {\bf Competing interests}
 

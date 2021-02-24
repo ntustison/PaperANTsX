@@ -14,12 +14,13 @@ Python (ANTsPy). Additionally, the corresponding deep learning extensions
 ANTsRNet and ANTsPyNet (built on the popular TensorFlow/Keras libraries) contain
 several popular network architectures and trained models for specific
 applications.  One such comprehensive application is a deep learning analog for
-generating cortical thickness data from structural T1-weighted brain MRI.  Not
-only does this significantly improve computational efficiency and provide
-comparable-to-superior accuracy \textcolor{blue}{over multiple criteria relative
-to} the existing ANTs pipeline\textcolor{blue}{s} but it also illustrates the
-importance of the comprehensive ANTsX approach as a framework for medical image
-analysis.
+generating cortical thickness data from structural T1-weighted brain MRI,
+\textcolor{black}{both cross-sectionally and longitudinally}.  These pipelines
+significantly improve computational efficiency and provide
+comparable-to-superior accuracy \textcolor{black}{over multiple criteria relative
+to} the existing ANTs \textcolor{black}{workflows} and
+\textcolor{black}{simultaneously} illustrate the importance of the comprehensive
+ANTsX approach as a framework for medical image analysis.
 
 \newpage
 
