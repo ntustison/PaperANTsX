@@ -4,20 +4,8 @@
 
 ## Cross-sectional performance evaluation {-}
 
-\begin{figure}[htb]
-  \centering
-    \includegraphics[width=\textwidth]{Figures/rmseThicknessPerSite.pdf}
-  \caption{Distribution of mean RMSE values (500 permutations) for age
-          prediction across the different data sets between
-          the traditional ANTs and deep learning-based ANTsXNet pipelines. Total
-          mean values are as follows: Combined---9.3 years (ANTs) and 8.2 years
-          (ANTsXNet); IXI---7.9 years (ANTs) and 8.6 years (ANTsXNet);
-          MMRR---7.9 years (ANTs) and 7.6 years (ANTsXNet); NKI---8.7 years
-          (ANTs) and 7.9 years (ANTsXNet); OASIS---9.2 years (ANTs) and 8.0
-          years (ANTsXNet); and SRPB---9.2 years (ANTs) and 8.1 years
-          (ANTsXNet).}
-  \label{fig:agePrediction}
-\end{figure}
+\input{dktRegions}
+
 
 Due to the absence of ground-truth, we utilize the evaluation strategy from our
 previous work [@Tustison:2014ab] where we used cross-validation to build and
@@ -33,7 +21,8 @@ AGE \sim VOLUME + GENDER + \sum_{i=1}^{62} T(DKT_i)
 
 with covariates
 $GENDER$ and $VOLUME$ (i.e., total intracranial volume). $T(DKT_i)$ is the
-average thickness value in the $i^{th}$ DKT region.  Root mean square error
+average thickness value in the $i^{th}$ Desikian-Killiany-Tourville (DKT) region
+[@Klein:2012aa] (cf Table \ref{table:dkt_labels}).  Root mean square error
 (RMSE) between the actual and predicted ages are the quantity used for
 comparative evaluation.  As we have explained previously [@Tustison:2014ab], we
 find these evaluation measures to be much more useful than other commonly
@@ -58,6 +47,21 @@ considerations such as the bias-variance tradeoff and quantified using relevant
 metrics, such as the intra-class correlation coefficient which takes into
 account both inter- and intra-observer variability.
 
+\begin{figure}[htb]
+  \centering
+    \includegraphics[width=\textwidth]{Figures/rmseThicknessPerSite.pdf}
+  \caption{Distribution of mean RMSE values (500 permutations) for age
+          prediction across the different data sets between
+          the traditional ANTs and deep learning-based ANTsXNet pipelines. Total
+          mean values are as follows: Combined---9.3 years (ANTs) and 8.2 years
+          (ANTsXNet); IXI---7.9 years (ANTs) and 8.6 years (ANTsXNet);
+          MMRR---7.9 years (ANTs) and 7.6 years (ANTsXNet); NKI---8.7 years
+          (ANTs) and 7.9 years (ANTsXNet); OASIS---9.2 years (ANTs) and 8.0
+          years (ANTsXNet); and SRPB---9.2 years (ANTs) and 8.1 years
+          (ANTsXNet).}
+  \label{fig:agePrediction}
+\end{figure}
+
 In addition to the training data listed above, to ensure generalizability, we
 also compared performance using the SRPB data set [@srpb] comprising over 1600
 participants from 12 sites.  Note that we recognize that we are processing a
@@ -76,15 +80,47 @@ cross-validation with 500 permutations per model per data set (including a
 "combined" set) and an 80/20 training/testing split. The ANTsXNet deep learning
 pipeline outperformed the classical pipeline [@Tustison:2014ab] in terms of age
 prediction in all data sets except for IXI.  This also includes the
-cross-validation iteration where all data sets were combined. Importance plots
-ranking the cortical thickness regions and the other covariates of Equation (1)
-are shown in Figure \ref{fig:rfimportance}. Rankings employ
-"MeanDecreaseAccuracy" which quantifies the decrease in model accuracy based on
-the exclusion of a specific random forest regressor. Additionally, repeatability
-assessment on \textcolor{blue}{the regional cortical thickness values of the}
-MMRR data set yielded ICC values ("average random rater") of 0.99 for both
-pipelines.
+cross-validation iteration where all data sets were combined.  Additionally,
+repeatability assessment on \textcolor{blue}{the regional cortical thickness
+values of the} MMRR data set yielded ICC values ("average random rater") of 0.99
+for both pipelines.
 
+\textcolor{blue}{
+A comparative illustration of regional thickness measurements between the ANTs
+and ANTsXNet pipelines is provided in Figure \ref{fig:radar} for three different
+ages spanning the lifespan.  Linear models of the form}
+
+\begin{equation}
+  T(DKT_i) \sim GENDER + AGE
+\end{equation}
+
+\textcolor{blue}{
+were created for each of the 62 DKT regions for each pipeline.  These models were
+then used to predict thickness values for each gender at ages of 25 years, 50 years,
+and 75 years and subsequently plotted relative to the absolute maximum predicted
+thickness value (ANTs:  right entorhinal cortex at 25 years, male).  Although
+there are appear to be systematic differences between specific regional predicted
+thickness values (e.g., $T(ENT)_{ANTs} > T(ENT)_{ANTsXNet}$,
+$T(pORB)_{ANTs} < T(pORB)_{ANTsXNet}$)), a pairwise t-test evidenced no statistically
+significant difference between the predicted thickness values of the two pipelines.}
+
+\begin{figure}[htb]
+  \centering
+    \includegraphics[width=0.9\textwidth]{Figures/radarSPRB.pdf}
+  \caption{\textcolor{blue}{Radar plots enabling comparison of relative thickness values between
+  the ANTs and ANTsXNet cortical thickness pipelines at three different ages
+  sampling the life span.}}
+  \label{fig:radar}
+\end{figure}
+
+
+<!-- Importance plots
+ranking the cortical thickness regions and the other covariates of Equation (1)
+are shown in Figure \ref{fig:radar}. Rankings employ
+"MeanDecreaseAccuracy" which quantifies the decrease in model accuracy based on
+the exclusion of a specific random forest regressor.  -->
+
+<!--
 \begin{figure}[htb]
   \centering
   \begin{subfigure}{0.4\textwidth}
@@ -102,6 +138,7 @@ random forest regressors (i.e., cortical thickness regions, gender, and brain vo
 specified by Equation (1).}
 \label{fig:rfimportance}
 \end{figure}
+-->
 
 
 ## Longitudinal performance evaluation {-}

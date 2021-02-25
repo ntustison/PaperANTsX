@@ -197,3 +197,7 @@ for( i in seq.int( length( ages ) ) )
 
     }
   }
+
+antsData <- radarData[which( radarData$Pipeline == "ANTs" ),]
+antsxnetData <- radarData[which( radarData$Pipeline == "ANTsXNet" ),]
+t.test( antsData$Thickness, antsxnetData$Thickness, paired = TRUE )

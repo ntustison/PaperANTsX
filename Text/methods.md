@@ -31,7 +31,6 @@ consistent in our evaluation strategy for comparison with our previous work
 [@Tustison:2014ab;@Tustison:2019aa] and 2) leverage an additional deep
 learning-based substitution within the proposed pipeline.
 
-\input{dktRegions}
 
 ## Overview of cortical thickness via ANTsXNet  {-}
 
