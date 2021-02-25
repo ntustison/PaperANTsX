@@ -81,8 +81,9 @@ ranking the cortical thickness regions and the other covariates of Equation (1)
 are shown in Figure \ref{fig:rfimportance}. Rankings employ
 "MeanDecreaseAccuracy" which quantifies the decrease in model accuracy based on
 the exclusion of a specific random forest regressor. Additionally, repeatability
-assessment on the MMRR data set yielded ICC values ("average random rater") of
-0.99 for both pipelines.
+assessment on \textcolor{blue}{the regional cortical thickness values of the}
+MMRR data set yielded ICC values ("average random rater") of 0.99 for both
+pipelines.
 
 \begin{figure}[htb]
   \centering

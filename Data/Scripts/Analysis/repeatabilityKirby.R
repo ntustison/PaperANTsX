@@ -49,7 +49,5 @@ for( i in seq.int( 2 ) )
   iccResults <- ICC( iccData )
   print( iccResults )
   cat( "\n" )
-
-
   }
 
