@@ -228,7 +228,7 @@ reorientation to the standard template). A digital random coin flipping for
 possible histogram matching [@Nyul:1999aa] between source and target images
 further increased data augmentation. \textcolor{black}{The output of the network
 is a probabilistic mask of the brain.} \textcolor{blue}{The architecture
-consisted of four encoding/decoding layers with eight filters at the base layer
+consists of four encoding/decoding layers with eight filters at the base layer
 which doubled every layer.} Although not detailed here, training for brain
 extraction in other modalities was performed similarly.
 
@@ -246,7 +246,7 @@ extracted affine normalization to the MNI template, the normalized image is
 cropped to a size of [160, 190, 160].  Overlapping octant patches of size [112,
 112, 112] were extracted from each image and trained using a batch size of 12
 such octant patches with weighted categorical cross entropy as the loss
-function.  \textcolor{blue}{The architecture consisted of four encoding/decoding
+function.  \textcolor{blue}{The architecture consists of four encoding/decoding
 layers with 16 filters at the base layer which doubled every layer.}
 
 As we point out in our earlier work [@Tustison:2014ab], obtaining

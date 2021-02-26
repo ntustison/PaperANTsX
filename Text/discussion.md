@@ -60,7 +60,7 @@ while simultaneously resuming training on whole head data to mitigate this issue
 Related, although the ANTsXNet pipeline performs relatively well as assessed
 across lifespan data, performance might be hampered for specific age ranges
 (e.g., neonates), whereas the traditional ANTs cortical thickness pipeline
-is more flexible and might provide better performance.  This is the subject
+is more flexible and might provide better age-targeted performance.  This is the subject
 of ongoing research.  Additionally, application of the ANTsXNet pipeline would
 be limited with high-resolution acquisitions.  Due to the heavy memory
 requirements associated with deep learning training, the utility of any

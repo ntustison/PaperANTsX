@@ -106,10 +106,9 @@ at the ANTs GitHub website.}
 
 Over the course of its development, ANTs has been extended to complementary
 frameworks resulting in the Python- and R-based ANTsPy and ANTsR toolkits,
-respectively. These ANTs-based interfaces with extremely popular, high-level,
+respectively. These ANTs-based packages interface with extremely popular, high-level,
 open-source programming platforms have significantly increased the user base of
-ANTs and facilitated research workflows \textcolor{black}{which leverage the
-advantages of these high-level programming languages.}  The rapidly rising
+ANTs.  The rapidly rising
 popularity of deep learning motivated further recent enhancement of ANTs and its
 extensions.  Despite the existence of an abundance of online innovation and code
 for deep learning algorithms, much of it is disorganized and lacks a uniformity
@@ -134,7 +133,7 @@ and weights into our libraries such as a recent BrainAGE estimation model
 [@Bashyam:2020aa], based on $>14,000$ individuals; HippMapp3r [@Goubran:2020aa],
 a hippocampal segmentation tool; the winning entry of the MICCAI 2017 white
 matter hyperintensity segmentation competition [@Li:2018aa]; MRI super
-resolution using deep-projection networks [@Haris:2018aa]; and NoBrainer, a
+resolution using deep back-projection networks [@Haris:2018aa]; and NoBrainer, a
 T1-weighted brain extraction approach based on FreeSurfer (see Figure
 \ref{fig:antsXnetTools}).
 
@@ -147,7 +146,8 @@ T1-weighted brain extraction approach based on FreeSurfer (see Figure
   relationship to its traditional ANTs analog.  The hash-designated sections
   denote pipeline steps which have been obviated by the deep learning approach.
   These include template-based brain extraction, template-based $n$-tissue
-  segmentation, and joint label fusion for cortical labeling.}}
+  segmentation, and joint label fusion for cortical labeling.  In our prior work, execution time of the thickness pipeline was dominated by registration.  In the deep version of the pipeline,
+it is dominated by DiReCT.  However, we note that  registration and DiReCT execute much more quickly than in the past in part due to major improvements in the underlying ITK multi-threading strategy.}}
   \label{fig:pipeline}
 \end{figure}
 

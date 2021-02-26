@@ -248,10 +248,9 @@ at the ANTs GitHub website.}
 
 Over the course of its development, ANTs has been extended to complementary
 frameworks resulting in the Python- and R-based ANTsPy and ANTsR toolkits,
-respectively. These ANTs-based interfaces with extremely popular, high-level,
+respectively. These ANTs-based packages interface with extremely popular, high-level,
 open-source programming platforms have significantly increased the user base of
-ANTs and facilitated research workflows \textcolor{black}{which leverage the
-advantages of these high-level programming languages.}  The rapidly rising
+ANTs.  The rapidly rising
 popularity of deep learning motivated further recent enhancement of ANTs and its
 extensions.  Despite the existence of an abundance of online innovation and code
 for deep learning algorithms, much of it is disorganized and lacks a uniformity
@@ -276,7 +275,7 @@ and weights into our libraries such as a recent BrainAGE estimation model
 [@Bashyam:2020aa], based on $>14,000$ individuals; HippMapp3r [@Goubran:2020aa],
 a hippocampal segmentation tool; the winning entry of the MICCAI 2017 white
 matter hyperintensity segmentation competition [@Li:2018aa]; MRI super
-resolution using deep-projection networks [@Haris:2018aa]; and NoBrainer, a
+resolution using deep back-projection networks [@Haris:2018aa]; and NoBrainer, a
 T1-weighted brain extraction approach based on FreeSurfer (see Figure
 \ref{fig:antsXnetTools}).
 
@@ -289,7 +288,8 @@ T1-weighted brain extraction approach based on FreeSurfer (see Figure
   relationship to its traditional ANTs analog.  The hash-designated sections
   denote pipeline steps which have been obviated by the deep learning approach.
   These include template-based brain extraction, template-based $n$-tissue
-  segmentation, and joint label fusion for cortical labeling.}}
+  segmentation, and joint label fusion for cortical labeling.  In our prior work, execution time of the thickness pipeline was dominated by registration.  In the deep version of the pipeline,
+it is dominated by DiReCT.  However, we note that  registration and DiReCT execute much more quickly than in the past in part due to major improvements in the underlying ITK multi-threading strategy.}}
   \label{fig:pipeline}
 \end{figure}
 
@@ -496,12 +496,12 @@ Given the excellent performance and superior computational efficiency of the
 proposed ANTsXNet pipeline for cross-sectional data, we evaluated its
 performance on longitudinal data using the longitudinally-specific evaluation
 strategy and data we employed with the introduction of the longitudinal version
-of the ANTs cortical thickness pipeline [@Tustison:2019aa].  \textcolor{blue}{
+of the ANTs cortical thickness pipeline [@Tustison:2019aa].  \textcolor{black}{
 We also evaluated an ANTsXNet-based pipeline tailored specifically for longitudinal
 data.  In this variant, an SST is generated and processed using the previously
 described ANTsXNet cross-sectional pipeline which yields tissue spatial priors.
 These spatial priors are used in our traditional brain segmentation approach}
-[@Avants:2011aa]\textcolor{blue}{.  The computational efficiency of this variant is also
+[@Avants:2011aa]\textcolor{black}{.  The computational efficiency of this variant is also
 significantly improved due to the elimination of the costly SST prior generation
 which uses multiple registrations combined with joint label fusion} [@Wang:2013ab].
 
@@ -509,18 +509,18 @@ The ADNI-1 data used for our longitudinal performance evaluation
 [@Tustison:2019aa] consisted of over 600 subjects (197 cognitive normals, 324
 LMCI subjects, and 142 AD subjects) with one or more follow-up image acquisition
 sessions every 6 months (up to 36 months) for a total of over 2500 images. In
-addition to the ANTsXNet pipelines \textcolor{blue}{(``ANTsXNetCross'' and
+addition to the ANTsXNet pipelines \textcolor{black}{(``ANTsXNetCross'' and
 ``ANTsXNetLong'')} for the current evaluation, our previous work included the
 FreeSurfer [@Fischl:2012aa] cross-sectional ("FSCross") and longitudinal
 ("FSLong") streams, the ANTs cross-sectional pipeline ("ANTsCross") in addition
 to two longitudinal ANTs-based variants ("ANTsNative" and "ANTsSST"). Two
 evaluation measurements, one unsupervised and one supervised, were used to
 assess comparative performance between all seven pipelines.  We add the results
-of the ANTsXNet pipeline \textcolor{blue}{cross-sectional and longitudinal}
+of the ANTsXNet pipeline \textcolor{black}{cross-sectional and longitudinal}
 evaluations in relation to these other pipelines to provide a comprehensive
 overview of relative performance.
 
-First, \textcolor{blue}{linear mixed-effects} (LME) [@verbeke1997linear] modeling was used to quantify
+First, \textcolor{black}{linear mixed-effects} (LME) [@verbeke1997linear] modeling was used to quantify
 between-subject and residual variabilities, the ratio of which provides an
 estimate of the effectiveness of a given biomarker for distinguishing between
 subpopulations. In order to assess this criteria while accounting for changes
@@ -559,7 +559,7 @@ status, $GENDER$, $DIAGNOSIS$, $ICV$, and $VISIT$ were taken directly from the
 ADNIMERGE package.
 
 
-\textcolor{blue}{Results for all pipelines with respect to the longitudinal
+\textcolor{black}{Results for all pipelines with respect to the longitudinal
 evaluation criteria are shown in Figures \ref{fig:longeval1} and
 \ref{fig:longeval2}.  Figure \ref{fig:longeval1}(a) provides the 95\% confidence
 intervals of the variance ratio for all 64 regions of the DKT cortical labeling
@@ -593,7 +593,7 @@ ANTsXNet will perform with respect to the same measure. -->
 The ANTsX software ecosystem provides a comprehensive framework for quantitative
 biological and medical imaging.  Although ANTs, the original core of ANTsX, is
 still at the forefront of image registration technology, it has moved
-signicantly beyond its image registration origins.  This expansion is not
+significantly beyond its image registration origins.  This expansion is not
 confined to technical contributions (of which there are many) but also consists
 of facilitating access to a wide range of users who can use ANTsX tools (whether
 through bash, Python, or R scripting) to construct tailored
@@ -647,7 +647,7 @@ while simultaneously resuming training on whole head data to mitigate this issue
 Related, although the ANTsXNet pipeline performs relatively well as assessed
 across lifespan data, performance might be hampered for specific age ranges
 (e.g., neonates), whereas the traditional ANTs cortical thickness pipeline
-is more flexible and might provide better performance.  This is the subject
+is more flexible and might provide better age-targeted performance.  This is the subject
 of ongoing research.  Additionally, application of the ANTsXNet pipeline would
 be limited with high-resolution acquisitions.  Due to the heavy memory
 requirements associated with deep learning training, the utility of any
@@ -908,7 +908,7 @@ reorientation to the standard template). A digital random coin flipping for
 possible histogram matching [@Nyul:1999aa] between source and target images
 further increased data augmentation. \textcolor{black}{The output of the network
 is a probabilistic mask of the brain.} \textcolor{blue}{The architecture
-consisted of four encoding/decoding layers with eight filters at the base layer
+consists of four encoding/decoding layers with eight filters at the base layer
 which doubled every layer.} Although not detailed here, training for brain
 extraction in other modalities was performed similarly.
 
@@ -926,7 +926,7 @@ extracted affine normalization to the MNI template, the normalized image is
 cropped to a size of [160, 190, 160].  Overlapping octant patches of size [112,
 112, 112] were extracted from each image and trained using a batch size of 12
 such octant patches with weighted categorical cross entropy as the loss
-function.  \textcolor{blue}{The architecture consisted of four encoding/decoding
+function.  \textcolor{blue}{The architecture consists of four encoding/decoding
 layers with 16 filters at the base layer which doubled every layer.}
 
 As we point out in our earlier work [@Tustison:2014ab], obtaining
@@ -989,6 +989,11 @@ cognitive impairment (MCI) and early Alzheimer’s disease (AD). -->
 \clearpage
 
 ## Acknowledgments {-}
+
+Support for the research reported in this work includes funding from the
+National Heart, Lung, and Blood Institute  of the National Institutes of Health
+(R01HL133889) and a combined grant from Cohen Veterans Bioscience (CVB-461) and
+the Office of Naval Research (N00014-18-1-2440).
 
 Data used in preparation of this article were obtained from the Alzheimer’s
 Disease Neuroimaging Initiative (ADNI) database (http://adni.loni.usc.edu). As

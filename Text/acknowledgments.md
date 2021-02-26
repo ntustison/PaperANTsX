@@ -4,6 +4,11 @@
 
 ## Acknowledgments {-}
 
+Support for the research reported in this work includes funding from the
+National Heart, Lung, and Blood Institute  of the National Institutes of Health
+(R01HL133889) and a combined grant from Cohen Veterans Bioscience (CVB-461) and
+the Office of Naval Research (N00014-18-1-2440).
+
 Data used in preparation of this article were obtained from the Alzheimer’s
 Disease Neuroimaging Initiative (ADNI) database (http://adni.loni.usc.edu). As
 such, the investigators within the ADNI contributed to the design and

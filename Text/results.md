@@ -177,12 +177,12 @@ Given the excellent performance and superior computational efficiency of the
 proposed ANTsXNet pipeline for cross-sectional data, we evaluated its
 performance on longitudinal data using the longitudinally-specific evaluation
 strategy and data we employed with the introduction of the longitudinal version
-of the ANTs cortical thickness pipeline [@Tustison:2019aa].  \textcolor{blue}{
+of the ANTs cortical thickness pipeline [@Tustison:2019aa].  \textcolor{black}{
 We also evaluated an ANTsXNet-based pipeline tailored specifically for longitudinal
 data.  In this variant, an SST is generated and processed using the previously
 described ANTsXNet cross-sectional pipeline which yields tissue spatial priors.
 These spatial priors are used in our traditional brain segmentation approach}
-[@Avants:2011aa]\textcolor{blue}{.  The computational efficiency of this variant is also
+[@Avants:2011aa]\textcolor{black}{.  The computational efficiency of this variant is also
 significantly improved due to the elimination of the costly SST prior generation
 which uses multiple registrations combined with joint label fusion} [@Wang:2013ab].
 
@@ -190,18 +190,18 @@ The ADNI-1 data used for our longitudinal performance evaluation
 [@Tustison:2019aa] consisted of over 600 subjects (197 cognitive normals, 324
 LMCI subjects, and 142 AD subjects) with one or more follow-up image acquisition
 sessions every 6 months (up to 36 months) for a total of over 2500 images. In
-addition to the ANTsXNet pipelines \textcolor{blue}{(``ANTsXNetCross'' and
+addition to the ANTsXNet pipelines \textcolor{black}{(``ANTsXNetCross'' and
 ``ANTsXNetLong'')} for the current evaluation, our previous work included the
 FreeSurfer [@Fischl:2012aa] cross-sectional ("FSCross") and longitudinal
 ("FSLong") streams, the ANTs cross-sectional pipeline ("ANTsCross") in addition
 to two longitudinal ANTs-based variants ("ANTsNative" and "ANTsSST"). Two
 evaluation measurements, one unsupervised and one supervised, were used to
 assess comparative performance between all seven pipelines.  We add the results
-of the ANTsXNet pipeline \textcolor{blue}{cross-sectional and longitudinal}
+of the ANTsXNet pipeline \textcolor{black}{cross-sectional and longitudinal}
 evaluations in relation to these other pipelines to provide a comprehensive
 overview of relative performance.
 
-First, \textcolor{blue}{linear mixed-effects} (LME) [@verbeke1997linear] modeling was used to quantify
+First, \textcolor{black}{linear mixed-effects} (LME) [@verbeke1997linear] modeling was used to quantify
 between-subject and residual variabilities, the ratio of which provides an
 estimate of the effectiveness of a given biomarker for distinguishing between
 subpopulations. In order to assess this criteria while accounting for changes
@@ -240,7 +240,7 @@ status, $GENDER$, $DIAGNOSIS$, $ICV$, and $VISIT$ were taken directly from the
 ADNIMERGE package.
 
 
-\textcolor{blue}{Results for all pipelines with respect to the longitudinal
+\textcolor{black}{Results for all pipelines with respect to the longitudinal
 evaluation criteria are shown in Figures \ref{fig:longeval1} and
 \ref{fig:longeval2}.  Figure \ref{fig:longeval1}(a) provides the 95\% confidence
 intervals of the variance ratio for all 64 regions of the DKT cortical labeling
