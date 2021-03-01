@@ -28,7 +28,7 @@ comparative evaluation.  As we have explained previously [@Tustison:2014ab], we
 find these evaluation measures to be much more useful than other commonly
 applied criteria as they are closer to assessing the actual utility of these
 thickness measurements as biomarkers for
-disease [@holbrook2020anterolateral] or growth.  For example, in recent work
+disease [@holbrook2020anterolateral] or growth.  In recent work
 [@Rebsamen:2020aa] the authors employ correlation with FreeSurfer thickness
 values as the primary evaluation for assessing relative performance with ANTs
 cortical thickness [@Tustison:2014ab].  This evaluation, unfortunately, is
@@ -99,7 +99,7 @@ were created for each of the 62 DKT regions for each pipeline.  These models wer
 then used to predict thickness values for each gender at ages of 25 years, 50 years,
 and 75 years and subsequently plotted relative to the absolute maximum predicted
 thickness value (ANTs:  right entorhinal cortex at 25 years, male).  Although
-there are appear to be systematic differences between specific regional predicted
+there appear to be systematic differences between specific regional predicted
 thickness values (e.g., $T(ENT)_{ANTs} > T(ENT)_{ANTsXNet}$,
 $T(pORB)_{ANTs} < T(pORB)_{ANTsXNet}$)), a pairwise t-test evidenced no statistically
 significant difference between the predicted thickness values of the two pipelines.}
@@ -109,7 +109,7 @@ significant difference between the predicted thickness values of the two pipelin
     \includegraphics[width=0.9\textwidth]{Figures/radarSPRB.pdf}
   \caption{\textcolor{blue}{Radar plots enabling comparison of relative thickness values between
   the ANTs and ANTsXNet cortical thickness pipelines at three different ages
-  sampling the life span.}}
+  sampling the life span.  See Table \ref{table:dkt_labels} for region abbreviations. }}
   \label{fig:radar}
 \end{figure}
 
@@ -183,11 +183,11 @@ data.  In this variant, an SST is generated and processed using the previously
 described ANTsXNet cross-sectional pipeline which yields tissue spatial priors.
 These spatial priors are used in our traditional brain segmentation approach}
 [@Avants:2011aa]\textcolor{black}{.  The computational efficiency of this variant is also
-significantly improved due to the elimination of the costly SST prior generation
+significantly improved, in part, due to the elimination of the costly SST prior generation
 which uses multiple registrations combined with joint label fusion} [@Wang:2013ab].
 
 The ADNI-1 data used for our longitudinal performance evaluation
-[@Tustison:2019aa] consisted of over 600 subjects (197 cognitive normals, 324
+[@Tustison:2019aa] consists of over 600 subjects (197 cognitive normals, 324
 LMCI subjects, and 142 AD subjects) with one or more follow-up image acquisition
 sessions every 6 months (up to 36 months) for a total of over 2500 images. In
 addition to the ANTsXNet pipelines \textcolor{black}{(``ANTsXNetCross'' and
@@ -243,7 +243,7 @@ ADNIMERGE package.
 \textcolor{black}{Results for all pipelines with respect to the longitudinal
 evaluation criteria are shown in Figures \ref{fig:longeval1} and
 \ref{fig:longeval2}.  Figure \ref{fig:longeval1}(a) provides the 95\% confidence
-intervals of the variance ratio for all 64 regions of the DKT cortical labeling
+intervals of the variance ratio for all 62 regions of the DKT cortical labeling
 where ANTsSST consistently performs best with ANTsXNetLong also performing
 well.  These quantities are summarized in Figure \ref{fig:longeval1}(b).  The
 second evaluation criteria compares diagnostic differentiation via LMEs.  Log

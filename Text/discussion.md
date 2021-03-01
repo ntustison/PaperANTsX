@@ -30,7 +30,7 @@ preprocessing (ANTsR/ANTsPy); data augmentation (ANTsR/ANTsPy); network construc
 and training (ANTsRNet/ANTsPyNet); and visualization and statistical
 analysis of the results (ANTsR/ANTsPy).
 
-\textcolor{black}{It is the comprehensiveness of ANTsX that provides significant
+\textcolor{black}{It is the comprehensiveness of ANTsX that provides several
 advantages over much of the deep learning work that is currently taking place in
 medical imaging. In other words, various steps in the deep learning training
 processing (e.g., data augmentation, preprocessing) can all be performed within
@@ -41,9 +41,9 @@ to the lack of a complete processing and analysis framework, training data was
 generated using the FreeSurfer stream, deep learning-based brain segmentation
 employed DeepSCAN [@deepscan] (in-house software), and cortical thickness
 estimation [@Das:2009aa] was generated using the ANTs toolkit.
-The interested reader must also ensure the consistency of the input/output
+The interested researcher must ensure the consistency of the input/output
 interface between packages (a task for which the Nipype development team is
-quite familiar.)}
+quite familiar.)
 
 \textcolor{blue}{
 Although potentially advantageous in terms of such issues as computational

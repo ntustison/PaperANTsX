@@ -95,7 +95,7 @@ including Neurodebian [@Halchenko:2012aa] (Debian OS), Neuroconductor
 [@Gorgolewski:2011aa] (Python).  \textcolor{black}{Additionally, other widely
 used software}, such as FreeSurfer [@Fischl:2012aa], have incorporated
 well-performing and complementary ANTs components[@Tustison2009e;@Manjon:2010aa]
-into their own libraries. \textcolor{black}{Finally, according to GitHub, recent
+into their own libraries. \textcolor{black}{According to GitHub, recent
 unique “clones” have averaged 34 per day with the total number of clones being
 approximately twice that many.  50 unique contributors to the ANTs library have
 made a total of over 4500 commits. Additional insights into usage can be viewed
@@ -107,7 +107,7 @@ at the ANTs GitHub website.}
 Over the course of its development, ANTs has been extended to complementary
 frameworks resulting in the Python- and R-based ANTsPy and ANTsR toolkits,
 respectively. These ANTs-based packages interface with extremely popular, high-level,
-open-source programming platforms have significantly increased the user base of
+open-source programming platforms which have significantly increased the user base of
 ANTs.  The rapidly rising
 popularity of deep learning motivated further recent enhancement of ANTs and its
 extensions.  Despite the existence of an abundance of online innovation and code
@@ -127,7 +127,7 @@ an extremely popular ANTsXNet application is a multi-modal brain extraction tool
 that uses different variants of the popular U-net [@Falk:2019aa] architecture
 for segmenting the brain in multiple modalities.  These modalities include
 conventional T1-weighted structural MRI as well as T2-weighted MRI, FLAIR,
-fractional anisotropy and BOLD.  Demographic specialization also includes infant
+fractional anisotropy, and BOLD data.  Demographic specialization also includes infant
 T1-weighted and/or T2-weighted MRI. Additionally, we have included other models
 and weights into our libraries such as a recent BrainAGE estimation model
 [@Bashyam:2020aa], based on $>14,000$ individuals; HippMapp3r [@Goubran:2020aa],
@@ -158,13 +158,13 @@ longitudinal}[@Tustison:2019aa] pipeline\textcolor{black}{s} within the ANTsXNet
 framework.  \textcolor{black}{Figure} \ref{fig:pipeline},
 \textcolor{black}{adapted from our previous work} [@Tustison:2014ab],
 \textcolor{black}{illustrates some of the major changes associated with the
-single-subject pipeline.  The resulting improvement in efficiency
+single-subject, cross-sectional pipeline.  The resulting improvement in efficiency
 derives primarily from eliminating deformable image registration from the
 pipeline---a step which has historically been used to propagate prior,
 population-based information (e.g., tissue maps) to individual subjects for such
 tasks as brain extraction} [@Avants:2010ab] \textcolor{black}{and tissue
 segmentation} [@Avants:2011aa] \textcolor{black}{which is now configured within
-the neural networks.}
+the neural networks and trained weights.}
 
 \textcolor{black}{These} structural MRI processing pipeline\textcolor{black}{s
 are} currently available as open-source within the ANTsXNet libraries.

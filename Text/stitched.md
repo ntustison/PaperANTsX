@@ -237,7 +237,7 @@ including Neurodebian [@Halchenko:2012aa] (Debian OS), Neuroconductor
 [@Gorgolewski:2011aa] (Python).  \textcolor{black}{Additionally, other widely
 used software}, such as FreeSurfer [@Fischl:2012aa], have incorporated
 well-performing and complementary ANTs components[@Tustison2009e;@Manjon:2010aa]
-into their own libraries. \textcolor{black}{Finally, according to GitHub, recent
+into their own libraries. \textcolor{black}{According to GitHub, recent
 unique “clones” have averaged 34 per day with the total number of clones being
 approximately twice that many.  50 unique contributors to the ANTs library have
 made a total of over 4500 commits. Additional insights into usage can be viewed
@@ -249,7 +249,7 @@ at the ANTs GitHub website.}
 Over the course of its development, ANTs has been extended to complementary
 frameworks resulting in the Python- and R-based ANTsPy and ANTsR toolkits,
 respectively. These ANTs-based packages interface with extremely popular, high-level,
-open-source programming platforms have significantly increased the user base of
+open-source programming platforms which have significantly increased the user base of
 ANTs.  The rapidly rising
 popularity of deep learning motivated further recent enhancement of ANTs and its
 extensions.  Despite the existence of an abundance of online innovation and code
@@ -269,7 +269,7 @@ an extremely popular ANTsXNet application is a multi-modal brain extraction tool
 that uses different variants of the popular U-net [@Falk:2019aa] architecture
 for segmenting the brain in multiple modalities.  These modalities include
 conventional T1-weighted structural MRI as well as T2-weighted MRI, FLAIR,
-fractional anisotropy and BOLD.  Demographic specialization also includes infant
+fractional anisotropy, and BOLD data.  Demographic specialization also includes infant
 T1-weighted and/or T2-weighted MRI. Additionally, we have included other models
 and weights into our libraries such as a recent BrainAGE estimation model
 [@Bashyam:2020aa], based on $>14,000$ individuals; HippMapp3r [@Goubran:2020aa],
@@ -300,13 +300,13 @@ longitudinal}[@Tustison:2019aa] pipeline\textcolor{black}{s} within the ANTsXNet
 framework.  \textcolor{black}{Figure} \ref{fig:pipeline},
 \textcolor{black}{adapted from our previous work} [@Tustison:2014ab],
 \textcolor{black}{illustrates some of the major changes associated with the
-single-subject pipeline.  The resulting improvement in efficiency
+single-subject, cross-sectional pipeline.  The resulting improvement in efficiency
 derives primarily from eliminating deformable image registration from the
 pipeline---a step which has historically been used to propagate prior,
 population-based information (e.g., tissue maps) to individual subjects for such
 tasks as brain extraction} [@Avants:2010ab] \textcolor{black}{and tissue
 segmentation} [@Avants:2011aa] \textcolor{black}{which is now configured within
-the neural networks.}
+the neural networks and trained weights.}
 
 \textcolor{black}{These} structural MRI processing pipeline\textcolor{black}{s
 are} currently available as open-source within the ANTsXNet libraries.
@@ -347,7 +347,7 @@ comparative evaluation.  As we have explained previously [@Tustison:2014ab], we
 find these evaluation measures to be much more useful than other commonly
 applied criteria as they are closer to assessing the actual utility of these
 thickness measurements as biomarkers for
-disease [@holbrook2020anterolateral] or growth.  For example, in recent work
+disease [@holbrook2020anterolateral] or growth.  In recent work
 [@Rebsamen:2020aa] the authors employ correlation with FreeSurfer thickness
 values as the primary evaluation for assessing relative performance with ANTs
 cortical thickness [@Tustison:2014ab].  This evaluation, unfortunately, is
@@ -418,7 +418,7 @@ were created for each of the 62 DKT regions for each pipeline.  These models wer
 then used to predict thickness values for each gender at ages of 25 years, 50 years,
 and 75 years and subsequently plotted relative to the absolute maximum predicted
 thickness value (ANTs:  right entorhinal cortex at 25 years, male).  Although
-there are appear to be systematic differences between specific regional predicted
+there appear to be systematic differences between specific regional predicted
 thickness values (e.g., $T(ENT)_{ANTs} > T(ENT)_{ANTsXNet}$,
 $T(pORB)_{ANTs} < T(pORB)_{ANTsXNet}$)), a pairwise t-test evidenced no statistically
 significant difference between the predicted thickness values of the two pipelines.}
@@ -428,7 +428,7 @@ significant difference between the predicted thickness values of the two pipelin
     \includegraphics[width=0.9\textwidth]{Figures/radarSPRB.pdf}
   \caption{\textcolor{blue}{Radar plots enabling comparison of relative thickness values between
   the ANTs and ANTsXNet cortical thickness pipelines at three different ages
-  sampling the life span.}}
+  sampling the life span.  See Table \ref{table:dkt_labels} for region abbreviations. }}
   \label{fig:radar}
 \end{figure}
 
@@ -502,11 +502,11 @@ data.  In this variant, an SST is generated and processed using the previously
 described ANTsXNet cross-sectional pipeline which yields tissue spatial priors.
 These spatial priors are used in our traditional brain segmentation approach}
 [@Avants:2011aa]\textcolor{black}{.  The computational efficiency of this variant is also
-significantly improved due to the elimination of the costly SST prior generation
+significantly improved, in part, due to the elimination of the costly SST prior generation
 which uses multiple registrations combined with joint label fusion} [@Wang:2013ab].
 
 The ADNI-1 data used for our longitudinal performance evaluation
-[@Tustison:2019aa] consisted of over 600 subjects (197 cognitive normals, 324
+[@Tustison:2019aa] consists of over 600 subjects (197 cognitive normals, 324
 LMCI subjects, and 142 AD subjects) with one or more follow-up image acquisition
 sessions every 6 months (up to 36 months) for a total of over 2500 images. In
 addition to the ANTsXNet pipelines \textcolor{black}{(``ANTsXNetCross'' and
@@ -562,7 +562,7 @@ ADNIMERGE package.
 \textcolor{black}{Results for all pipelines with respect to the longitudinal
 evaluation criteria are shown in Figures \ref{fig:longeval1} and
 \ref{fig:longeval2}.  Figure \ref{fig:longeval1}(a) provides the 95\% confidence
-intervals of the variance ratio for all 64 regions of the DKT cortical labeling
+intervals of the variance ratio for all 62 regions of the DKT cortical labeling
 where ANTsSST consistently performs best with ANTsXNetLong also performing
 well.  These quantities are summarized in Figure \ref{fig:longeval1}(b).  The
 second evaluation criteria compares diagnostic differentiation via LMEs.  Log
@@ -617,7 +617,7 @@ preprocessing (ANTsR/ANTsPy); data augmentation (ANTsR/ANTsPy); network construc
 and training (ANTsRNet/ANTsPyNet); and visualization and statistical
 analysis of the results (ANTsR/ANTsPy).
 
-\textcolor{black}{It is the comprehensiveness of ANTsX that provides significant
+\textcolor{black}{It is the comprehensiveness of ANTsX that provides several
 advantages over much of the deep learning work that is currently taking place in
 medical imaging. In other words, various steps in the deep learning training
 processing (e.g., data augmentation, preprocessing) can all be performed within
@@ -628,9 +628,9 @@ to the lack of a complete processing and analysis framework, training data was
 generated using the FreeSurfer stream, deep learning-based brain segmentation
 employed DeepSCAN [@deepscan] (in-house software), and cortical thickness
 estimation [@Das:2009aa] was generated using the ANTs toolkit.
-The interested reader must also ensure the consistency of the input/output
+The interested researcher must ensure the consistency of the input/output
 interface between packages (a task for which the Nipype development team is
-quite familiar.)}
+quite familiar.)
 
 \textcolor{blue}{
 Although potentially advantageous in terms of such issues as computational
@@ -732,7 +732,7 @@ whole brain, template-based data augmentation [@Tustison:2019ac] whereas brain
 segmentation and DKT parcellation are processed via 3-D U-net networks with
 attention gating [@Schlemper:2019aa] on image octant-based batches.
 \textcolor{blue}{Additional network architecture details are given below.}  We
-emphasize that a single model (\textcolor{blue}{as opposed to ensemble
+emphasize that a single model (\textcolor{black}{as opposed to ensemble
 approaches where multiple models are used to produce the final solution}
 [@Li:2018aa]) was created for each of these steps and was used for all the
 experiments described below.
