@@ -52,7 +52,7 @@ $ $
 
 \LARGE
 
-{\bf ANTsX:  A dynamic ecosystem for quantitative biological and medical imaging}
+{\bf The ANTsX ecosystem for quantitative biological and medical imaging}
 
 \vspace{0.5 cm}
 
