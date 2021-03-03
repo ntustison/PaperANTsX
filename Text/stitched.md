@@ -972,7 +972,16 @@ hyperparameters can be directly inferred from explicit specification in the
 actual code. Training data was derived from application of joint label fusion
 [@Wang:2013aa] during the course of our previous work [@Tustison:2014ab].  When
 calling ``antspynet.desikan_killiany_tourville_labeling``, inner labels are
-estimated first followed by the outer, cortical labels.
+estimated first followed by the outer cortical labels.
+
+## Other softwares {-}
+
+Several R [@R] packages were used in preparation of this manuscript including
+R Markdown [@Xie:2018aa;@Xie:2020aa;@Allaire:2021aa], lme4 [@Bates:2015aa],
+RStan [@rstan], ggplot2 [@Wickham:2016aa], and ggradar2 [@ggradar2].  Other
+packages used include Apple Pages [@pages], ITK-SNAP [@yushkevich:2006aa],
+LibreOffice [@libreoffice], and diagrams.net [@diagrams].
+
 
 <!-- ## ADNI image data
 
