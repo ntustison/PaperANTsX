@@ -172,6 +172,6 @@ are} currently available as open-source within the ANTsXNet libraries.
 are described in subsequent sections and couched} within the context of our
 previous publications [@Tustison:2014ab;@Tustison:2019aa].
 Related work has been recently reported by external groups
-[@Rebsamen:2020aa;@Henschel:2020aa] and provide\textcolor{blue}{s} a context for comparison to
+[@Rebsamen:2020aa;@Henschel:2020aa] and provide\textcolor{black}{s} a context for comparison to
 motivate the utility of the ANTsX ecosystem.
 

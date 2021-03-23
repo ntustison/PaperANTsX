@@ -12,8 +12,8 @@ of facilitating access to a wide range of users who can use ANTsX tools (whether
 through bash, Python, or R scripting) to construct tailored
 pipelines for their own studies or to take advantage of our pre-fabricated
 pipelines.  And given the open-source nature of the ANTsX software, usage is not
-limited, for example, to \textcolor{blue}{non-commercial} use---a common constraint
-characteristic of other packages \textcolor{blue}{such as the FMRIB Software Library}
+limited, for example, to \textcolor{black}{non-commercial} use---a common constraint
+characteristic of other packages \textcolor{black}{such as the FMRIB Software Library}
 (https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/Licence).
 
 One of our most widely used pipelines is the estimation of cortical thickness
@@ -30,12 +30,10 @@ preprocessing (ANTsR/ANTsPy); data augmentation (ANTsR/ANTsPy); network construc
 and training (ANTsRNet/ANTsPyNet); and visualization and statistical
 analysis of the results (ANTsR/ANTsPy).
 
-\textcolor{black}{It is the comprehensiveness of ANTsX that provides several
-advantages over much of the deep learning work that is currently taking place in
-medical imaging. In other words, various steps in the deep learning training
+Using ANTsX, various steps in the deep learning training
 processing (e.g., data augmentation, preprocessing) can all be performed within
 the same ecosystem where such important details as header information for image
-geometry are treated the same.} In contrast, related work [@Rebsamen:2020aa]
+geometry are treated the same. In contrast, related work [@Rebsamen:2020aa]
 described and evaluated a similar thickness measurement pipeline.  However, due
 to the lack of a complete processing and analysis framework, training data was
 generated using the FreeSurfer stream, deep learning-based brain segmentation
@@ -45,7 +43,7 @@ The interested researcher must ensure the consistency of the input/output
 interface between packages (a task for which the Nipype development team is
 quite familiar.)
 
-\textcolor{blue}{
+
 Although potentially advantageous in terms of such issues as computational
 efficiency and other performance measures, there are a number of limitations
 associated with the ANTsXNet pipeline that should be mentioned both to guide
@@ -57,7 +55,7 @@ with the training data used for the ANTsXNet pipeline which has consequences
 specific to the brain extraction step which could lead to poor performance.
 We are currently aware of this issue and have provided a temporary workaround
 while simultaneously resuming training on whole head data to mitigate this issue.
-Related, although the ANTsXNet pipeline performs relatively well as assessed
+Also, although the ANTsXNet pipeline performs relatively well as assessed
 across lifespan data, performance might be hampered for specific age ranges
 (e.g., neonates), whereas the traditional ANTs cortical thickness pipeline
 is more flexible and might provide better age-targeted performance.  This is the subject
@@ -68,7 +66,12 @@ resolution greater than ~1 mm isotropic would not be leveraged by the
 existing pipeline.  However, there is a potential pipeline variation (akin
 to the longitudinal variant) that would be worth exploring where Deep Atropos
 is used only to provide the priors for a subsequent traditional Atropos
-segmentation on high-resolution data.}
+segmentation on high-resolution data.  \textcolor{black}{Although direct
+evaluation by the principal co-authors of the ANTs toolkit, the similarity
+in resulting cortical thickness values, as indicated by Figure \ref{fig:radar},
+and considerations of the training data origins all strongly suggest similarity
+between Atropos and Deep Atropos output, further evaluation is certainly warranted
+and would benefit other potential applications.}
 
 In terms of additional future work, the recent surge and utility of deep learning in
 medical image analysis has significantly guided the areas of active ANTsX

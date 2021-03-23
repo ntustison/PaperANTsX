@@ -314,7 +314,7 @@ are} currently available as open-source within the ANTsXNet libraries.
 are described in subsequent sections and couched} within the context of our
 previous publications [@Tustison:2014ab;@Tustison:2019aa].
 Related work has been recently reported by external groups
-[@Rebsamen:2020aa;@Henschel:2020aa] and provide\textcolor{blue}{s} a context for comparison to
+[@Rebsamen:2020aa;@Henschel:2020aa] and provide\textcolor{black}{s} a context for comparison to
 motivate the utility of the ANTsX ecosystem.
 
 
@@ -400,11 +400,11 @@ cross-validation with 500 permutations per model per data set (including a
 pipeline outperformed the classical pipeline [@Tustison:2014ab] in terms of age
 prediction in all data sets except for IXI.  This also includes the
 cross-validation iteration where all data sets were combined.  Additionally,
-repeatability assessment on \textcolor{blue}{the regional cortical thickness
+repeatability assessment on \textcolor{black}{the regional cortical thickness
 values of the} MMRR data set yielded ICC values ("average random rater") of 0.99
 for both pipelines.
 
-\textcolor{blue}{
+\textcolor{black}{
 A comparative illustration of regional thickness measurements between the ANTs
 and ANTsXNet pipelines is provided in Figure \ref{fig:radar} for three different
 ages spanning the lifespan.  Linear models of the form}
@@ -413,7 +413,7 @@ ages spanning the lifespan.  Linear models of the form}
   T(DKT_i) \sim GENDER + AGE
 \end{equation}
 
-\textcolor{blue}{
+\textcolor{black}{
 were created for each of the 62 DKT regions for each pipeline.  These models were
 then used to predict thickness values for each gender at ages of 25 years, 50 years,
 and 75 years and subsequently plotted relative to the absolute maximum predicted
@@ -426,7 +426,7 @@ significant difference between the predicted thickness values of the two pipelin
 \begin{figure}[htb]
   \centering
     \includegraphics[width=0.9\textwidth]{Figures/radarSPRB.pdf}
-  \caption{\textcolor{blue}{Radar plots enabling comparison of relative thickness values between
+  \caption{\textcolor{black}{Radar plots enabling comparison of relative thickness values between
   the ANTs and ANTsXNet cortical thickness pipelines at three different ages
   sampling the life span.  See Table \ref{table:dkt_labels} for region abbreviations. }}
   \label{fig:radar}
@@ -599,8 +599,8 @@ of facilitating access to a wide range of users who can use ANTsX tools (whether
 through bash, Python, or R scripting) to construct tailored
 pipelines for their own studies or to take advantage of our pre-fabricated
 pipelines.  And given the open-source nature of the ANTsX software, usage is not
-limited, for example, to \textcolor{blue}{non-commercial} use---a common constraint
-characteristic of other packages \textcolor{blue}{such as the FMRIB Software Library}
+limited, for example, to \textcolor{black}{non-commercial} use---a common constraint
+characteristic of other packages \textcolor{black}{such as the FMRIB Software Library}
 (https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/Licence).
 
 One of our most widely used pipelines is the estimation of cortical thickness
@@ -617,12 +617,10 @@ preprocessing (ANTsR/ANTsPy); data augmentation (ANTsR/ANTsPy); network construc
 and training (ANTsRNet/ANTsPyNet); and visualization and statistical
 analysis of the results (ANTsR/ANTsPy).
 
-\textcolor{black}{It is the comprehensiveness of ANTsX that provides several
-advantages over much of the deep learning work that is currently taking place in
-medical imaging. In other words, various steps in the deep learning training
+Using ANTsX, various steps in the deep learning training
 processing (e.g., data augmentation, preprocessing) can all be performed within
 the same ecosystem where such important details as header information for image
-geometry are treated the same.} In contrast, related work [@Rebsamen:2020aa]
+geometry are treated the same. In contrast, related work [@Rebsamen:2020aa]
 described and evaluated a similar thickness measurement pipeline.  However, due
 to the lack of a complete processing and analysis framework, training data was
 generated using the FreeSurfer stream, deep learning-based brain segmentation
@@ -632,7 +630,7 @@ The interested researcher must ensure the consistency of the input/output
 interface between packages (a task for which the Nipype development team is
 quite familiar.)
 
-\textcolor{blue}{
+
 Although potentially advantageous in terms of such issues as computational
 efficiency and other performance measures, there are a number of limitations
 associated with the ANTsXNet pipeline that should be mentioned both to guide
@@ -644,7 +642,7 @@ with the training data used for the ANTsXNet pipeline which has consequences
 specific to the brain extraction step which could lead to poor performance.
 We are currently aware of this issue and have provided a temporary workaround
 while simultaneously resuming training on whole head data to mitigate this issue.
-Related, although the ANTsXNet pipeline performs relatively well as assessed
+Also, although the ANTsXNet pipeline performs relatively well as assessed
 across lifespan data, performance might be hampered for specific age ranges
 (e.g., neonates), whereas the traditional ANTs cortical thickness pipeline
 is more flexible and might provide better age-targeted performance.  This is the subject
@@ -655,7 +653,12 @@ resolution greater than ~1 mm isotropic would not be leveraged by the
 existing pipeline.  However, there is a potential pipeline variation (akin
 to the longitudinal variant) that would be worth exploring where Deep Atropos
 is used only to provide the priors for a subsequent traditional Atropos
-segmentation on high-resolution data.}
+segmentation on high-resolution data.  \textcolor{black}{Although direct
+evaluation by the principal co-authors of the ANTs toolkit, the similarity
+in resulting cortical thickness values, as indicated by Figure \ref{fig:radar},
+and considerations of the training data origins all strongly suggest similarity
+between Atropos and Deep Atropos output, further evaluation is certainly warranted
+and would benefit other potential applications.}
 
 In terms of additional future work, the recent surge and utility of deep learning in
 medical image analysis has significantly guided the areas of active ANTsX
@@ -731,7 +734,7 @@ Brain extraction employs a traditional 3-D U-net network [@Falk:2019aa] with
 whole brain, template-based data augmentation [@Tustison:2019ac] whereas brain
 segmentation and DKT parcellation are processed via 3-D U-net networks with
 attention gating [@Schlemper:2019aa] on image octant-based batches.
-\textcolor{blue}{Additional network architecture details are given below.}  We
+\textcolor{black}{Additional network architecture details are given below.}  We
 emphasize that a single model (\textcolor{black}{as opposed to ensemble
 approaches where multiple models are used to produce the final solution}
 [@Li:2018aa]) was created for each of these steps and was used for all the
@@ -907,7 +910,7 @@ warp batch images between members of the training population (followed by
 reorientation to the standard template). A digital random coin flipping for
 possible histogram matching [@Nyul:1999aa] between source and target images
 further increased data augmentation. \textcolor{black}{The output of the network
-is a probabilistic mask of the brain.} \textcolor{blue}{The architecture
+is a probabilistic mask of the brain.} \textcolor{black}{The architecture
 consists of four encoding/decoding layers with eight filters at the base layer
 which doubled every layer.} Although not detailed here, training for brain
 extraction in other modalities was performed similarly.
@@ -926,7 +929,7 @@ extracted affine normalization to the MNI template, the normalized image is
 cropped to a size of [160, 190, 160].  Overlapping octant patches of size [112,
 112, 112] were extracted from each image and trained using a batch size of 12
 such octant patches with weighted categorical cross entropy as the loss
-function.  \textcolor{blue}{The architecture consists of four encoding/decoding
+function.  \textcolor{black}{The architecture consists of four encoding/decoding
 layers with 16 filters at the base layer which doubled every layer.}
 
 As we point out in our earlier work [@Tustison:2014ab], obtaining
@@ -935,7 +938,7 @@ thickness values that have the greatest utility as a potential biomarker.  In
 fact, the first and last authors (NT and BA, respectively) spent much time
 during the original ANTs pipeline development [@Tustison:2014ab] trying to get
 the segmentation correct which required manually looking at many images and
-manually adjusting where necessary.  This fine-tuning is often omitted or not
+adjusting parameters where necessary.  This fine-tuning is often omitted or not
 considered when other groups [@Clarkson:2011aa;@Schwarz:2016aa;@Rebsamen:2020aa]
 use components of our cortical thickness pipeline which can be potentially
 problematic[@Tustison:2013aa]. Fine-tuning for this particular workflow was also

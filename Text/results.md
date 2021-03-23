@@ -81,11 +81,11 @@ cross-validation with 500 permutations per model per data set (including a
 pipeline outperformed the classical pipeline [@Tustison:2014ab] in terms of age
 prediction in all data sets except for IXI.  This also includes the
 cross-validation iteration where all data sets were combined.  Additionally,
-repeatability assessment on \textcolor{blue}{the regional cortical thickness
+repeatability assessment on \textcolor{black}{the regional cortical thickness
 values of the} MMRR data set yielded ICC values ("average random rater") of 0.99
 for both pipelines.
 
-\textcolor{blue}{
+\textcolor{black}{
 A comparative illustration of regional thickness measurements between the ANTs
 and ANTsXNet pipelines is provided in Figure \ref{fig:radar} for three different
 ages spanning the lifespan.  Linear models of the form}
@@ -94,7 +94,7 @@ ages spanning the lifespan.  Linear models of the form}
   T(DKT_i) \sim GENDER + AGE
 \end{equation}
 
-\textcolor{blue}{
+\textcolor{black}{
 were created for each of the 62 DKT regions for each pipeline.  These models were
 then used to predict thickness values for each gender at ages of 25 years, 50 years,
 and 75 years and subsequently plotted relative to the absolute maximum predicted
@@ -107,7 +107,7 @@ significant difference between the predicted thickness values of the two pipelin
 \begin{figure}[htb]
   \centering
     \includegraphics[width=0.9\textwidth]{Figures/radarSPRB.pdf}
-  \caption{\textcolor{blue}{Radar plots enabling comparison of relative thickness values between
+  \caption{\textcolor{black}{Radar plots enabling comparison of relative thickness values between
   the ANTs and ANTsXNet cortical thickness pipelines at three different ages
   sampling the life span.  See Table \ref{table:dkt_labels} for region abbreviations. }}
   \label{fig:radar}
