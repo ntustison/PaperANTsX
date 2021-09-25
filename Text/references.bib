@@ -1,31 +1,88 @@
 %% This BibTeX bibliography file was created using BibDesk.
 %% https://bibdesk.sourceforge.io/
 
-%% Created for Nick Tustison at 2021-02-24 08:52:51 -0800
+%% Created for Nick Tustison at 2021-09-24 21:58:52 -0700 
 
 
-%% Saved with string encoding Unicode (UTF-8)
+%% Saved with string encoding Unicode (UTF-8) 
 
-@Manual{R,
-	title = {{R}: A Language and Environment for Statistical Computing},
+
+
+@article{Sethian:1996vr,
+	abstract = {A fast marching level set method is presented for monotonically advancing fronts, which leads to an extremely fast scheme for solving the Eikonal equation. Level set methods are numerical techniques for computing the position of propagating fronts. They rely on an initial value partial differential equation for a propagating level set function and use techniques borrowed from hyperbolic conservation laws. Topological changes, corner and cusp development, and accurate determination of geometric properties such as curvature and normal direction are naturally obtained in this setting. This paper describes a particular case of such methods for interfaces whose speed depends only on local position. The technique works by coupling work on entropy conditions for interface motion, the theory of viscosity solutions for Hamilton-Jacobi equations, and fast adaptive narrow band level set methods. The technique is applicable to a variety of problems, including shape-from-shading problems, lithographic development calculations in microchip manufacturing, and arrival time problems in control theory.},
+	author = {Sethian, J A},
+	date-added = {2021-09-24 21:58:32 -0700},
+	date-modified = {2021-09-24 21:58:32 -0700},
+	doi = {10.1073/pnas.93.4.1591},
+	journal = {Proc Natl Acad Sci U S A},
+	journal-full = {Proceedings of the National Academy of Sciences of the United States of America},
+	month = {Feb},
+	number = {4},
+	pages = {1591-5},
+	pmc = {PMC39986},
+	pmid = {11607632},
+	pst = {ppublish},
+	title = {A fast marching level set method for monotonically advancing fronts},
+	volume = {93},
+	year = {1996},
+	Bdsk-Url-1 = {https://doi.org/10.1073/pnas.93.4.1591}}
+
+@article{Fonov:2011vg,
+	abstract = {Spatial normalization, registration, and segmentation techniques for Magnetic Resonance Imaging (MRI) often use a target or template volume to facilitate processing, take advantage of prior information, and define a common coordinate system for analysis. In the neuroimaging literature, the MNI305 Talairach-like coordinate system is often used as a standard template. However, when studying pediatric populations, variation from the adult brain makes the MNI305 suboptimal for processing brain images of children. Morphological changes occurring during development render the use of age-appropriate templates desirable to reduce potential errors and minimize bias during processing of pediatric data. This paper presents the methods used to create unbiased, age-appropriate MRI atlas templates for pediatric studies that represent the average anatomy for the age range of 4.5-18.5 years, while maintaining a high level of anatomical detail and contrast. The creation of anatomical T1-weighted, T2-weighted, and proton density-weighted templates for specific developmentally important age-ranges, used data derived from the largest epidemiological, representative (healthy and normal) sample of the U.S. population, where each subject was carefully screened for medical and psychiatric factors and characterized using established neuropsychological and behavioral assessments. Use of these age-specific templates was evaluated by computing average tissue maps for gray matter, white matter, and cerebrospinal fluid for each specific age range, and by conducting an exemplar voxel-wise deformation-based morphometry study using 66 young (4.5-6.9 years) participants to demonstrate the benefits of using the age-appropriate templates. The public availability of these atlases/templates will facilitate analysis of pediatric MRI data and enable comparison of results between studies in a common standardized space specific to pediatric research.},
+	author = {Fonov, Vladimir and Evans, Alan C and Botteron, Kelly and Almli, C Robert and McKinstry, Robert C and Collins, D Louis and {Brain Development Cooperative Group}},
+	date-added = {2021-09-24 21:46:04 -0700},
+	date-modified = {2021-09-24 21:46:04 -0700},
+	doi = {10.1016/j.neuroimage.2010.07.033},
+	journal = {Neuroimage},
+	journal-full = {NeuroImage},
+	mesh = {Adolescent; Age Factors; Algorithms; Brain; Child; Child, Preschool; Databases, Factual; Humans; Image Processing, Computer-Assisted; Magnetic Resonance Imaging; Observer Variation; Pediatrics; Reference Values},
+	month = {Jan},
+	number = {1},
+	pages = {313-27},
+	pmc = {PMC2962759},
+	pmid = {20656036},
+	pst = {ppublish},
+	title = {Unbiased average age-appropriate atlases for pediatric studies},
+	volume = {54},
+	year = {2011},
+	Bdsk-Url-1 = {https://doi.org/10.1016/j.neuroimage.2010.07.033}}
+
+@article{Tustison:2021vi,
+	abstract = {The Advanced Normalizations Tools ecosystem, known as ANTsX, consists of multiple open-source software libraries which house top-performing algorithms used worldwide by scientific and research communities for processing and analyzing biological and medical imaging data. The base software library, ANTs, is built upon, and contributes to, the NIH-sponsored Insight Toolkit. Founded in 2008 with the highly regarded Symmetric Normalization image registration framework, the ANTs library has since grown to include additional functionality. Recent enhancements include statistical, visualization, and deep learning capabilities through interfacing with both the R statistical project (ANTsR) and Python (ANTsPy). Additionally, the corresponding deep learning extensions ANTsRNet and ANTsPyNet (built on the popular TensorFlow/Keras libraries) contain several popular network architectures and trained models for specific applications. One such comprehensive application is a deep learning analog for generating cortical thickness data from structural T1-weighted brain MRI, both cross-sectionally and longitudinally. These pipelines significantly improve computational efficiency and provide comparable-to-superior accuracy over multiple criteria relative to the existing ANTs workflows and simultaneously illustrate the importance of the comprehensive ANTsX approach as a framework for medical image analysis.},
+	author = {Tustison, Nicholas J and Cook, Philip A and Holbrook, Andrew J and Johnson, Hans J and Muschelli, John and Devenyi, Gabriel A and Duda, Jeffrey T and Das, Sandhitsu R and Cullen, Nicholas C and Gillen, Daniel L and Yassa, Michael A and Stone, James R and Gee, James C and Avants, Brian B},
+	date-added = {2021-09-24 21:02:42 -0700},
+	date-modified = {2021-09-24 21:02:42 -0700},
+	doi = {10.1038/s41598-021-87564-6},
+	journal = {Sci Rep},
+	journal-full = {Scientific reports},
+	month = {04},
+	number = {1},
+	pages = {9068},
+	pmc = {PMC8079440},
+	pmid = {33907199},
+	pst = {epublish},
+	title = {The ANTsX ecosystem for quantitative biological and medical imaging},
+	volume = {11},
+	year = {2021},
+	Bdsk-Url-1 = {https://doi.org/10.1038/s41598-021-87564-6}}
+
+@manual{R,
+	address = {Vienna, Austria},
 	author = {{R Core Team}},
 	organization = {R Foundation for Statistical Computing},
-	address = {Vienna, Austria},
-	year = {2020},
+	title = {{R}: A Language and Environment for Statistical Computing},
 	url = {https://www.R-project.org/},
-}
+	year = {2020},
+	Bdsk-Url-1 = {https://www.R-project.org/}}
 
-@Article{yushkevich:2006aa,
-	author = {Paul A. Yushkevich and Joseph Piven and Cody Hazlett, Heather and
-			Gimpel Smith, Rachel and Sean Ho and James C. Gee and Guido Gerig},
-	title = {User-Guided {3D} Active Contour Segmentation of
-			Anatomical Structures: Significantly Improved Efficiency and Reliability},
+@article{yushkevich:2006aa,
+	author = {Paul A. Yushkevich and Joseph Piven and Cody Hazlett, Heather and Gimpel Smith, Rachel and Sean Ho and James C. Gee and Guido Gerig},
 	journal = {Neuroimage},
-	year = {2006},
-	volume = {31},
 	number = {3},
 	pages = {1116--1128},
-}
+	title = {User-Guided {3D} Active Contour Segmentation of Anatomical Structures: Significantly Improved Efficiency and Reliability},
+	volume = {31},
+	year = {2006}}
 
 @url{pages,
 	date-added = {2021-03-03 07:33:26 -0800},
@@ -48,24 +105,24 @@
 	url = {https://app.diagrams.net},
 	Bdsk-Url-1 = {https://app.diagrams.net}}
 
-@Misc{rstan,
-	title = {{RStan}: the {R} interface to {Stan}},
+@misc{rstan,
 	author = {{Stan Development Team}},
 	note = {R package version 2.21.2},
-	year = {2020},
+	title = {{RStan}: the {R} interface to {Stan}},
 	url = {http://mc-stan.org/},
-}
+	year = {2020},
+	Bdsk-Url-1 = {http://mc-stan.org/}}
 
-@Article{Bates:2015aa,
-	title = {Fitting Linear Mixed-Effects Models Using {lme4}},
+@article{Bates:2015aa,
 	author = {Douglas Bates and Martin M{\"a}chler and Ben Bolker and Steve Walker},
+	doi = {10.18637/jss.v067.i01},
 	journal = {Journal of Statistical Software},
-	year = {2015},
-	volume = {67},
 	number = {1},
 	pages = {1--48},
-	doi = {10.18637/jss.v067.i01},
-}
+	title = {Fitting Linear Mixed-Effects Models Using {lme4}},
+	volume = {67},
+	year = {2015},
+	Bdsk-Url-1 = {https://doi.org/10.18637/jss.v067.i01}}
 
 @url{ggradar2,
 	date-added = {2021-03-03 07:33:26 -0800},
@@ -74,44 +131,45 @@
 	url = {https://github.com/xl0418/ggradar2},
 	Bdsk-Url-1 = {https://github.com/xl0418/ggradar2}}
 
-@Book{Wickham:2016aa,
+@book{Wickham:2016aa,
 	author = {Hadley Wickham},
-	title = {ggplot2: Elegant Graphics for Data Analysis},
-	publisher = {Springer-Verlag New York},
-	year = {2016},
 	isbn = {978-3-319-24277-4},
+	publisher = {Springer-Verlag New York},
+	title = {ggplot2: Elegant Graphics for Data Analysis},
 	url = {https://ggplot2.tidyverse.org},
-}
+	year = {2016},
+	Bdsk-Url-1 = {https://ggplot2.tidyverse.org}}
 
-@Manual{Allaire:2021aa,
-	title = {rmarkdown: Dynamic Documents for R},
+@manual{Allaire:2021aa,
 	author = {JJ Allaire and Yihui Xie and Jonathan McPherson and Javier Luraschi and Kevin Ushey and Aron Atkins and Hadley Wickham and Joe Cheng and Winston Chang and Richard Iannone},
-	year = {2021},
 	note = {R package version 2.7},
+	title = {rmarkdown: Dynamic Documents for R},
 	url = {https://github.com/rstudio/rmarkdown},
-}
+	year = {2021},
+	Bdsk-Url-1 = {https://github.com/rstudio/rmarkdown}}
 
-@Book{Xie:2018aa,
-	title = {R Markdown: The Definitive Guide},
+@book{Xie:2018aa,
+	address = {Boca Raton, Florida},
 	author = {Yihui Xie and J.J. Allaire and Garrett Grolemund},
-	publisher = {Chapman and Hall/CRC},
-	address = {Boca Raton, Florida},
-	year = {2018},
 	note = {ISBN 9781138359338},
-	url = {https://bookdown.org/yihui/rmarkdown},
-}
-
-@Book{Xie:2020aa,
-	title = {R Markdown Cookbook},
-	author = {Yihui Xie and Christophe Dervieux and Emily Riederer},
 	publisher = {Chapman and Hall/CRC},
+	title = {R Markdown: The Definitive Guide},
+	url = {https://bookdown.org/yihui/rmarkdown},
+	year = {2018},
+	Bdsk-Url-1 = {https://bookdown.org/yihui/rmarkdown}}
+
+@book{Xie:2020aa,
 	address = {Boca Raton, Florida},
-	year = {2020},
+	author = {Yihui Xie and Christophe Dervieux and Emily Riederer},
 	note = {ISBN 9780367563837},
-	url = {https://bookdown.org/yihui/rmarkdown-cookbook}}
+	publisher = {Chapman and Hall/CRC},
+	title = {R Markdown Cookbook},
+	url = {https://bookdown.org/yihui/rmarkdown-cookbook},
+	year = {2020},
+	Bdsk-Url-1 = {https://bookdown.org/yihui/rmarkdown-cookbook}}
 
 @article{Fu:2020aa,
-	author = {Yunguan Fu and Nina Monta{\~n}̃a Brown and Shaheer U. Saeed and Adr{\`a}à Casamitjana and Zachary M. C. Baum and{\'e}Rémi Delaunay and Qianye Yang and Alexander Grimwood and Zhe Min and Stefano B. Blumberg and Juan Eugenio Iglesias and Dean C. Barratt and Ester Bonmati and Daniel C. Alexander and Matthew J. Clarkson and Tom Vercauteren and Yipeng Hu},
+	author = {Yunguan Fu and Nina Monta{\~n}{\`a} Casamitjana and Zachary M. C. Baum and{\'e}R{\'e}mi Delaunay and Qianye Yang and Alexander Grimwood and Zhe Min and Stefano B. Blumberg and Juan Eugenio Iglesias and Dean C. Barratt and Ester Bonmati and Daniel C. Alexander and Matthew J. Clarkson and Tom Vercauteren and Yipeng Hu},
 	date-added = {2021-02-24 08:49:19 -0800},
 	date-modified = {2021-02-24 08:52:46 -0800},
 	journal = {Journal of Open Source Software},
